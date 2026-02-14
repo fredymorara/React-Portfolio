@@ -16,12 +16,12 @@ export const contacts = [
 ];
 
 export const socialLinks = [
-  {
+  /*{
     id: 'resume',
     icon: '/resume.svg',
     alt: "Link to Fredrick's resume",
     path: '',
-  },
+  },*/
   {
     id: 'github',
     icon: '/github.svg',

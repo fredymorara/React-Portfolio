@@ -17,11 +17,11 @@ const Hero = () => {
       <div className="mt-12 flex flex-col-reverse gap-8 md:flex-row md:justify-center md:gap-20 lg:gap-32">
         <div className="flex w-fit flex-col items-start gap-4">
           <p className="font-Silkscreen font-normal uppercase text-gray-400 md:mt-8 md:text-2xl">
-            fredrick.m · software Developer
+            fredrick.m.m · software Developer
           </p>
           <div>
             <Link
-              href="https://www.linkedin.com/in/fredrickmorara/"
+              href="https://www.linkedin.com/in/freddymorara/"
               target="_blank"
             >
               <AnimatedGradientText className="rounded-full px-5 py-2 text-lg hover:cursor-pointer">
