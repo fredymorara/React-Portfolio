@@ -36,7 +36,9 @@ export default function AnimatedGridPattern({
   const id = useId();
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [squares, setSquares] = useState(() => generateSquares(numSquares));
+  const [squares, setSquares] = useState<
+    { id: number; pos: number[]; colorIndex: number }[]
+  >([]);
 
   function getPos() {
     return [
@@ -103,7 +105,7 @@ export default function AnimatedGridPattern({
       ref={containerRef}
       aria-hidden="true"
       className={cn(
-        'pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-white-400/30',
+        'pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30',
         className,
       )}
       {...props}
@@ -120,7 +122,7 @@ export default function AnimatedGridPattern({
           <path
             d={`M.5 ${height}V.5H${width}`}
             fill="none"
-            strokeDasharray={strokeDasharray}
+            className="stroke-neutral-700/50"
           />
         </pattern>
       </defs>
@@ -128,6 +130,7 @@ export default function AnimatedGridPattern({
       <svg x={x} y={y} className="overflow-visible">
         {squares.map(({ pos: [x, y], id, colorIndex }, index) => (
           <motion.rect
+            suppressHydrationWarning
             initial={{ opacity: 0 }}
             animate={{ opacity: maxOpacity }}
             transition={{

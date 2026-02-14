@@ -24,6 +24,13 @@ const Footer = () => {
             </Link>
           </li>
         ))}
+        {/*<li>
+          <Link href="https://magic-ui.vercel.app/" target="_blank">
+            <span className="text-code text-base text-silverchalice">
+              Magic UI
+            </span>
+          </Link>
+        </li>*/}
       </ul>
     </footer>
   );
