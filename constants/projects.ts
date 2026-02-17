@@ -92,9 +92,9 @@ export const projects = [
     btnBgHover: '#ADD8F9',
     cardBg: 'rgba(22,101,52,0.05)',
   },
-  /*{
+  {
     id: '5',
-    screenshot: '/chatbotify.png',
+    screenshot: '/AWS Projects.png',
     title: 'ChatBotify Gallery',
     subTitle: 'ChatBotify Gallery website',
     stack: ['react', 'tailwindcss', 'figma'],
@@ -102,9 +102,9 @@ export const projects = [
     date: 'Jan 2, 2024',
     github: 'https://github.com/adel-gu/react-chatbotify-gallery-website',
     live: 'https://gallery.react-chatbotify.com/',
-    color: 'rgba(6,182,212)',
+    color: '#ffffff',
     btnBg: 'rgba(7,89,133,0.5)',
     btnBgHover: 'rgba(8,47,73)',
     cardBg: 'rgba(7,89,133,0.05)',
-  },*/
+  },
 ];
