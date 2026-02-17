@@ -75,22 +75,24 @@ export const projects = [
     btnBgHover: "#800000",
     cardBg: "rgba(55,48,163,0.05)",
   },
-  /*{
+  {
     id: '4',
-    screenshot: '/fintechracy.png',
-    title: 'Fintechracy',
-    subTitle: 'Fintechracy official website',
-    stack: ['react', 'tailwindcss', 'framer motion', 'shadcn'],
-    description: `Fintechracy is on a mission to eliminate paper receipts by providing innovative software solutions. After two unsuccessful attempts to develop a professional website, I stepped in to deliver a final version that met the company's vision and market standards. The website, built with React, Tailwind CSS, ShadCN, and Framer Motion, features smooth animations, complete responsiveness, and multi-language support for a seamless global user experience.`,
-    date: 'Jan 2, 2024',
-    github: '',
-    live: 'https://www.fintechracy.org/',
-    color: 'rgba(34,197,94)',
-    btnBg: 'rgba(22,101,52,0.5)',
-    btnBgHover: 'rgba(5,46,22)',
+    screenshot: '/AI Spam Message Detector.png',
+    title: 'AI Spam Message Detector',
+    subTitle: 'AI-powered spam message detection tool',
+    stack: ['Streamlit', 'Pandas', 'Numpy', 'scikit-learn', 'Python', 'Linear SVM', 'Natural Language Processing', 'Machine Learning','nltk'],
+    description: `The AI Spam Message Detector is a cutting-edge application that leverages artificial intelligence to identify and filter out spam messages. This application uses a Linear Support Vector Machine (SVM) model to classify text messages as either "Spam" or "Ham" (legitimate). It was developed as part of an AI mini-project.
+
+`,
+    date: 'Jul 20, 2025',
+    github: 'https://github.com/fredymorara/AI-Spam-Detector-App',
+    live: 'https:///aispamdetector.streamlit.app/',
+    color: '#ADD8E6',
+    btnBg: '#ADD8E6',
+    btnBgHover: '#ADD8F9',
     cardBg: 'rgba(22,101,52,0.05)',
   },
-  {
+  /*{
     id: '5',
     screenshot: '/chatbotify.png',
     title: 'ChatBotify Gallery',
