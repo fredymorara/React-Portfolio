@@ -8,9 +8,9 @@ const Hero = () => {
     <section className="relative px-6 pb-44" style={{ contain: 'layout' }}>
       <div className="pt-48">
         <h1 className="h1-bold flex flex-col items-start md:items-center">
-          <span>Building</span>
-          <span>memorable user &</span>
-          <span>developer experiences</span>
+          <span>Software Developer</span>
+          <span>Associate AI Engineer</span>
+          <span>Providing innovative solutions</span>
         </h1>
       </div>
 

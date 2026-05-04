@@ -11,7 +11,7 @@ const About = () => {
           <p className="regular-paragraph mx-auto max-w-[835px]">
             Hi 👋, I&apos;m{' '}
             <span className="text-code text-yellow-600">Fredrick M. Morara</span>, a
-            passionate software engineer with a knack for creating scalable,
+            passionate software engineer and associate AI engineer with a knack for creating scalable,
             high-performance applications and reusable systems. With a strong
             foundation in <span className="text-green-700">frontend</span> and
             <span className="text-blue-600"> backend technologies</span>, I
