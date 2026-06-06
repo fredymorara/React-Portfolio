@@ -1,4 +1,12 @@
-export const certifications = [
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  badge?: string;
+}
+
+export const certifications: Certification[] = [
   {
     id: 'ai-datacamp',
     title: 'Associate AI Engineer for Developers',
