@@ -27,18 +27,18 @@ const Certifications = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1], delay: (index % 5) * 0.1 }}
-              className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8 border-b border-white/10 transition-colors hover:bg-[#0A0A0A] px-4 md:px-8"
+              transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1], delay: (index % 5) * 0.05 }}
+              className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8 border-b border-white/10 transition-all duration-700 hover:bg-[#0A0A0A] hover:border-[#DD2476]/20 hover:shadow-[0_4px_30px_rgba(221,36,118,0.05)] px-4 md:px-8"
             >
               <div className="flex items-center gap-6">
                 {/* Badge Render Logic */}
                 {cert.badge ? (
-                  <div className="flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-white/5 overflow-hidden border border-white/10 transition-transform duration-500 group-hover:scale-110">
+                  <div className="flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-white/5 overflow-hidden border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:border-[#DD2476]/30 group-hover:shadow-[0_0_15px_rgba(221,36,118,0.2)]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={cert.badge} alt={`${cert.title} badge`} className="h-full w-full object-cover" />
                   </div>
                 ) : (
-                  <div className="flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/30 transition-all duration-500 group-hover:scale-110 group-hover:text-[#0D8FB7] group-hover:border-[#0D8FB7]/30">
+                  <div className="flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/30 transition-all duration-500 group-hover:scale-110 group-hover:text-[#DD2476] group-hover:border-[#DD2476]/30 group-hover:shadow-[0_0_15px_rgba(221,36,118,0.2)]">
                     <Award size={24} />
                   </div>
                 )}
@@ -47,7 +47,7 @@ const Certifications = () => {
                   <h3 className="text-xl md:text-2xl font-medium tracking-tight text-white/90 group-hover:text-white transition-colors duration-500">
                     {cert.title}
                   </h3>
-                  <span className="font-Silkscreen text-xs text-white/40 uppercase tracking-widest group-hover:text-[#0D8FB7] transition-colors duration-500">
+                  <span className="font-Silkscreen text-xs text-white/40 uppercase tracking-widest group-hover:text-[#FF512F] transition-all duration-500">
                     {cert.issuer}
                   </span>
                 </div>

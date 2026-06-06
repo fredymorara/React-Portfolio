@@ -8,10 +8,10 @@ const About = () => {
       <div className="mx-auto w-full max-w-7xl flex flex-col lg:flex-row gap-20 lg:gap-32">
         {/* Left: Editorial Split Typography */}
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.32, 0.72, 0, 1] }}
+          transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
           className="lg:w-1/2 flex flex-col justify-center"
         >
           <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md mb-8">
@@ -32,13 +32,13 @@ const About = () => {
             return (
               <motion.div
                 key={skill.id}
-                initial={{ opacity: 0, x: 40 }}
+                initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: index * 0.15, ease: [0.32, 0.72, 0, 1] }}
+                transition={{ duration: 0.6, delay: index * 0.08, ease: [0.32, 0.72, 0, 1] }}
                 className={`double-bezel-outer group min-h-[200px] flex-1 ${index === 1 ? 'lg:-ml-12' : ''} ${index === 2 ? 'lg:-ml-24' : ''}`}
               >
-                <div className="double-bezel-inner h-full p-8 relative overflow-hidden flex flex-col justify-between">
+                <div className="double-bezel-inner h-full p-6 md:p-8 relative overflow-hidden flex flex-col justify-between">
                   <div className="flex items-center gap-4 relative z-10">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white transition-transform duration-500 ease-cinema group-hover:scale-110">
                       <Icon size={24} />
