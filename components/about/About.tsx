@@ -21,7 +21,7 @@ const About = () => {
             Engineering with <span className="text-white/40 italic">precision.</span>
           </h2>
           <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-xl">
-            Hi, I&apos;m <span className="text-white/90">Fredrick M. Morara</span>, a passionate software engineer and associate AI engineer. I specialize in crafting solutions that are as impactful for users as they are efficient for developers, bridging the gap between <span className="text-white/80">high-performance frontends</span> and <span className="text-white/80">robust backends</span>.
+            Hi, I&apos;m <span className="text-white/90">Fredrick M. Morara</span>, a versatile Software Engineer and Associate AI Engineer. I specialize in bridging the gap between high-performance frontends and intelligent backends—whether that&apos;s launching deployed financial platforms or engineering robust <span className="text-white/80">RAG pipelines</span> and <span className="text-white/80">AI assistants</span> using Python and vector databases.
           </p>
         </motion.div>
 

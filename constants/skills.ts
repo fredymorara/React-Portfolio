@@ -83,114 +83,25 @@ export const slugs = [
 ];
 
 export const techs = [
-  {
-    label: 'javascript',
-    textColor: '#F7DF1E', // Brighter yellow
-    bgColor: '#F0C800', // Darker yellow
-  },
-  {
-    label: 'typescript',
-    textColor: '#3178C6', // Brighter blue
-    bgColor: '#1E5D92', // Darker blue
-  },
-  {
-    label: 'react',
-    textColor: '#61DAFB', // Brighter light blue
-    bgColor: '#4B9FC9', // Darker blue
-  },
-  {
-    label: 'next',
-    textColor: '#61DAFB', // Brighter light blue
-    bgColor: '#4B9FC9', // Darker blue
-  },
-  {
-    label: 'redux',
-    textColor: '#3168C6', // Brighter blue
-    bgColor: '#1E4D92', // Darker blue
-  },
-  {
-    label: 'tanstack',
-    textColor: '#3178f6', // Brighter blue
-    bgColor: '#1E5Df2', // Darker blue
-  },
-  {
-    label: 'css',
-    textColor: '#38BDF8', // Brighter cyan
-    bgColor: '#0D8FB7', // Darker cyan
-  },
-  {
-    label: 'sass',
-    textColor: '#38BDF8', // Brighter cyan
-    bgColor: '#0D8FB7', // Darker cyan
-  },
-  {
-    label: 'tailwind css',
-    textColor: '#38BDF8', // Brighter cyan
-    bgColor: '#0D8FB7', // Darker cyan
-  },
-  {
-    label: 'styled-components',
-    textColor: '#DB7093', // Brighter pink
-    bgColor: '#9B4F6C', // Darker pink
-  },
-  {
-    label: 'webpack',
-    textColor: '#DB7093', // Brighter pink
-    bgColor: '#9B4F6C', // Darker pink
-  },
-  {
-    label: 'rollup',
-    textColor: '#DB7093', // Brighter pink
-    bgColor: '#9B4F6C', // Darker pink
-  },
-  {
-    label: 'node.js',
-    textColor: '#68A063', // Brighter green
-    bgColor: '#4E8B4A', // Darker green
-  },
-  {
-    label: 'mongodb',
-    textColor: '#47A248', // Brighter green
-    bgColor: '#2C6A2F', // Darker green
-  },
-  {
-    label: 'express',
-    textColor: '#000000', // Bright black (neutral)
-    bgColor: '#333333', // Darker black (neutral)
-  },
-  {
-    label: 'jest',
-    textColor: '#C03C44', // Brighter red
-    bgColor: '#9A1F28', // Darker red
-  },
-  {
-    label: 'vitest',
-    textColor: '#6A3B97', // Brighter purple
-    bgColor: '#4E2C6C', // Darker purple
-  },
-  {
-    label: 'ci/cd',
-    textColor: '#6A3B97', // Brighter purple
-    bgColor: '#4E2C6C', // Darker purple
-  },
-  {
-    label: 'git',
-    textColor: '#6A3B97', // Brighter purple
-    bgColor: '#4E2C6C', // Darker purple
-  },
-  {
-    label: 'github',
-    textColor: '#6A3B97', // Brighter purple
-    bgColor: '#4E2C6C', // Darker purple
-  },
-  {
-    label: 'nx',
-    textColor: '#6A3B97', // Brighter purple
-    bgColor: '#4E2C6C', // Darker purple
-  },
-  {
-    label: 'and more...',
-    textColor: '#6A3B97', // Brighter purple
-    bgColor: '#4E2C6C', // Darker purple
-  },
+  { label: 'javascript', textColor: '#F7DF1E', bgColor: '#F0C800' },
+  { label: 'typescript', textColor: '#3178C6', bgColor: '#1E5D92' },
+  { label: 'python', textColor: '#FFD43B', bgColor: '#306998' },
+  { label: 'c++', textColor: '#00599C', bgColor: '#004482' },
+  { label: 'react', textColor: '#61DAFB', bgColor: '#4B9FC9' },
+  { label: 'next.js', textColor: '#FFFFFF', bgColor: '#333333' },
+  { label: 'tailwind', textColor: '#38BDF8', bgColor: '#0D8FB7' },
+  { label: 'node.js', textColor: '#68A063', bgColor: '#4E8B4A' },
+  { label: 'express', textColor: '#FFFFFF', bgColor: '#333333' },
+  { label: 'aws', textColor: '#FF9900', bgColor: '#232F3E' },
+  { label: 'sql', textColor: '#00758F', bgColor: '#005C73' },
+  { label: 'mongodb', textColor: '#47A248', bgColor: '#2C6A2F' },
+  { label: 'vector dbs', textColor: '#FFFFFF', bgColor: '#333333' },
+  { label: 'pinecone', textColor: '#FFFFFF', bgColor: '#333333' },
+  { label: 'chromadb', textColor: '#FFFFFF', bgColor: '#333333' },
+  { label: 'openai api', textColor: '#10A37F', bgColor: '#0B7B5F' },
+  { label: 'langchain', textColor: '#FFFFFF', bgColor: '#333333' },
+  { label: 'rag', textColor: '#FFFFFF', bgColor: '#333333' },
+  { label: 'huggingface', textColor: '#FFD21E', bgColor: '#CC9900' },
+  { label: 'git', textColor: '#F05032', bgColor: '#C03A22' },
+  { label: 'github', textColor: '#FFFFFF', bgColor: '#333333' },
 ];
