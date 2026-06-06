@@ -67,10 +67,10 @@ const NavBar = () => {
             transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
             className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-[#050505]/95 backdrop-blur-3xl"
           >
-            <div className="flex flex-col items-center gap-12">
-              <NavLinks />
-              <div className="h-px w-12 bg-white/10" />
-              <NavIcons />
+            <div className="flex flex-col items-center gap-12 mt-10">
+              <NavLinks isMobile={true} onLinkClick={() => setIsMobileMenuOpen(false)} />
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              <NavIcons isMobile={true} />
             </div>
           </motion.div>
         )}
