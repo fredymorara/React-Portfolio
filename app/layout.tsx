@@ -19,6 +19,7 @@ const silkscreen = Silkscreen({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://freddymorara.tech'),
   title: 'Fredrick Momanyi Morara | Software & AI Engineer',
   description: `Fredrick Momanyi Morara is a versatile Software Engineer and Associate AI Engineer. Specializing in Next.js, React, Python, and intelligent RAG pipelines using vector databases.`,
   creator: 'Fredrick Momanyi Morara',
