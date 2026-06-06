@@ -4,7 +4,15 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
+      allow: [
+        '/',
+        '/#projects',
+        '/#certifications',
+        '/#stack',
+        '/#about',
+        '/#contact',
+        '/cv.pdf',
+      ],
     },
     sitemap: 'https://freddymorara.tech/sitemap.xml',
   };
