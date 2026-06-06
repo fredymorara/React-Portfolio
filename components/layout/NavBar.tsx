@@ -3,17 +3,12 @@ import { useEffect, useState } from 'react';
 import Logo from './Logo';
 import NavIcons from './NavIcons';
 import NavLinks from './NavLinks';
-
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetClose,
-} from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleYScroll = () => {
@@ -25,61 +20,63 @@ const NavBar = () => {
     };
   }, []);
 
-  return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex items-center justify-center transition-all duration-1000 ease-out">
-      <div className="pointer-events-auto relative w-full max-w-[1200px] md:rounded-full">
-        <div
-          className={`mt-0 w-full overflow-hidden bg-transparent py-5 transition-all duration-300 ease-out md:py-[9px] ${
-            isScrolled && 'md:mt-[6px]'
-          }`}
-          style={{
-            contain: 'paint',
-          }}
-        >
-          <div
-            className="absolute inset-0 transition-all duration-100 ease-out md:rounded-full"
-            style={{
-              ...(isScrolled && {
-                backdropFilter: `blur(16px)`,
-                WebkitBackdropFilter: `blur(16px)`,
-              }),
-            }}
-          />
-          <div
-            className={`${
-              isScrolled ? 'opacity-60' : 'opacity-0'
-            } absolute inset-0 bg-[#424242] transition-all duration-300 ease-out md:rounded-full`}
-          />
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
 
-          <div className="mx-auto w-full px-6">
-            <NavbarContent />
+  return (
+    <>
+      <div className="fixed inset-x-0 top-6 z-50 flex justify-center pointer-events-none px-4">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+          className={`pointer-events-auto flex items-center justify-between rounded-full border border-white/5 bg-[#0A0A0A]/70 px-6 py-3 transition-all duration-700 ease-cinema backdrop-blur-2xl ${
+            isScrolled ? 'w-full md:w-max md:px-8 shadow-[0_4px_30px_rgba(221,36,118,0.15)] border-[#DD2476]/20' : 'w-full md:w-max'
+          } gap-8 lg:gap-16`}
+        >
+          <Logo />
+
+          <div className="hidden md:block">
+            <NavLinks />
           </div>
-        </div>
+
+          <div className="hidden md:block">
+            <NavIcons />
+          </div>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/70 transition-all duration-300 hover:bg-white/10 hover:text-white md:hidden"
+          >
+            {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </motion.div>
       </div>
-    </div>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-[#050505]/95 backdrop-blur-3xl"
+          >
+            <div className="flex flex-col items-center gap-12">
+              <NavLinks />
+              <div className="h-px w-12 bg-white/10" />
+              <NavIcons />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
-
-const NavbarContent = () => (
-  <header className="relative z-50 flex items-center justify-between">
-    <NavIcons />
-    <Logo />
-
-    <div className="hidden md:block">
-      <NavLinks />
-    </div>
-
-    <Sheet>
-      <SheetTrigger className="md:hidden" asChild>
-        <Menu />
-      </SheetTrigger>
-      <SheetContent side="left" className="border-none">
-        <SheetClose />
-
-        <NavLinks />
-      </SheetContent>
-    </Sheet>
-  </header>
-);
 
 export default NavBar;

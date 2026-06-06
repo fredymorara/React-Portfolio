@@ -1,15 +1,15 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Inter, Silkscreen } from 'next/font/google';
+import { Outfit, Silkscreen } from 'next/font/google';
 
 import './globals.css';
 import NavBar from '@/components/layout/NavBar';
 import Footer from '@/components/layout/Footer';
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-inter',
+  variable: '--font-outfit',
 });
 
 const silkscreen = Silkscreen({
@@ -70,11 +70,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${silkscreen.variable} relative`}>
+      <body className={`${outfit.variable} ${silkscreen.variable} relative antialiased bg-[#050505] text-white/90`}>
         <NavBar />
         <main>{children}</main>
         <Footer />
-        <div className="main-mask pointer-events-none absolute inset-0 -z-50" />
+        <div className="main-mask pointer-events-none fixed inset-0 -z-50" />
+        <div className="pointer-events-none fixed inset-0 -z-40 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
       </body>
     </html>
   );

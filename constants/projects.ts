@@ -96,7 +96,7 @@ export const projects = [
 `,
     date: "Jul 20, 2025",
     github: "https://github.com/fredymorara/AI-Spam-Detector-App",
-    live: "https:///aispamdetector.streamlit.app/",
+    live: "https://aispamdetector.streamlit.app/",
     color: "#ADD8E6",
     btnBg: "#ADD8E6",
     btnBgHover: "#ADD8F9",

@@ -2,13 +2,18 @@ import Link from 'next/link';
 
 const NavLinks = () => {
   return (
-    <nav className="mt-16 flex flex-col gap-8 font-Silkscreen text-3xl md:mt-0 md:flex-row md:text-sm">
-      <Link className="py-4 md:py-0 md:hover:opacity-70" href="/">
+    <nav className="flex flex-col md:flex-row items-center gap-6 md:gap-8 font-medium text-xs uppercase tracking-widest text-white/50">
+      <Link className="transition-colors hover:text-white" href="#projects">
         Projects
       </Link>
-
-      <Link className="py-4 md:py-0 md:hover:opacity-70" href="/">
-        Blog
+      <Link className="transition-colors hover:text-white" href="#stack">
+        Stack
+      </Link>
+      <Link className="transition-colors hover:text-white" href="#about">
+        About
+      </Link>
+      <Link className="transition-colors hover:text-white" href="#contact">
+        Contact
       </Link>
     </nav>
   );

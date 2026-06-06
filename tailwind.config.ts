@@ -91,7 +91,7 @@ export default {
         silverchalice: 'var(--silver--chalice)',
       },
       fontFamily: {
-        Inter: ['var(--font-inter)'],
+        Outfit: ['var(--font-outfit)'],
         Silkscreen: ['var(--font-silkscreen)'],
       },
 
@@ -107,6 +107,9 @@ export default {
         gradient: 'gradient 8s linear infinite',
         marquee: 'marquee var(--duration) infinite linear',
         'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+      },
+      transitionTimingFunction: {
+        cinema: 'cubic-bezier(0.32,0.72,0,1)',
       },
       keyframes: {
         gradient: {
