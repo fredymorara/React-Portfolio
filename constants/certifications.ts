@@ -73,4 +73,28 @@ export const certifications: Certification[] = [
     issuer: 'DataCamp',
     date: '2024',
   },
+  {
+    id: 'ai-fundamentals-datacamp',
+    title: 'Artificial Intelligence Fundamentals',
+    issuer: 'DataCamp',
+    date: '2024',
+  },
+  {
+    id: 'aws-ai-ml-scholars',
+    title: 'AWS AI & ML Scholars',
+    issuer: 'AWS with Udacity',
+    date: '2024',
+  },
+  {
+    id: 'azure-genai-microsoft',
+    title: 'Develop generative AI apps in Azure',
+    issuer: 'Microsoft',
+    date: '2024',
+  },
+  {
+    id: 'azure-fundamentals-datacamp',
+    title: 'Microsoft Azure Fundamentals (AZ-900)',
+    issuer: 'DataCamp',
+    date: '2024',
+  },
 ];

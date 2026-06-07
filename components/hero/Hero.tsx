@@ -54,12 +54,10 @@ const Hero = () => {
             </button>
           </Link>
           
-          <Link href="/cv.pdf" target="_blank">
-            <button className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white/80 font-medium tracking-wide transition-all duration-500 hover:bg-white/10 hover:text-white hover:border-white/20">
-              <span>View Resume</span>
-              <ArrowUpRight size={18} className="opacity-70 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
-            </button>
-          </Link>
+          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white/80 font-medium tracking-wide transition-all duration-500 hover:bg-white/10 hover:text-white hover:border-white/20">
+            <span>View Resume</span>
+            <ArrowUpRight size={18} className="opacity-70 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
+          </a>
         </div>
           
         <div className="flex flex-wrap justify-center gap-3 mt-10">
