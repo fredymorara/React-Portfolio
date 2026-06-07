@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Techs = () => {
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-32 md:py-48" id="stack">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-32 md:py-48" id="stack" aria-label="Technology Stack">
       <div className="relative z-10 w-full max-w-7xl">
         <div className="mb-20 space-y-6 text-center flex flex-col items-center">
           <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md">

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 overflow-hidden">
+    <section aria-label="Hero – Fredrick Momanyi Morara, Software & AI Engineer" className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 overflow-hidden">
       {/* Restored Background Image */}
       <div 
         className="absolute inset-0 -z-30 opacity-40 mix-blend-screen bg-cover bg-center"

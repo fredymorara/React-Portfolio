@@ -20,7 +20,7 @@ export const socialLinks = [
     id: 'resume/cv',
     icon: '/resume.svg',
     alt: "Link to Fredrick's resume",
-    path: 'https://drive.google.com/file/d/1XPFXTk14rVT6IgVlsfA1POIkRzLdLsJP/view?usp=drive_link',
+    path: '/cv.pdf',
   },
   {
     id: "github",

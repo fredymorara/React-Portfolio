@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Certifications = () => {
   return (
-    <section className="relative py-32 md:py-48" id="certifications">
+    <section className="relative py-32 md:py-48" id="certifications" aria-label="Professional Certifications">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-20 space-y-6">
           <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md">

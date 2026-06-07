@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <nav aria-label="Social media links" className="flex flex-col gap-6">
             <h4 className="font-Silkscreen text-[10px] uppercase tracking-[0.2em] text-white/30">Connect</h4>
             <ul className="flex gap-4">
               {socialLinks.map((socialLink) => (
@@ -39,7 +39,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
 
         {/* Bottom Split */}

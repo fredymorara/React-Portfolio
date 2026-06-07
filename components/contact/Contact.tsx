@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Contact = () => {
   return (
-    <section className="relative px-6 py-32 md:py-48 flex justify-center" id="contact">
+    <section className="relative px-6 py-32 md:py-48 flex justify-center" id="contact" aria-label="Contact Fredrick Momanyi Morara">
       <motion.div 
         initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
         whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}

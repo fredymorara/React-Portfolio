@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section className="relative min-h-[100dvh] px-6 py-32 md:py-48 flex items-center" id="about">
+    <section className="relative min-h-[100dvh] px-6 py-32 md:py-48 flex items-center" id="about" aria-label="About Fredrick Momanyi Morara">
       <div className="mx-auto w-full max-w-7xl flex flex-col lg:flex-row gap-20 lg:gap-32">
         {/* Left: Editorial Split Typography */}
         <motion.div 
