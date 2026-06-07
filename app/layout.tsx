@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Outfit, Silkscreen } from 'next/font/google';
-import Script from 'next/script';
+
 
 import './globals.css';
 import NavBar from '@/components/layout/NavBar';
@@ -124,6 +124,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
+    // ── WebSite ──
     {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
@@ -133,40 +134,361 @@ const jsonLd = {
       publisher: { '@id': `${siteUrl}/#person` },
       inLanguage: 'en-US',
     },
+
+    // ── ProfilePage (wraps the main page as a resume/profile) ──
+    {
+      '@type': 'ProfilePage',
+      '@id': `${siteUrl}/#webpage`,
+      url: siteUrl,
+      name: siteTitle,
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      mainEntity: { '@id': `${siteUrl}/#person` },
+      description: siteDescription,
+      inLanguage: 'en-US',
+      dateModified: '2026-06-08',
+    },
+
+    // ── Person (Full CV / Resume) ──
     {
       '@type': 'Person',
       '@id': `${siteUrl}/#person`,
       name: 'Fredrick Momanyi Morara',
+      givenName: 'Fredrick',
+      familyName: 'Morara',
+      additionalName: 'Momanyi',
       url: siteUrl,
+      image: `${siteUrl}/opengraph-image.jpg`,
       jobTitle: 'Software Engineer & Associate AI Engineer',
       description: siteDescription,
       email: 'momanyifredm@gmail.com',
       telephone: '+254796795712',
+      nationality: { '@type': 'Country', name: 'Kenya' },
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'KE',
+        addressLocality: 'Kenya',
+      },
+
+      // ── Social Profiles ──
       sameAs: [
         'https://www.linkedin.com/in/freddymorara/',
         'https://github.com/fredymorara',
         'https://medium.com/@freddymorara',
         'https://wellfound.com/u/fredrick-momanyi-morara',
       ],
+
+      // ── Current Occupation ──
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: 'Software Engineer & Associate AI Engineer',
+        description:
+          'Specializes in scalable web applications with React/Next.js, intelligent RAG pipelines, and modern AI integrations using Python, LangChain, and vector databases.',
+        skills:
+          'JavaScript, TypeScript, Python, C++, React, Next.js, Node.js, Express, Tailwind CSS, AWS, Microsoft Azure, SQL, MongoDB, Pinecone, ChromaDB, OpenAI API, LangChain, Hugging Face, RAG Pipelines, Git, GitHub',
+        occupationLocation: {
+          '@type': 'Country',
+          name: 'Kenya',
+        },
+      },
+
+      // ── Education ──
       alumniOf: {
         '@type': 'CollegeOrUniversity',
         name: 'Kabarak University',
+        url: 'https://www.kabarak.ac.ke/',
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'KE',
+          addressRegion: 'Nakuru',
+        },
       },
+
+      // ── Skills (machine-readable list) ──
       knowsAbout: [
-        'JavaScript', 'TypeScript', 'Python', 'React', 'Next.js',
-        'Node.js', 'Tailwind CSS', 'AWS', 'Microsoft Azure',
-        'Machine Learning', 'RAG Pipelines', 'LangChain', 'OpenAI',
+        'JavaScript',
+        'TypeScript',
+        'Python',
+        'C++',
+        'React',
+        'Next.js',
+        'Node.js',
+        'Express.js',
+        'Tailwind CSS',
+        'Amazon Web Services',
+        'Microsoft Azure',
+        'SQL',
+        'MongoDB',
+        'Redis',
+        'Pinecone',
+        'ChromaDB',
+        'Vector Databases',
+        'OpenAI API',
+        'LangChain',
+        'Hugging Face',
+        'RAG Pipelines',
+        'Machine Learning',
+        'Natural Language Processing',
+        'Retrieval-Augmented Generation',
+        'REST APIs',
+        'Git',
+        'GitHub',
+        'Supabase',
+        'Clerk Authentication',
+        'Framer Motion',
+      ],
+
+      // ── Certifications (EducationalOccupationalCredential) ──
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Associate AI Engineer for Developers',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'DataCamp' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ReactJS Certification',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'Codecademy' },
+          dateCreated: '2023',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Web Development Fundamentals',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'IBM Skills Build' },
+          dateCreated: '2023',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Javascript Essentials 1 & 2',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'Cisco Networking Academy',
+          },
+          dateCreated: '2023',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Linux Unhatched',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'Cisco Networking Academy',
+          },
+          dateCreated: '2023',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Amazon Web Services (AWS) Projects',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'NextWork' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Introduction to Large Language Models',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'Google' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Introduction to Generative AI',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'Google' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Introduction to Responsible AI',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'Google' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Software Engineering Principles in Python',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'DataCamp' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Understanding Cloud Computing',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'DataCamp' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Artificial Intelligence Fundamentals',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'DataCamp' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'AWS AI & ML Scholars',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'AWS with Udacity',
+          },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Develop Generative AI Apps in Azure',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'Microsoft' },
+          dateCreated: '2024',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Microsoft Azure Fundamentals (AZ-900)',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'DataCamp' },
+          dateCreated: '2024',
+        },
+      ],
+
+      // ── Portfolio Projects (CreativeWork) ──
+      mainEntityOfPage: { '@id': `${siteUrl}/#webpage` },
+    },
+
+    // ── Project 1: HansCredit ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'HansCredit',
+      description:
+        'A modern credit loans application designed for users to apply for and manage credit loans. Built with Next.js, JavaScript, and Tailwind CSS.',
+      url: 'https://hanscredit.co.ke/',
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2026-02-10',
+      codeRepository: 'https://github.com/fredymorara/HansCredit',
+      programmingLanguage: ['JavaScript', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
+    },
+
+    // ── Project 2: Smart AI Library Assistant ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Smart AI Library Assistant',
+      description:
+        'An AI-powered library assistant using a Retrieval-Augmented Generation (RAG) pipeline with vector databases and Hugging Face API for intelligent information retrieval.',
+      url: 'https://ai-library-update.vercel.app/',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2025-12-19',
+      codeRepository: 'https://github.com/fredymorara/ai-library',
+      programmingLanguage: [
+        'React',
+        'Next.js',
+        'JavaScript',
+        'RAG Pipeline',
+        'Vector Databases',
+        'Hugging Face API',
       ],
     },
+
+    // ── Project 3: Student Welfare Management System ──
     {
-      '@type': 'WebPage',
-      '@id': `${siteUrl}/#webpage`,
-      url: siteUrl,
-      name: siteTitle,
-      isPartOf: { '@id': `${siteUrl}/#website` },
-      about: { '@id': `${siteUrl}/#person` },
-      description: siteDescription,
-      inLanguage: 'en-US',
+      '@type': 'SoftwareApplication',
+      name: 'Student Welfare Management System',
+      description:
+        'A comprehensive application to manage student welfare activities with React frontend, Node.js/Express backend, MongoDB, and M-Pesa Daraja API integration.',
+      url: 'https://kabarakstudentwelfare.netlify.app/',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2025-09-20',
+      codeRepository: 'https://github.com/fredymorara/wms',
+      programmingLanguage: [
+        'React',
+        'JavaScript',
+        'Node.js',
+        'Express',
+        'MongoDB',
+      ],
+    },
+
+    // ── Project 4: AI Spam Message Detector ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'AI Spam Message Detector',
+      description:
+        'An AI-powered spam detection tool using a Linear SVM model to classify text messages, built with Python, scikit-learn, and Streamlit.',
+      url: 'https://aispamdetector.streamlit.app/',
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2025-07-20',
+      codeRepository:
+        'https://github.com/fredymorara/AI-Spam-Detector-App',
+      programmingLanguage: [
+        'Python',
+        'scikit-learn',
+        'Streamlit',
+        'NLTK',
+        'Machine Learning',
+      ],
+    },
+
+    // ── Project 5: Mpira Streams ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Mpira Streams',
+      description:
+        'A front-end React sports streaming application consuming a public API, featuring modular architecture and Redux state management.',
+      url: `${siteUrl}`,
+      applicationCategory: 'EntertainmentApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2025',
+      codeRepository: 'https://github.com/fredymorara',
+      programmingLanguage: ['React', 'Redux', 'JavaScript', 'Tailwind CSS'],
+    },
+
+    // ── Skills ItemList (machine-readable skill inventory) ──
+    {
+      '@type': 'ItemList',
+      '@id': `${siteUrl}/#skills`,
+      name: 'Technical Skills',
+      description:
+        'Technical skills and competencies of Fredrick Momanyi Morara',
+      itemListElement: [
+        'JavaScript',
+        'TypeScript',
+        'Python',
+        'C++',
+        'React',
+        'Next.js',
+        'Node.js',
+        'Express.js',
+        'Tailwind CSS',
+        'AWS',
+        'Microsoft Azure',
+        'SQL',
+        'MongoDB',
+        'Vector Databases',
+        'Pinecone',
+        'ChromaDB',
+        'OpenAI API',
+        'LangChain',
+        'RAG Pipelines',
+        'Hugging Face',
+        'Git',
+        'GitHub',
+      ].map((skill, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: skill,
+      })),
     },
   ],
 };
@@ -178,13 +500,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="ltr">
-      <body className={`${outfit.variable} ${silkscreen.variable} relative antialiased bg-[#050505] text-white/90`}>
-        <Script
-          id="json-ld"
+      <head>
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          strategy="afterInteractive"
         />
+      </head>
+      <body className={`${outfit.variable} ${silkscreen.variable} relative antialiased bg-[#050505] text-white/90`}>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-md">
           Skip to main content
         </a>
