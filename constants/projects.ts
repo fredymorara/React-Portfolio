@@ -160,7 +160,7 @@ export const projects = [
     description: `A premium, blazing-fast anime streaming and discovery platform built from the ground up for absolute peak performance and a stunning cinematic user experience. Built with SolidStart, Tailwind CSS v4, and AniList GraphQL API, it features streaming SSR, a cinematic UI/UX, advanced episode selection, local watch history, and real-time TV release schedules.`,
     date: "2026",
     github: "https://github.com/fredymorara",
-    live: "#",
+    live: "https://anime.flicmovies.me",
     color: "#8b5cf6",
     btnBg: "rgba(139,92,246,0.5)",
     btnBgHover: "rgba(139,92,246,0.8)",

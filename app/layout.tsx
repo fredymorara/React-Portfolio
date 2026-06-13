@@ -475,7 +475,7 @@ const jsonLd = {
       name: 'Kumo Anime',
       description:
         'A premium, blazing-fast anime streaming and discovery platform featuring cinematic UI/UX, advanced episode selection, and local watch history.',
-      url: `${siteUrl}`,
+      url: 'https://anime.flicmovies.me',
       applicationCategory: 'EntertainmentApplication',
       operatingSystem: 'Web',
       author: { '@id': `${siteUrl}/#person` },
