@@ -359,7 +359,37 @@ const jsonLd = {
       mainEntityOfPage: { '@id': `${siteUrl}/#webpage` },
     },
 
-    // ── Project 1: HansCredit ──
+    // ── Project 1: Flic Movies ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Flic Movies',
+      description:
+        'A modern, enterprise-grade streaming web application built as a monorepo with a Next.js frontend and a secured NestJS backend.',
+      url: 'https://flicmovies.me',
+      applicationCategory: 'EntertainmentApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2026',
+      codeRepository: 'https://github.com/fredymorara',
+      programmingLanguage: ['Next.js', 'NestJS', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
+    },
+
+    // ── Project 2: Kumo Anime ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Kumo Anime',
+      description:
+        'A premium, blazing-fast anime streaming and discovery platform featuring cinematic UI/UX, advanced episode selection, and local watch history.',
+      url: 'https://anime.flicmovies.me',
+      applicationCategory: 'EntertainmentApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2026',
+      codeRepository: 'https://github.com/fredymorara',
+      programmingLanguage: ['SolidStart', 'Tailwind CSS', 'GraphQL', 'Bun'],
+    },
+
+    // ── Project 3: HansCredit ──
     {
       '@type': 'SoftwareApplication',
       name: 'HansCredit',
@@ -374,7 +404,22 @@ const jsonLd = {
       programmingLanguage: ['JavaScript', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
     },
 
-    // ── Project 2: Smart AI Library Assistant ──
+    // ── Project 4: Mpira Streams ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Mpira Streams',
+      description:
+        'A front-end React sports streaming application consuming a public API, featuring modular architecture and Redux state management.',
+      url: 'https://sports.flicmovies.me',
+      applicationCategory: 'EntertainmentApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2025',
+      codeRepository: 'https://github.com/fredymorara',
+      programmingLanguage: ['React', 'Redux', 'JavaScript', 'Tailwind CSS'],
+    },
+
+    // ── Project 5: Smart AI Library Assistant ──
     {
       '@type': 'SoftwareApplication',
       name: 'Smart AI Library Assistant',
@@ -396,28 +441,7 @@ const jsonLd = {
       ],
     },
 
-    // ── Project 3: Student Welfare Management System ──
-    {
-      '@type': 'SoftwareApplication',
-      name: 'Student Welfare Management System',
-      description:
-        'A comprehensive application to manage student welfare activities with React frontend, Node.js/Express backend, MongoDB, and M-Pesa Daraja API integration.',
-      url: 'https://kabarakstudentwelfare.netlify.app/',
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web',
-      author: { '@id': `${siteUrl}/#person` },
-      datePublished: '2025-09-20',
-      codeRepository: 'https://github.com/fredymorara/wms',
-      programmingLanguage: [
-        'React',
-        'JavaScript',
-        'Node.js',
-        'Express',
-        'MongoDB',
-      ],
-    },
-
-    // ── Project 4: AI Spam Message Detector ──
+    // ── Project 6: AI Spam Message Detector ──
     {
       '@type': 'SoftwareApplication',
       name: 'AI Spam Message Detector',
@@ -439,49 +463,25 @@ const jsonLd = {
       ],
     },
 
-    // ── Project 5: Mpira Streams ──
+    // ── Project 7: Student Welfare Management System ──
     {
       '@type': 'SoftwareApplication',
-      name: 'Mpira Streams',
+      name: 'Student Welfare Management System',
       description:
-        'A front-end React sports streaming application consuming a public API, featuring modular architecture and Redux state management.',
-      url: 'https://sports.flicmovies.me',
-      applicationCategory: 'EntertainmentApplication',
+        'A comprehensive application to manage student welfare activities with React frontend, Node.js/Express backend, MongoDB, and M-Pesa Daraja API integration.',
+      url: 'https://kabarakstudentwelfare.netlify.app/',
+      applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       author: { '@id': `${siteUrl}/#person` },
-      datePublished: '2025',
-      codeRepository: 'https://github.com/fredymorara',
-      programmingLanguage: ['React', 'Redux', 'JavaScript', 'Tailwind CSS'],
-    },
-
-    // ── Project 6: Flic Movies ──
-    {
-      '@type': 'SoftwareApplication',
-      name: 'Flic Movies',
-      description:
-        'A modern, enterprise-grade streaming web application built as a monorepo with a Next.js frontend and a secured NestJS backend.',
-      url: 'https://flicmovies.me',
-      applicationCategory: 'EntertainmentApplication',
-      operatingSystem: 'Web',
-      author: { '@id': `${siteUrl}/#person` },
-      datePublished: '2026',
-      codeRepository: 'https://github.com/fredymorara',
-      programmingLanguage: ['Next.js', 'NestJS', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
-    },
-
-    // ── Project 7: Kumo Anime ──
-    {
-      '@type': 'SoftwareApplication',
-      name: 'Kumo Anime',
-      description:
-        'A premium, blazing-fast anime streaming and discovery platform featuring cinematic UI/UX, advanced episode selection, and local watch history.',
-      url: 'https://anime.flicmovies.me',
-      applicationCategory: 'EntertainmentApplication',
-      operatingSystem: 'Web',
-      author: { '@id': `${siteUrl}/#person` },
-      datePublished: '2026',
-      codeRepository: 'https://github.com/fredymorara',
-      programmingLanguage: ['SolidStart', 'Tailwind CSS', 'GraphQL', 'Bun'],
+      datePublished: '2025-09-20',
+      codeRepository: 'https://github.com/fredymorara/wms',
+      programmingLanguage: [
+        'React',
+        'JavaScript',
+        'Node.js',
+        'Express',
+        'MongoDB',
+      ],
     },
 
     // ── Skills ItemList (machine-readable skill inventory) ──
