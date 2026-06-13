@@ -2,7 +2,7 @@
 import { certifications } from '@/constants/certifications';
 import { motion } from 'framer-motion';
 import { Award } from 'lucide-react';
-import Image from 'next/image';
+
 
 const Certifications = () => {
   return (

@@ -445,13 +445,43 @@ const jsonLd = {
       name: 'Mpira Streams',
       description:
         'A front-end React sports streaming application consuming a public API, featuring modular architecture and Redux state management.',
-      url: `${siteUrl}`,
+      url: 'https://sports.flicmovies.me',
       applicationCategory: 'EntertainmentApplication',
       operatingSystem: 'Web',
       author: { '@id': `${siteUrl}/#person` },
       datePublished: '2025',
       codeRepository: 'https://github.com/fredymorara',
       programmingLanguage: ['React', 'Redux', 'JavaScript', 'Tailwind CSS'],
+    },
+
+    // ── Project 6: Flic Movies ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Flic Movies',
+      description:
+        'A modern, enterprise-grade streaming web application built as a monorepo with a Next.js frontend and a secured NestJS backend.',
+      url: 'https://flicmovies.me',
+      applicationCategory: 'EntertainmentApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2026',
+      codeRepository: 'https://github.com/fredymorara',
+      programmingLanguage: ['Next.js', 'NestJS', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
+    },
+
+    // ── Project 7: Kumo Anime ──
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Kumo Anime',
+      description:
+        'A premium, blazing-fast anime streaming and discovery platform featuring cinematic UI/UX, advanced episode selection, and local watch history.',
+      url: `${siteUrl}`,
+      applicationCategory: 'EntertainmentApplication',
+      operatingSystem: 'Web',
+      author: { '@id': `${siteUrl}/#person` },
+      datePublished: '2026',
+      codeRepository: 'https://github.com/fredymorara',
+      programmingLanguage: ['SolidStart', 'Tailwind CSS', 'GraphQL', 'Bun'],
     },
 
     // ── Skills ItemList (machine-readable skill inventory) ──
