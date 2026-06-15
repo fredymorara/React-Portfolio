@@ -1,4 +1,5 @@
 export const projects = [
+  /*
   {
     id: "1",
     screenshot: "/Flic Movies.png",
@@ -21,6 +22,8 @@ export const projects = [
     btnBgHover: "rgba(229,9,20,0.8)",
     cardBg: "rgba(229,9,20,0.05)",
   },
+  */
+  /*
   {
     id: "2",
     screenshot: "/Kumo Anime.png",
@@ -42,6 +45,7 @@ export const projects = [
     btnBgHover: "rgba(139,92,246,0.8)",
     cardBg: "rgba(139,92,246,0.05)",
   },
+  */
   {
     id: "3",
     screenshot: "/Hans Credit.png",
@@ -64,6 +68,7 @@ export const projects = [
     btnBgHover: "#ecb613",
     cardBg: "rgba(154,52,18,0.05)",
   },
+  /*
   {
     id: "4",
     screenshot: "/Mpira Streams.png",
@@ -85,6 +90,7 @@ export const projects = [
     btnBgHover: "rgba(220,36,118,0.8)",
     cardBg: "rgba(255,81,47,0.05)",
   },
+  */
   {
     id: "5",
     screenshot: "/Smart AI Library Assistant.png",

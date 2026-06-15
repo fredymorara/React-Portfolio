@@ -359,6 +359,7 @@ const jsonLd = {
       mainEntityOfPage: { '@id': `${siteUrl}/#webpage` },
     },
 
+    /*
     // ── Project 1: Flic Movies ──
     {
       '@type': 'SoftwareApplication',
@@ -373,7 +374,9 @@ const jsonLd = {
       codeRepository: 'https://github.com/fredymorara',
       programmingLanguage: ['Next.js', 'NestJS', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
     },
+    */
 
+    /*
     // ── Project 2: Kumo Anime ──
     {
       '@type': 'SoftwareApplication',
@@ -388,6 +391,7 @@ const jsonLd = {
       codeRepository: 'https://github.com/fredymorara',
       programmingLanguage: ['SolidStart', 'Tailwind CSS', 'GraphQL', 'Bun'],
     },
+    */
 
     // ── Project 3: HansCredit ──
     {
@@ -404,6 +408,7 @@ const jsonLd = {
       programmingLanguage: ['JavaScript', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
     },
 
+    /*
     // ── Project 4: Mpira Streams ──
     {
       '@type': 'SoftwareApplication',
@@ -418,6 +423,7 @@ const jsonLd = {
       codeRepository: 'https://github.com/fredymorara',
       programmingLanguage: ['React', 'Redux', 'JavaScript', 'Tailwind CSS'],
     },
+    */
 
     // ── Project 5: Smart AI Library Assistant ──
     {
