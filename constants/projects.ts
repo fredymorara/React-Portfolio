@@ -62,7 +62,7 @@ export const projects = [
     description: `HansCredit is a modern credit loans application designed for users to apply for and manage credit loans. Built with Next.js, JavaScript, and Tailwind CSS, it offers a seamless user experience with features like loan applications, status tracking, and secure communication via nodemailer. The platform includes a responsive UI with animations powered by Framer Motion and is optimized using pnpm for fast builds.`,
     date: "Feb 10, 2026",
     github: "https://github.com/fredymorara/HansCredit",
-    live: "https://hanscredit.co.ke/",
+    live: "https://hans-credit.vercel.app/",
     color: "#ecb613",
     btnBg: "#ecb613",
     btnBgHover: "#ecb613",
