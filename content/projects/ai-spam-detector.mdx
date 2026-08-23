@@ -1,0 +1,79 @@
+---
+title: "AI Spam Message Detector"
+description: "A machine learning pipeline utilizing a Linear SVM model to classify SMS and email messages as spam or legitimate."
+---
+
+> **Project Context:** This project was developed as an AI Mini-Project (COMP 413: Artificial Intelligence) at Kabarak University, Department of Computer Science & IT (May – August 2025). 
+> **Contributors:** Trevor Maosa, Morris Mwangi, Noelah Amoni, Cleophas Kiama, and Fredrick M. Morara.
+
+## Overview
+
+Unsolicited messages, commonly known as spam, represent a persistent and evolving challenge in digital communication. These messages clutter inboxes, consume valuable time, and pose significant security risks ranging from unwanted advertisements to malicious phishing attempts. 
+
+The primary goal of this project is to build and evaluate a robust machine learning model capable of accurately classifying incoming messages as either "Spam" (malicious or unsolicited) or "Ham" (legitimate). Success is defined by achieving a high F1-score, which ensures a strong balance between precision (minimizing the misclassification of legitimate messages) and recall (identifying a high percentage of actual spam).
+
+## Methodology
+
+The project followed a structured machine learning pipeline, from data acquisition and preparation to model training and evaluation.
+
+### 1. Data Acquisition
+- **Source:** The project utilized the "SMS Spam Collection Dataset" from Kaggle.
+- **Description:** The raw dataset consisted of 5,572 entries, each with a label (ham/spam) and the raw text of the message. The dataset is imbalanced, with spam messages constituting approximately 13% of the total.
+- **Justification:** Chosen for its public availability, clear labeling, and suitability as a benchmark for developing text classification models.
+
+### 2. Data Cleaning & Preprocessing
+To prepare the text data for analysis, several preprocessing steps were executed using the NLTK library:
+- **Duplicate Removal:** 403 duplicate entries were identified and removed, resulting in a clean dataset of 5,169 unique messages.
+- **Normalization:** All text was converted to lowercase to ensure uniformity.
+- **Noise Removal:** Common sources of noise in spam messages, including URLs, email addresses, phone numbers, and all punctuation, were removed using regular expressions.
+- **Tokenization:** The cleaned text was split into individual words (tokens).
+- **Stopword Removal:** Common, non-informative English words (e.g., "the", "is", "a") were filtered out.
+- **Lemmatization:** Words were reduced to their root dictionary form (e.g., "won" and "winning" both become "win") to consolidate their semantic meaning.
+- **Data Splitting:** The final processed dataset was split into an 80% training set and a 20% testing set using stratification to maintain class proportions.
+
+### 3. Exploratory Data Analysis (EDA)
+Visual analysis of the cleaned data revealed key differentiating patterns. Spam messages are, on average, significantly longer than ham messages. Word frequency analysis showed a distinct vocabulary for each class. Spam messages were dominated by keywords like "free," "call," "txt," and "claim," whereas ham messages featured common conversational words.
+
+### 4. Feature Engineering
+To convert the processed text into a numerical format suitable for machine learning, the **TF-IDF (Term Frequency-Inverse Document Frequency)** technique was employed. This method highlights words that are highly indicative of a specific class. 
+
+To capture more contextual information, we enhanced this process by setting `ngram_range=(1, 2)`. This created features not only for individual words (unigrams) but also for pairs of adjacent words (bigrams, e.g., "free entry," "call now"), providing a richer feature set for the models.
+
+### 5. Model Building
+Three different classification models were trained and compared using scikit-learn's `Pipeline` feature, which bundles the TF-IDF vectorizer and the classifier into a single object.
+- **Multinomial Naive Bayes (MNB):** A probabilistic model often used as a strong baseline for text classification.
+- **Logistic Regression (LR):** A robust and interpretable linear model.
+- **Linear Support Vector Machine (SVM):** A powerful model known for its effectiveness in high-dimensional spaces, making it well-suited for text data.
+
+## Results & Discussion
+
+### Model Evaluation
+The three trained models were evaluated on the unseen test set. The performance comparison is summarized below:
+
+| Model | Accuracy | Precision (Spam) | Recall (Spam) | F1-score (Spam) |
+|---|---|---|---|---|
+| Multinomial Naive Bayes | 0.9652 | 0.9897 | 0.7328 | 0.8421 |
+| Logistic Regression | 0.9584 | 1.0000 | 0.6718 | 0.8037 |
+| **Linear SVM** | **0.9816** | **0.9912** | **0.8626** | **0.9224** |
+
+The Linear SVM model demonstrated superior performance across the board. While the Logistic Regression model achieved perfect precision, its recall was unacceptably low (67%), meaning it failed to identify one-third of all spam messages. The Linear SVM provided the best trade-off, achieving an excellent Precision of 99.1% and a significantly higher Recall of 86.3%. Its F1-score of 92.2% confirmed it as the most balanced and reliable model for this task.
+
+### Results Interpretation & Insights
+Analysis of the coefficients from the Linear SVM model provided valuable insights into its decision-making process.
+- **Top Spam Indicators:** `txt`, `claim`, `prize`, `service`, `mobile`, `reply`, `tone`, `urgent`. The use of n-grams also identified phrases like "please call" as highly predictive.
+- **Top Ham Indicators:** `ltgt`, `ill`, `later`, `home`, `sorry`, `way`. These are characteristic of personal, conversational language.
+
+These findings confirm that the model learned logical and contextually relevant patterns from the data.
+
+## Deployment
+
+The best-performing model (Linear SVM) was serialized and saved as a pickle file. A live, interactive web application was then developed using **Streamlit** and deployed on Streamlit Community Cloud. This app allows users to enter any text message and receive an instant classification from the trained model.
+
+## Conclusion & Future Work
+
+This project successfully achieved its objective of building a reliable spam detection model. We developed a Linear SVM classifier that achieves 98.2% accuracy and a 92.2% F1-score on the test set. 
+
+Future improvements could include:
+- **Hyperparameter Tuning:** Employing GridSearch to systematically search for optimal parameters.
+- **Advanced Models:** Exploring deep learning models like LSTMs or Transformers to capture more complex linguistic nuances.
+- **Larger Dataset:** Training the model on a larger and more diverse dataset of modern spam and ham emails.

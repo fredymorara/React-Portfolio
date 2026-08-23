@@ -1,0 +1,50 @@
+---
+title: "HansCredit (Modern Revamp)"
+description: "A high-performance financial services web application."
+---
+
+> **Project Note:** This repository represents a personal, advanced revamp of the Hans Credit website. I advanced this project independently after having left HansCredit. This codebase showcases a modern, highly optimized, and robust version of what could be deployed on their official website today, and is not currently affiliated with the official corporate entity.
+
+## Overview
+
+This project is a high-performance, single-page application built for the financial services sector in Kenya. Engineered with **Next.js 15+** and **Tailwind CSS v4**, it provides a premium, seamless experience for clients to explore financial products and apply for loans securely and quickly.
+
+## Key Upgrades & Modern Implementation
+
+This iteration introduces several enterprise-grade features and modern UI/UX improvements over traditional corporate landing pages:
+
+### 1. Performance & Hardware Acceleration
+- **CSS-Native Animations:** Replaced heavy React-based animation libraries on critical components (like the mobile `ApplyNowModal`) with pure, hardware-accelerated CSS transforms and opacity transitions. This eliminates mobile keyboard lag and ensures 60fps silky-smooth interactions.
+- **Component Lazy Loading:** Implemented `next/dynamic` for heavy, below-the-fold sections like the Footer and Modals to drastically reduce the initial JavaScript bundle size.
+
+### 2. Security & API Defenses
+- **In-Memory Rate Limiting:** Built a custom Map-based sliding window rate limiter that enforces a strict limit of 3 form submissions per minute per IP address. This protects the backend Nodemailer SMTP services from bot spam and automated DDoS attempts.
+- **Input Sanitization & Validation:** API routes (`/api/apply-now` and `/api/send-email`) utilize strict server-side validation checks and Regex pattern matching before attempting any email dispatches.
+- **Secret Management:** Strict isolation of SMTP credentials via environment variables prevents the leakage of email transport configurations.
+
+### 3. SEO & Localization (Kenya Focus)
+- **Targeted Local SEO:** Advanced Next.js metadata configuration explicitly injected with Kenyan financial keywords.
+- **Schema.org JSON-LD:** Implemented structured data utilizing the `areaServed: "KE"` property to ensure maximum visibility and proper indexing for users seeking financial services in Kenya.
+
+### 4. UI/UX & Styling
+- **Mobile-First Layout Constraints:** Enforced rigid structural grids on mobile CTA forms to ensure professional alignment matches desktop views, rather than relying on default block-stacking.
+- **Micro-Interactions:** Added premium micro-interactions across the Service Portfolio, Why Choose Us, and About Us components, such as hover padding, border color transitions, and background highlights.
+- **Standardized Spacing System:** Fully refactored to align with Tailwind v4 standard utility classes (replacing arbitrary bracket notation) for maintainability and IDE linting compliance.
+
+## Architecture & Flow
+
+The Hans Credit website is structured as a streamlined single-page application with distinct interactive flows:
+
+- **Single-Page Foundation:** The primary layout aggregates the Hero, Service Portfolio, Why Choose Us, CTA Section, and FAQ.
+- **Dynamic Apply Now Flow:** 
+  - Clicking "Apply Now" anywhere on the site opens a globally accessible `ApplyNowModal`.
+  - The form dynamically configures itself based on the selected loan or insurance product (auto-filling when clicked from a specific product card).
+  - Submissions hit `/api/apply-now`, pass through the Rate Limiter, and trigger two Nodemailer actions: one alert to the administrative team, and one branded confirmation receipt to the applicant.
+- **Contact Flow:** Standard inquiries flow through `/api/send-email`, functioning identically but mapped to generic helpdesk respondents.
+
+## Technology Stack
+
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS v4
+- **Email Delivery:** Nodemailer (SMTP Integration)
+- **Package Manager:** pnpm

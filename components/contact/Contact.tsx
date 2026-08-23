@@ -22,10 +22,10 @@ const Contact = () => {
                 Get in touch
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white/95 mb-6">
-                Let&apos;s build <br/><span className="text-gradient-sunset italic font-semibold">the future.</span>
+                Open to new <br/><span className="text-gradient-sunset italic font-semibold">opportunities.</span>
               </h2>
               <p className="text-white/50 text-lg max-w-sm">
-                Feel free to reach out for collaboration, freelance work, or just to say hi!
+                I&apos;m actively looking for an entry-level position at a startup or technical team. If what you see here looks like a fit, I&apos;d be glad to have a conversation.
               </p>
             </div>
           </div>

@@ -18,10 +18,10 @@ const About = () => {
             About Me
           </div>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white/95 mb-8">
-            Engineering with <span className="text-white/40 italic">precision.</span>
+            Early career. <span className="text-white/40 italic">Real output.</span>
           </h2>
           <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-xl">
-            Hi, I&apos;m <span className="text-white/90">Fredrick M. Morara</span>, a versatile Software Engineer and Associate AI Engineer. I specialize in bridging the gap between high-performance frontends and intelligent backends—whether that&apos;s launching deployed financial platforms or engineering robust <span className="text-white/80">RAG pipelines</span> and <span className="text-white/80">AI assistants</span> using Python and vector databases.
+            Hi, I&apos;m <span className="text-white/90">Fredrick M. Morara</span>, an early-career full-stack developer with a focus on practical AI. I&apos;ve built and deployed web applications using React, Next.js, Node.js, and Python, and wired real AI features, such as RAG pipelines and LLM APIs, into working products. I&apos;m looking for a role where I can grow fast, contribute real work, and be part of a team building things that matter.
           </p>
         </motion.div>
 

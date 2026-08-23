@@ -9,11 +9,11 @@ export const skills = [
       icon: Layers,
     },
     title: {
-      label: 'Scalability',
+      label: 'Full-Stack',
       background: 'var(--black--bean)',
     },
     content:
-      'I specialize in front-end architectures that scale as your applications and teams grow, using modular structures and efficient workflows.',
+      'I build complete web applications: React/Next.js frontends connected to Node.js or Python backends, with databases, authentication, and deployment to production.',
   },
   {
     id: 'Performance',
@@ -23,11 +23,11 @@ export const skills = [
       icon: CircleGauge,
     },
     title: {
-      label: 'Performance',
+      label: 'Practical AI',
       background: 'var(--downriver)',
     },
     content:
-      'I ensure front-end applications are optimized for speed, responsiveness, and seamless user experiences as they are efficient for developers.',
+      'I integrate AI into real user flows. This includes RAG pipelines, LLM APIs, and vector databases used in working applications. My focus is practical integration, not isolated experiments.',
   },
   {
     id: 'modularity',
@@ -37,11 +37,11 @@ export const skills = [
       icon: Package,
     },
     title: {
-      label: 'Modularity',
+      label: 'Self-Directed',
       background: 'var(--rose-of--sharon-2)',
     },
     content:
-      'I create reusable components, libraries, and tools that empower teams to build consistent and efficient front-end solutions at scale.',
+      'I take initiative. I figure out what needs to be done, work through blockers independently, and ask focused questions when I genuinely need input, rather than for every small decision.',
   },
 ];
 

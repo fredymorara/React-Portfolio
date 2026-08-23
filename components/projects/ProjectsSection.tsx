@@ -1,4 +1,6 @@
 import Projects from './Projects';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 const ProjectsSection = () => {
   return (
@@ -6,17 +8,27 @@ const ProjectsSection = () => {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-20 space-y-6">
           <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md">
-            Selected Works
+            My Work
           </div>
           <h2 className="text-4xl font-medium tracking-tight md:text-6xl lg:text-7xl">
-            Featured Projects
+            Things I&apos;ve Built
           </h2>
           <p className="max-w-2xl text-lg text-white/60 md:text-xl">
-            I&apos;ve worked on a wide range of projects, from scalable web applications and reusable UI component libraries to backend APIs and microfrontend architectures.
+            Deployed applications built while studying. Each one involved choosing a stack, solving a real problem, and getting it to a live URL. Browse the links if you want to see them running.
           </p>
         </div>
 
         <Projects />
+
+        <div className="mt-16 flex justify-end">
+          <Link
+            href="/work"
+            className="flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors duration-300 group"
+          >
+            <span>See all projects</span>
+            <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </div>
       </div>
     </section>
   );

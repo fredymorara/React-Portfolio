@@ -1,27 +1,30 @@
 'use client';
 import { certifications } from '@/constants/certifications';
 import { motion } from 'framer-motion';
-import { Award } from 'lucide-react';
+import { Award, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
+const PREVIEW_COUNT = 5;
 
 const Certifications = () => {
+  const preview = certifications.slice(0, PREVIEW_COUNT);
   return (
-    <section className="relative py-32 md:py-48" id="certifications" aria-label="Professional Certifications">
+    <section className="relative py-32 md:py-48" id="certifications" aria-label="Credentials">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-20 space-y-6">
           <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md">
             Continuous Learning
           </div>
           <h2 className="text-4xl font-medium tracking-tight md:text-6xl lg:text-7xl text-white/95">
-            Certifications
+            Credentials
           </h2>
           <p className="max-w-2xl text-lg text-white/60 md:text-xl">
-            A comprehensive list of my professional credentials across Artificial Intelligence, Cloud Computing, and Full-Stack Development.
+            Alongside building, I&apos;ve been studying systematically, covering AI fundamentals, cloud infrastructure, and software engineering across Google, Microsoft, AWS, and DataCamp.
           </p>
         </div>
 
         <div className="flex flex-col border-t border-white/10 mt-12">
-          {certifications.map((cert, index) => (
+          {preview.map((cert, index) => (
             <motion.div
               key={cert.id}
               initial={{ opacity: 0, y: 20 }}
@@ -31,7 +34,6 @@ const Certifications = () => {
               className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8 border-b border-white/10 transition-all duration-700 hover:bg-[#0A0A0A] hover:border-[#DD2476]/20 hover:shadow-[0_4px_30px_rgba(221,36,118,0.05)] px-4 md:px-8"
             >
               <div className="flex items-center gap-6">
-                {/* Badge Render Logic */}
                 {cert.badge ? (
                   <div className="flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-white/5 overflow-hidden border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:border-[#DD2476]/30 group-hover:shadow-[0_0_15px_rgba(221,36,118,0.2)]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -42,7 +44,6 @@ const Certifications = () => {
                     <Award size={24} />
                   </div>
                 )}
-                
                 <div className="flex flex-col gap-2">
                   <h3 className="text-xl md:text-2xl font-medium tracking-tight text-white/90 group-hover:text-white transition-colors duration-500">
                     {cert.title}
@@ -52,7 +53,7 @@ const Certifications = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="flex shrink-0 mt-4 sm:mt-0">
                 <span className="text-white/30 text-sm font-medium border border-white/5 bg-white/5 px-4 py-2 rounded-full group-hover:border-white/20 group-hover:text-white/80 transition-all duration-500">
                   {cert.date}
@@ -60,6 +61,19 @@ const Certifications = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-10 flex items-center justify-between">
+          <span className="text-xs text-white/30 font-Silkscreen uppercase tracking-widest">
+            Showing {PREVIEW_COUNT} of {certifications.length}
+          </span>
+          <Link
+            href="/credentials"
+            className="flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors duration-300 group"
+          >
+            <span>See all {certifications.length} credentials</span>
+            <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
       </div>
     </section>

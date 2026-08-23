@@ -20,8 +20,8 @@ const silkscreen = Silkscreen({
 });
 
 const siteUrl = 'https://freddymorara.tech';
-const siteTitle = 'Fredrick Momanyi Morara | Software & AI Engineer';
-const siteDescription = 'Fredrick Momanyi Morara is a versatile Software Engineer and Associate AI Engineer skilled in JavaScript, Python, React, Next.js, and Azure/AWS cloud platforms. Specializing in scalable web applications, intelligent RAG pipelines, and modern AI integrations.';
+const siteTitle = 'Fredrick Momanyi Morara | Full-Stack & AI Developer';
+const siteDescription = 'Fredrick Momanyi Morara builds polished, user-facing web applications powered by practical AI integrations and solid backend environments. React, Next.js, Node.js, Python, and RAG pipelines, which I have shipped and deployed. Open to entry-level roles at startups and technical teams.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

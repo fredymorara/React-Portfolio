@@ -10,13 +10,13 @@ const Techs = () => {
       <div className="relative z-10 w-full max-w-7xl">
         <div className="mb-20 space-y-6 text-center flex flex-col items-center">
           <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md">
-            Core Arsenal
+            What I Build With
           </div>
           <h2 className="text-4xl font-medium tracking-tight md:text-6xl lg:text-7xl">
-            Technology Stack
+            The Stack
           </h2>
           <p className="max-w-2xl text-lg text-white/60 md:text-xl">
-            I leverage a carefully selected set of modern tools and frameworks to engineer robust, scalable, and elegant solutions.
+            The tools I&apos;ve worked with across real projects, covering web frameworks, AI libraries, cloud services, and databases.
           </p>
         </div>
 
