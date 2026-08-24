@@ -1,0 +1,133 @@
+---
+title: "AWS Bedrock AI Travel Assistant"
+description: "An autonomous AI travel assistant built on AWS Bedrock AgentCore, utilizing MCP Gateways and Lambda functions for real-time weather and attraction reasoning."
+---
+
+> **Note:** The original architecture report for this project is available for download. [Download Original Report](/travel-agent/AWS_Bedrock_AgentCore_Project_Documentation.docx)
+
+## Overview
+
+This project set out to build a multi-tool, autonomous AI travel assistant on AWS Bedrock: a system that could take a natural language prompt like "I'll be in London this Saturday with my family, what should we do?" and reason its way to a genuinely useful, weather-aware answer by calling out to its own tools.
+
+The original build plan was written for classic Amazon Bedrock Agents and Action Groups. Partway into the build, it became clear the AWS account being used defaulted to the newer Bedrock AgentCore ecosystem, where Action Groups have been retired in favor of Gateways and Harnesses. That single mismatch became the thread that ran through the rest of the project: every following step involved translating a legacy blueprint into the current architecture, then debugging the inevitable friction points that come with working against a newer, less documented service.
+
+What follows is a record of that journey: the architecture that was ultimately shipped, the specific errors encountered along the way, and how each one was diagnosed and resolved.
+
+## Architecture
+
+The final system routes a user query through an AgentCore Harness, out through an MCP Gateway, and fans out to two independent Lambda-backed tools.
+
+- **Orchestration Layer:** Amazon Bedrock AgentCore Harness
+- **Foundation Model:** Amazon Nova 2 Lite
+- **Tool Protocol:** Model Context Protocol (MCP), via AgentCore Gateway
+- **Compute Layer:** AWS Lambda, Python 3.12
+
+## The Build Journey: Problems and Pivots
+
+### Legacy Blueprint vs. Modern AWS Architecture
+The starting point was a standard implementation blueprint built around classic Amazon Bedrock Agents and Action Groups. That approach turned out to be a dead end: newer AWS accounts default to the Bedrock AgentCore ecosystem, which has deprecated classic Action Groups in favor of Gateways and Harnesses.
+
+The fix was not a small tweak. It meant re-architecting the whole system design around an AgentCore Harness with modular MCP Lambda targets instead.
+
+![Lambda functions deployed on Python 3.12](/travel-agent/lambda-functions.png)
+
+### Tool Schema & Inbound Protocol Engineering
+Early attempts to create the Gateway threw validation errors:
+`Member must not be null (name, description, inputSchema)`
+
+The root cause was incorrect wrapper nesting in the tool definitions. The fix was to re-engineer the tool definitions from nested tool objects into top-level, MCP-compliant JSON arrays for both the `get_weather` and `get_top_attractions` tools, each with its own explicit input schema.
+
+![MCP Lambda targets attached to Gateway](/travel-agent/gateway-targets.png)
+
+![Completed travel-tools-gateway details](/travel-agent/gateway-details.png)
+
+### Overcoming LLM Tool-Use Failures
+With the Gateway working, the next blocker showed up at the model layer. Amazon Nova Pro v1 emitted conversational `<thinking>` tokens instead of a strict JSON tool-call sequence, which triggered a hard failure during tool calling:
+`modelStreamErrorException: Model produced invalid sequence as part of ToolUse`
+
+![Nova Pro v1 breaking tool-use parsing](/travel-agent/bedrock-error.png)
+
+The resolution was to pivot the inference engine to Amazon Nova 2 Lite, which strictly follows AgentCore's tool-calling sequence and produced clean, parseable tool calls with no further stream errors.
+
+### Backend Contract Refactoring
+The last blocker was on the Lambda side. The original handlers were written for classic Bedrock's event wrapper, expecting `event['actionGroup']`, which crashed with a KeyError once the tools were being invoked through AgentCore instead.
+
+The handlers were refactored to consume AgentCore's flat JSON event structure directly (e.g., `event.get('city')`, `event.get('date')`) while keeping the underlying multi-city mock data and dynamic attribute evaluation intact.
+
+![travel_assistant AgentCore Harness ready status](/travel-agent/harness-details.png)
+
+## Lambda Implementations
+
+### demo3-get-weather
+```python
+import json
+ 
+WEATHER_DB = {
+    "london": {
+        "2026-08-22": {"temp": "15°C", "condition": "Heavy Rain",
+                       "description": "Chilly and wet. Heavy rain expected throughout the day."}
+    },
+    "paris": {
+        "2026-08-22": {"temp": "25°C", "condition": "Sunny",
+                       "description": "Clear skies and warm."}
+    }
+}
+ 
+def lambda_handler(event, context):
+    city = event.get('city', '').lower()
+    date = event.get('date', '')
+    default_weather = {"temp": "20°C", "condition": "Cloudy", "description": "Overcast but dry."}
+ 
+    city_data = WEATHER_DB.get(city, {})
+    weather = city_data.get(date, default_weather)
+ 
+    return {
+        "city": city.title(),
+        "date": date,
+        "temperature": weather["temp"],
+        "condition": weather["condition"],
+        "detailed_forecast": weather["description"]
+    }
+```
+
+### demo3-get-top-attractions
+```python
+import json
+ 
+ATTRACTIONS_DB = {
+    "london": [
+        {"name": "The British Museum", "type": "indoor", "family_friendly": True, "duration": "3-4 hours"},
+        {"name": "Tate Modern", "type": "indoor", "family_friendly": True, "duration": "2-3 hours"},
+        {"name": "Hyde Park", "type": "outdoor", "family_friendly": True, "duration": "1-2 hours"},
+        {"name": "London Eye", "type": "outdoor", "family_friendly": True, "duration": "1 hour"}
+    ]
+}
+ 
+def lambda_handler(event, context):
+    city = event.get('city', '').lower()
+    default_attractions = [{"name": "City Museum", "type": "indoor", "family_friendly": True}]
+ 
+    return {
+        "city": city.title(),
+        "top_attractions": ATTRACTIONS_DB.get(city, default_attractions)
+    }
+```
+
+## Verification & Output
+With every layer of the stack fixed, the agent was tested end-to-end against the original target prompt:
+*"I'll be in London this Saturday with my family. What should we do?"*
+
+The agent's execution:
+1. Called `get_weather(city="London", date="2026-08-22")` and received Heavy Rain, 15°C.
+2. Called `get_top_attractions(city="London")` and received 4 attractions, a mix of indoor and outdoor.
+3. Synthesized both results, automatically filtering out the outdoor options (Hyde Park, London Eye) and recommending The British Museum and Tate Modern, with wet-weather context folded into the response.
+
+![Successful end-to-end run on Nova 2 Lite](/travel-agent/bedrock-success.png)
+
+This confirmed the agent was not simply calling tools on command. It was reasoning over the combined tool outputs to make a context-appropriate decision, which was the actual goal of the project.
+
+## Key Takeaways
+- **Cloud AI tooling moves fast:** A blueprint written for classic Bedrock Agents was already outdated by the time this project started, and the real work began with recognizing that and re-architecting rather than forcing the old approach to fit.
+- **MCP schema validation is strict about structure:** Errors like "Member must not be null" are a strong signal to check for incorrect nesting before assuming the values themselves are wrong.
+- **Not all foundation models handle tool-calling identically:** Nova Pro v1's conversational reasoning tokens broke strict tool-use parsing, while Nova 2 Lite handled the same tool schema cleanly. Model choice is itself part of the architecture, not an afterthought.
+- **Legacy backend contracts do not carry over automatically:** When the orchestration layer changes, `event['actionGroup']` silently became the wrong assumption the moment the project moved to AgentCore, and payload shapes need to be re-verified whenever the surrounding infrastructure changes.

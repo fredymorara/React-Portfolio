@@ -1,7 +1,7 @@
 'use client';
 import { certifications } from '@/constants/certifications';
 import { motion } from 'framer-motion';
-import { Award, ArrowUpRight } from 'lucide-react';
+import { Award, ArrowUpRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
 const PREVIEW_COUNT = 5;
@@ -54,10 +54,39 @@ const Certifications = () => {
                 </div>
               </div>
 
-              <div className="flex shrink-0 mt-4 sm:mt-0">
-                <span className="text-white/30 text-sm font-medium border border-white/5 bg-white/5 px-4 py-2 rounded-full group-hover:border-white/20 group-hover:text-white/80 transition-all duration-500">
+              <div className="flex items-center shrink-0 mt-4 sm:mt-0 gap-3">
+                <span className="text-white/30 text-sm font-medium border border-white/5 bg-white/5 px-4 py-2 rounded-full group-hover:border-white/20 group-hover:text-white/80 transition-all duration-500 hidden md:block">
                   {cert.date}
                 </span>
+                {cert.slug ? (
+                  <>
+                    <Link
+                      href={`/credentials/${cert.slug}`}
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+                    >
+                      <span>Details</span>
+                    </Link>
+                    {cert.link && (
+                      <Link
+                        href={cert.link}
+                        target="_blank"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+                      >
+                        <ExternalLink size={12} />
+                        <span className="hidden sm:inline">Verify</span>
+                      </Link>
+                    )}
+                  </>
+                ) : cert.link ? (
+                  <Link
+                    href={cert.link}
+                    target="_blank"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+                  >
+                    <ExternalLink size={12} />
+                    <span className="hidden sm:inline">View</span>
+                  </Link>
+                ) : null}
               </div>
             </motion.div>
           ))}

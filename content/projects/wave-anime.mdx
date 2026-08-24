@@ -1,0 +1,74 @@
+---
+title: "Wave Anime"
+description: "A modern, high-performance web application for tracking and watching anime, featuring cross-device sync and a cyber-aesthetic design."
+---
+
+> **Disclaimer:** This project was built strictly for educational purposes as a technical learning exercise in modern software engineering. It is not intended for the distribution of copyrighted material.
+
+> **Note:** The architecture for this platform is decoupled into a frontend application and a standalone synchronization backend to ensure optimal performance and circumvent serverless timeout limits.
+
+## Overview
+
+Wave Anime is a complete overhaul of the anime streaming and tracking experience. Built with a stunning cyber-aesthetic design language, the platform is powered by a robust serverless architecture. It offers seamless cross-device synchronization, automated intro/outro skipping, and a fully interactive community environment for viewers.
+
+## Technology Stack
+
+### Frontend
+- **Framework:** Next.js 15 (App Router)
+- **Library:** React 19 (TypeScript)
+- **Styling:** Tailwind CSS v4
+- **State Management:** Zustand
+- **Animations & UI:** Embla Carousel, Lucide React
+
+### Backend & Infrastructure
+- **Database:** Serverless PostgreSQL via Neon DB
+- **ORM:** Drizzle ORM
+- **Authentication:** Better Auth for secure session management
+- **Sync Service:** Standalone Node/Express server deployed on Render
+- **Task Scheduling:** `node-cron` for periodic API synchronization
+
+### Data Sources & Integrations
+- **AniList API:** Comprehensive anime metadata, banners, top lists, and scheduling.
+- **Anikoto API:** Real-time episode and streaming link aggregation.
+- **AniSkip API:** Timestamp mapping for automatic intro/outro skipping.
+
+## Key Features
+
+### 1. Cross-Device Sync & Seamless Watching
+Watch history and timestamp progress are instantly tracked and synchronized across all your devices. The system includes intelligent conflict resolution if content is watched on multiple devices simultaneously. State is managed seamlessly on the client side using Zustand to ensure a hydrated, seamless resume experience.
+
+### 2. Auto-Skip Integration
+By hooking into the AniSkip API, the platform automatically or manually skips anime intros and outros, optimizing the binge-watching experience.
+
+### 3. Community & Notifications
+A robust community feature allows users to comment on episodes, upvote, and reply to others. An in-app notification system alerts users when someone replies to their comments or when the system sends a global broadcast.
+
+### 4. Cyberpunk Admin Dashboard
+An immersive, high-tech command center allows administrators to view traffic analytics (unique visitors, top anime, page views) via holographic data cards. Administrators can also send system-wide announcements via the broadcast terminal.
+
+### 5. Profile & History Management
+Users have a dedicated profile to review, clear, and manage their watch history and custom watchlists.
+
+## Architecture & Data Flow
+
+Wave Anime relies on a decoupled architecture to avoid external API rate limits and deliver lightning-fast UI renders:
+
+### The Sync Backend
+Because Vercel Serverless Functions have strict timeouts (10 to 60 seconds), long-running synchronization logic is decoupled into a standalone Express backend hosted on Render. A cron job runs every 14 minutes to fetch real-time, paginated updates from Anikoto and upserts them directly into the Neon Database.
+
+**Resiliency & Fallbacks:** To manage free-tier compute limits (such as Neon DB compute hours or Render suspension), sync scripts (`scripts/sync.ts` and `scripts/full_sync.ts`) can be run manually or triggered via GitHub Actions.
+
+### The Frontend
+Next.js fetches the synchronized data directly from the Neon Database for blazing-fast edge-runtime page loads. For rich metadata like high-resolution banners and character profiles, the frontend queries the AniList GraphQL API directly on the client side.
+
+## Design Language & Aesthetics
+
+Wave Anime utilizes a distinct Cyberpunk and Retrowave visual identity:
+
+- **Colors:**
+  - Background: void-black (`#020204`)
+  - Primary Highlight: neon-crimson (`#FF003C`)
+  - Secondary Accents: cyber-cyan (`#00F0FF`) and data-purple (`#BD00FF`)
+- **Shapes & Edges:** Flat glassmorphism combined with sharp, angular "clip-corner" and "clip-chip" cutouts, explicitly avoiding standard rounded corners.
+- **Typography:** Space Grotesk for headlines, Outfit for body text, and JetBrains Mono for labels and technical tags.
+- **Interactions:** Glowing neon scrollbars, vibrant hover states, and smooth slide-in carousels.

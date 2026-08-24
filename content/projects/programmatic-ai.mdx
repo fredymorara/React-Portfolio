@@ -1,0 +1,188 @@
+---
+title: "Programmatic AI Orchestration"
+description: "Building a Local Autonomous Travel Assistant with Python and the AWS Bedrock Converse API."
+---
+
+> **Note:** The original architecture report for this project is available for download. [Download Original Report](/programmatic-ai/Local_Bedrock_Converse_Travel_Planner_Documentation.docx)
+
+## Overview & Objectives
+Managed orchestration frameworks — like AWS Bedrock AgentCore Gateways and MCP targets — provide turnkey abstractions for building agents. Production engineering, though, frequently requires finer-grained control over execution flow, token overhead, tool-execution latency, and message payloads.
+
+The goal of this project was to step down from managed agent frameworks entirely and build an autonomous ReAct (Reason, Act, Observe) travel planning assistant in plain Python, using the AWS Bedrock `converse` API directly rather than any Gateway or Harness.
+
+**Core Requirements:**
+- **Zero-Hallucination Guardrails:** the agent must be explicitly forbidden from answering from its internal pretrained memory.
+- **Strict Tool Orchestration:** it must detect required parameters, call local tools (`get_weather`, `get_top_attractions`), process the responses, and synthesize grounded recommendations.
+- **Dynamic Contextual Filtering:** the final recommendation must dynamically filter options based on both weather constraints (rain vs. sun) and audience demographics (family-friendly vs. adult nightlife).
+
+## Architecture & the Local ReAct State Machine
+Instead of routing requests through an AWS Bedrock AgentCore Harness and remote Lambda functions, the orchestration layer here runs entirely inside a local Python client runtime.
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                        Local Python Runtime                     │
+│                                                                 │
+│   User Prompt ──► [ messages ] ──► Bedrock Converse API         │
+│                        ▲                     │                  │
+│                        │ (toolResult)        ▼ (stopReason: tool_use) │
+│                        │                Tool Dispatcher         │
+│                        │                     │                  │
+│                        │       ┌───────────┴───────────┐        │
+│                        │       ▼                       ▼        │
+│                        └─ get_weather()     get_top_attractions │
+│                                                                 │
+│   Final Output ◄── [ messages ] ◄── Bedrock Converse API        │
+│                                     (stopReason: end_turn)      │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Component Breakdown:**
+- **Inference Engine:** Amazon Nova 2 Lite (`amazon.nova-lite-v1:0`), Amazon Bedrock Runtime, `us-east-1`
+- **Client SDK:** Python (3.14 / 3.12), `boto3 v1.42.54`, `botocore v1.42.54`
+- **Orchestrator:** a `while True` loop inspecting `stopReason` (`tool_use` vs. `end_turn`), dispatching to local Python functions, and re-injecting results as `toolResult` blocks
+- **Local Data Layer:** in-memory dictionaries keyed on normalized composite tuples (`city.lower(), date`), with safe `.get()` fallbacks
+
+## API Comparison: invoke_model vs. converse
+Building this by hand made the practical differences between Bedrock's two invocation APIs very concrete:
+
+| Dimension | invoke_model API | converse API |
+| :--- | :--- | :--- |
+| **Payload Format** | Model-specific raw JSON (differs across Nova, Claude, Llama, Mistral) | Standardized cross-model schema (`system`, `messages`, `inferenceConfig`) |
+| **Tool Calling Support** | Manual formatting; developer parses raw strings or model-specific markup | Native `toolConfig` schema support |
+| **Conversation State** | Manual serialization of prior turns into a proprietary prompt format | Standardized message history (`user`, `assistant`, `toolResult` roles) |
+| **Tool Turn Management** | Developer manually tracks tool-call markers in raw output | Structured `stopReason`: `"tool_use"` and `toolUseId` fields |
+| **Portability** | Low — swapping models means rewriting the payload parser | High — swap `modelId` without touching the message schema |
+
+The `converse` API is effectively what made this project tractable as a small script rather than a per-model integration exercise.
+
+## Technical Challenges & Solutions
+
+### CLI Session Authentication & Credential Isolation
+Running the script locally in VS Code failed immediately with:
+`botocore.exceptions.NoCredentialsError: Unable to locate credentials`
+
+**Root cause:** unlike the browser-based cloud terminal used on prior projects, the local VS Code PowerShell session had no persistent AWS IAM credentials or profile configured.
+**Resolution:** temporary session credentials were injected directly into the local environment:
+```powershell
+$env:AWS_ACCESS_KEY_ID="<ACCESS_KEY>"
+$env:AWS_SECRET_ACCESS_KEY="<SECRET_KEY>"
+$env:AWS_SESSION_TOKEN="<SESSION_TOKEN>"
+$env:AWS_DEFAULT_REGION="us-east-1"
+```
+
+### Handling Underspecified Prompts & Schema Defaults
+With an open-ended prompt like *"I am planning on visiting london soon"*, the model filled the required `date` field in `get_weather` with an unprompted placeholder date (2023-10-01) — because the schema marked `date` as required, so the model had to supply something to make a valid call.
+
+**Resolution:** the tool implementation used safe `.get()` lookups instead of direct dictionary indexing:
+```python
+WEATHER_DATA.get((city.lower(), date), {"city": city, "date": date, "condition": "No data available"})
+```
+Instead of crashing with a KeyError, the tool returned a graceful "no data" observation. The model read that observation, reasoned about the gap in its thinking output, and adjusted its recommendation rather than failing outright.
+
+### Bidirectional ReAct Message History Flow
+The Converse API throws validation exceptions if a tool response payload doesn't exactly mirror the `toolUseId` of the corresponding request.
+
+**Resolution:** an accumulator loop extracts each `toolUseId`, wraps the matching tool output in a `toolResult` container, and appends it back into the conversation history under the `user` role:
+```python
+tool_results.append({
+    "toolResult": {
+        "toolUseId": tool_use_id,
+        "content": [{"json": result}],
+    }
+})
+```
+
+## Tool Engineering & Schemas
+
+### System Prompt
+The zero-hallucination guardrail lives entirely in the system prompt:
+> "You are a travel planning assistant. Your task is to help users plan visits to cities by providing information about weather conditions and top-rated attractions. You must not answer questions from memory or personal knowledge. Instead, you should always use the provided tools to retrieve information. Base all recommendations and responses solely on the results obtained from these tools."
+
+### toolConfig
+```python
+TOOLS = [
+    {
+        "toolSpec": {
+            "name": "get_weather",
+            "description": "Returns current weather conditions and forecast for a given city and date.",
+            "inputSchema": {
+                "json": {
+                    "type": "object",
+                    "properties": {
+                        "city": {"type": "string", "description": "The city for which to retrieve weather information"},
+                        "date": {"type": "string", "description": "The date for which to retrieve weather information"},
+                    },
+                    "required": ["city", "date"],
+                }
+            },
+        }
+    },
+    {
+        "toolSpec": {
+            "name": "get_top_attractions",
+            "description": "Returns a list of top-rated attractions in a given city.",
+            "inputSchema": {
+                "json": {
+                    "type": "object",
+                    "properties": {
+                        "city": {"type": "string", "description": "The city for which to retrieve attraction information"},
+                    },
+                    "required": ["city"],
+                }
+            },
+        }
+    },
+]
+```
+
+## Verification & Execution Traces
+
+### Trace 1 — Underspecified Date (Graceful Degradation)
+*"I am planning on visiting london soon"*
+- `get_weather({'date': '2023-10-01', 'city': 'London'})` → `{'condition': 'No data available'}`
+- `get_top_attractions({'city': 'London'})` → 8 attractions returned
+
+**Agent output:**
+```
+Assistant: <thinking>The weather data for London is not available, but I have a
+list of top-rated attractions. I should let the User know about the attractions
+and suggest they check the weather closer to their travel date.</thinking>
+ 
+Hi there! Here are some top-rated attractions in London that you might want to visit:
+1. British Museum - Indoor, Avg. visit hours: 2, Family-friendly: Yes
+...
+Please note that the weather data for London is currently not available. I
+recommend checking the weather closer to your travel date to plan your
+activities accordingly.
+```
+The model correctly reasoned about the missing data rather than inventing a forecast, and adjusted its recommendation to compensate.
+
+### Trace 2 — Rainy Day with Family (Multi-Constraint Filtering)
+*"I'll be in London on 2026-03-14 with my family."*
+- `get_weather` → light rain in the morning, 11°C, "bring a light jacket and umbrella"
+- `get_top_attractions` → 8 attractions returned
+
+**Result:** the agent filtered out all three adult-nightlife options and prioritized family-friendly indoor/mixed venues (British Museum, Tower of London, Natural History Museum), explicitly folding in the morning-rain warning and gear recommendation.
+
+### Trace 3 — Adult Night Out (Demographic Inversion)
+*"I'm in London on 2026-03-14 for a night out with friends. What do you suggest?"*
+Same tools, same date, called in parallel. **Agent output:**
+```
+Assistant: <thinking>Now that I have the weather and top-rated attractions for
+London on 2026-03-14, I can suggest some activities based on the User's request
+for a night out with friends... I will suggest some night-friendly attractions
+from the list of top-rated attractions.</thinking>
+ 
+Here's what you can do for a night out in London on 2026-03-14:
+1. The Comedy Store (Indoor comedy venue, adult-focused)
+2. Soho Nightlife (Mix of indoor and outdoor venues)
+3. Shoreditch Bar Crawl (4-hour tour across popular venues)
+```
+Same date, same underlying data, same tools — but the filter inverted completely based on stated audience, confirming the agent is reasoning over the data rather than returning a fixed answer per city.
+
+## Key Takeaways & Production Insights
+- **ReAct logic can live anywhere:** whether orchestrated via an AWS Bedrock AgentCore Gateway over MCP, or a ~100-line Python script calling `boto3` directly, the core principles remain identical — strict tool contracts, explicit guardrail prompts, and a conversational feedback loop.
+- **Unified API abstractions prevent vendor lock-in:** the Bedrock `converse` API standardizes multi-turn tool calling across Amazon Nova, Anthropic Claude, and Meta Llama, removing the need to maintain model-specific JSON serializers.
+- **Defensive tool coding is essential:** LLMs can extrapolate or normalize missing parameters (such as hallucinating a placeholder date). Structuring tool endpoints to return structured error dicts or fallback statuses prevents catastrophic application crashes.
+- **Same data, different lens:** Trace 2 and Trace 3 share the identical city, date, and attraction list, yet produce inverted recommendations purely from stated audience — solid evidence the agent is filtering contextually rather than pattern-matching a canned response.
+- **Credential handling changes shape outside the browser lab:** every local-dev pivot across these projects has needed the same fix — explicitly injecting temporary AWS credentials into the local shell session, since nothing is pre-authenticated outside the managed lab terminal.

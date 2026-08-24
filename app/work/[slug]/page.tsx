@@ -120,6 +120,7 @@ export default async function ProjectDocPage({
             prose-pre:bg-[#0A0A0A] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
             prose-li:text-white/60
             prose-hr:border-white/10
+            prose-img:rounded-xl prose-img:border prose-img:border-white/10
           ">
             <MDXRemote source={mdxContent} components={mdxComponents} />
           </article>

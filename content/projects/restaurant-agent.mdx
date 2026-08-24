@@ -1,0 +1,106 @@
+---
+title: "Restaurant Recommendation Agent"
+description: "A ReAct AI Agent built on AWS Bedrock AgentCore, utilizing MCP Gateways to search cuisines and verify real-time restaurant availability."
+---
+
+> **Note:** The original architecture report for this project is available for download. [Download Original Report](/restaurant-agent/Restaurant_Recommendation_Agent_Documentation.docx)
+
+## Overview
+The goal of this project was an autonomous agent that follows a strict ReAct loop — Reason, Act, Observe — to recommend a restaurant for tonight. The agent needed to verify a cuisine is actually offered, filter restaurants matching that cuisine, check real table availability, and only then synthesize a recommendation, with an explicit instruction to never invent a restaurant or fabricate availability.
+
+The original lab blueprint specified classic Amazon Bedrock Agents with OpenAPI Action Groups and Amazon Nova Pro. That path closed almost immediately: Amazon Bedrock Agents Classic entered maintenance mode on July 30, 2026, and is now closed to new customers. The entire architecture had to move to the modern AWS Bedrock AgentCore ecosystem — MCP Gateways and an AgentCore Harness — before any of the actual agent logic could be built.
+
+## Architecture
+
+- **Orchestration Layer:** Amazon Bedrock AgentCore Harness (`restaurant_recomendation_agent`)
+- **Foundation Model:** Amazon Nova 2 Lite
+- **Tool Protocol:** Model Context Protocol (MCP), via AgentCore Gateway (`restaurant-tools-gateway`)
+- **Compute:** AWS Lambda (`get-cuisines`, `search-restaurants`, `get-availability`)
+- **Reasoning Pattern:** ReAct — a fixed 3-step reason/act/observe loop enforced by the system prompt
+
+## Technical Challenges & Pivots
+
+### Classic Bedrock Agents Blocked by Maintenance Mode
+New agent creation in Classic Bedrock Agents failed outright: the service entered maintenance mode on July 30, 2026 and stopped accepting new customers. The whole system design moved to AWS Bedrock AgentCore — an AgentCore Harness attached to an MCP Gateway with three Lambda-backed tool targets — in place of classic Action Groups.
+
+### Local Development & CLI Authentication
+The browser-based lab terminal had clipboard limitations that made working with CloudFormation templates impractical, so the repository was cloned locally to a Windows 11 machine and the AWS CLI (`aws-cli/2.36.28`, Python 3.14.6) was run directly. Temporary credentials were injected into the local PowerShell session via environment variables, resolving an initial `InvalidClientTokenId` error.
+
+```bash
+aws cloudformation deploy --template-file template.yaml \
+  --stack-name restaurant-agent \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --region us-east-1
+```
+This provisioned the three backing Lambda functions: `get-cuisines`, `search-restaurants`, and `get-availability`.
+
+### Backend Contract Refactoring
+The CloudFormation template was written against the legacy Classic Agents contract, so the Lambda handlers expected deeply nested payloads — `event["actionGroup"]["parameters"]` — and returned equally nested `responseBody` / `messageVersion` wrappers. Under AgentCore this caused `KeyError` crashes.
+
+All three handlers were refactored to accept flat JSON dictionaries directly and return raw output dictionaries straight to the AgentCore orchestrator, with no wrapper objects.
+
+### Model Tool-Use Sequence Optimization
+As with prior AgentCore work, Amazon Nova Pro v1 emitted conversational `<thinking>` tokens during inference, disrupting the strict JSON tool-call stream:
+`modelStreamErrorException: Model produced invalid sequence as part of ToolUse`
+
+Amazon Nova 2 Lite was selected as the final inference engine and executed the full multi-step ReAct loop cleanly with no stream errors.
+
+## AgentCore Gateway & Tool Engineering
+The `restaurant-tools-gateway` was provisioned in `us-east-1` to front the three Lambda tools over MCP.
+
+**IAM Sidequest:** Gateway targets initially failed to attach. The auto-generated service role (`AmazonBedrockAgentCoreGatewayDefaultServiceRole1787272156012`) was missing invocation rights on the Lambda functions. This was resolved by creating an inline IAM policy (`GatewayLambdaAccess`) granting `lambda:InvokeFunction` against all three function ARNs.
+
+![The completed restaurant-tools-gateway — MCP protocol, resource ARN, and IAM role, showing a Ready status](/restaurant-agent/gateway-status.png)
+
+MCP schemas were defined as top-level JSON arrays, avoiding the nested-wrapper validation errors seen in earlier AgentCore work:
+- `get_cuisines`: empty object schema — no input required.
+- `search_restaurants`: optional `cuisine` string property.
+- `get_availability`: required `restaurant_id` string property.
+
+![All three MCP Lambda targets synced and showing a Ready status](/restaurant-agent/lambda-targets.png)
+
+## Harness Configuration & ReAct Prompt Design
+The `restaurant_recomendation_agent` Harness was attached to `restaurant-tools-gateway`, running on Amazon Nova 2 Lite. The system prompt is what actually encodes the ReAct behavior — a fixed reasoning sequence the model must follow before it is allowed to answer:
+
+> "You are a restaurant recommendation assistant whose role is to recommend a restaurant for the night based on the user's preferred cuisine and current availability. Always use your tools to gather available data before making any suggestions in the following steps: 1. Check available cuisines 2. Search for restaurants matching the user's preference to get the restaurant IDs. 3. Finally, check the availability of the specific restaurant ID for tonight. CAUTION: Never invent restaurants or fabricate availability; only recommend options confirmed by the tools."
+
+This is the anti-hallucination guardrail for the whole project: the model cannot skip straight to an answer. It has to reason through cuisine check → restaurant search → availability check, in that order, using only tool-confirmed data at each step.
+
+## Lambda Handlers
+
+### get-cuisines
+- **Input:** none
+- **Returns:** `{"cuisines": ["American", "French", "Indian", "Italian", "Japanese", "Mexican"]}`
+
+### search-restaurants
+- **Parameter parsing:** `cuisine = event.get("cuisine", "").lower()`
+- **Logic:** filters a static `RESTAURANTS` list by cuisine match.
+- **Returns:** `{"restaurants": [...]}` or an error dict if no match.
+
+### get-availability
+- **Parameter parsing:** `restaurant_id = event.get("restaurant_id", "")`
+- **Logic:** evaluates `AVAILABILITY.get(restaurant_id, False)`.
+- **Returns:** `{"restaurant_id": restaurant_id, "available": True | False}`
+
+All three follow the same flat-payload pattern established during the backend refactor — no nested `event["parameters"]`, no `responseBody` wrapper, just direct `event.get(...)` reads and raw dict returns.
+
+## Verification & Output
+With the full stack working, the agent was tested end-to-end:
+*"Find me an Italian restaurant for tonight."*
+
+Agent execution trace (3 steps, ReAct loop):
+1. **get_cuisines** (0.8s) → confirmed Italian is one of the 6 supported cuisines.
+2. **search_restaurants** (0.9s), called with `cuisine="Italian"` → returned two candidates: r1 (Trattoria Bella, 4.6 rating) and r2 (Osteria Romana, 4.4 rating).
+3. **get_availability** (2.1s, 2 calls) → r1: available = true, r2: available = false.
+
+**Synthesized output:** the agent recommended Trattoria Bella, citing its confirmed availability and 4.6 rating, and explicitly noted that Osteria Romana had no availability for tonight rather than silently dropping it.
+*(Total: 1011ms latency, 1852 tokens: 1782 input / 70 output).*
+
+![Full agent trace for "Find me an Italian restaurant for tonight" — all 3 ReAct steps](/restaurant-agent/agent-trace.png)
+
+## Key Takeaways
+- **Managed AWS services can be deprecated or paused mid-project:** Classic Bedrock Agents entering maintenance mode was an external event, not a design flaw, and the project plan had to absorb that change immediately.
+- **A ReAct-style system prompt does real work:** forcing a fixed check-cuisine → search → check-availability sequence, with an explicit "never invent" clause, is what keeps the agent from guessing a plausible-sounding restaurant.
+- **The Nova Pro v1 → Nova 2 Lite pattern repeated exactly from prior AgentCore work:** models that narrate their reasoning in `<thinking>` tokens conflict with AgentCore's strict tool-call stream, regardless of which specific agent is being built.
+- **Local CLI plus CloudFormation proved more reliable:** than the browser-based lab terminal for anything involving IAM policy edits or multi-step deploys.
+- **IAM is very often the actual blocker:** not the agent logic itself. The Gateway-to-Lambda invocation permissions issue cost real time and had a one-line fix once diagnosed.

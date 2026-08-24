@@ -94,7 +94,26 @@ export default function CredentialsPage() {
                 <span className={`px-2.5 py-1 rounded-md text-[10px] font-Silkscreen uppercase tracking-wider border ${catStyles}`}>
                   {catName}
                 </span>
-                {cert.link && (
+                {cert.slug ? (
+                  <>
+                    <Link
+                      href={`/credentials/${cert.slug}`}
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 transition-all duration-300"
+                    >
+                      <span>Details</span>
+                    </Link>
+                    {cert.link && (
+                      <Link
+                        href={cert.link}
+                        target="_blank"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 transition-all duration-300"
+                      >
+                        <ExternalLink size={12} />
+                        <span>Verify</span>
+                      </Link>
+                    )}
+                  </>
+                ) : cert.link ? (
                   <Link
                     href={cert.link}
                     target="_blank"
@@ -103,7 +122,7 @@ export default function CredentialsPage() {
                     <ExternalLink size={12} />
                     <span>View</span>
                   </Link>
-                )}
+                ) : null}
               </div>
             </div>
             );

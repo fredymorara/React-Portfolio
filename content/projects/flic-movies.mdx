@@ -1,0 +1,47 @@
+---
+title: "Flic Movies"
+description: "A modern, enterprise-grade streaming web application providing a beautiful, responsive, and seamless experience for discovering and tracking movies and TV shows."
+---
+
+> **Disclaimer:** This project was built strictly for educational purposes as a technical learning exercise in modern software engineering. It is not intended for the distribution of copyrighted material.
+
+## Overview
+
+Flic Movies is a modern, enterprise-grade streaming web application that provides a beautiful, responsive, and seamless experience for discovering and tracking movies and TV shows.
+
+The project is built as a monorepo, featuring a highly optimized Next.js frontend for dynamic SEO and user interfaces, paired with a robust, heavily secured NestJS backend for handling user authentication, comments, and watchlists.
+
+## Architecture
+
+The application uses a decoupled frontend and backend architecture within a single repository:
+
+- **Frontend (Vercel):** Next.js (App Router) handles the UI, routing, and dynamic SEO generation. It fetches movie metadata from the TMDB API via a secure server-side proxy to keep API keys hidden.
+- **Backend (Render):** A NestJS REST API that manages the user database. It handles JWT authentication, user profiles, watchlists, watch progress, and community comments.
+- **Database (PostgreSQL):** Managed via Prisma ORM.
+- **Data Source:** The Movie Database (TMDB) API v3.
+
+## Technology Stack
+
+### Frontend
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS (v4) with custom glassmorphism and matte-black aesthetics
+- **State Management:** TanStack React Query (for API caching and pagination)
+- **Icons:** Lucide React
+- **Testing:** Playwright (E2E)
+
+### Backend
+- **Framework:** NestJS 11
+- **Database ORM:** Prisma ORM
+- **Database:** PostgreSQL (compatible with Neon, Supabase, or local)
+- **Authentication:** Passport.js, JWT (@nestjs/jwt), bcrypt
+- **Security:** Helmet, @nestjs/throttler (Rate Limiting), Class Validator
+- **Testing:** Jest Unit Tests
+
+## Core Enterprise Features
+
+- **Advanced Security:** The backend utilizes helmet for strict HTTP security headers and @nestjs/throttler to enforce rate limiting against brute-force authentication and spam comment attacks. Passwords are fully hashed with bcrypt. DTOs strictly validate all inbound payloads.
+- **Cursor Pagination:** The comments, progress, and watchlist APIs all utilize an optimized cursor-based pagination strategy in Prisma to handle massive datasets without degrading database performance.
+- **UI Skeletons & Empty States:** Beautiful skeleton loaders stabilize the layout to eliminate cumulative layout shifts (CLS) while dynamic data fetches over the network.
+- **Smart Streaming Filter:** Built-in logic checks TMDB release dates to ensure the video player isn't loaded for movies that are strictly in theaters.
+- **Automated Testing:** Jest unit tests ensure business logic integrity, while Playwright is configured for End-to-End frontend user journey testing.
+- **Multi-Server Video Player:** Seamlessly integrates three top-tier streaming embed providers (Videasy, Vidlink, Vidsrc) into a singular UI. It features a robust Native Browser Fullscreen API that elevates the exact active iframe perfectly across any device without interfering with the internal player interfaces. *A completely unified Cross-Server Progress Tracker is currently in active development to normalize watch history percentages across all providers.*
