@@ -34,7 +34,7 @@ const NavBar = () => {
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+          transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
           className={`pointer-events-auto flex items-center justify-between rounded-full border border-white/5 bg-card-bg/70 px-6 py-3 transition-all duration-700 ease-cinema backdrop-blur-2xl ${
             isScrolled ? 'w-full md:w-max md:px-8 shadow-[0_4px_30px_rgba(221,36,118,0.15)] border-accent-sunset-end/20' : 'w-full md:w-max'
           } gap-8 lg:gap-16`}
@@ -66,7 +66,7 @@ const NavBar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+            transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
             className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 backdrop-blur-3xl"
           >
             <div className="flex flex-col items-center gap-12 mt-10">

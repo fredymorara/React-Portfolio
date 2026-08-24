@@ -11,7 +11,7 @@ const Contact = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+        transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
         className="w-full max-w-5xl double-bezel-outer overflow-hidden shadow-[0_0_60px_rgba(221,36,118,0.1)] relative"
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-accent-sunset-end/10 to-accent-sunset-start/5 blur-3xl -z-10" />

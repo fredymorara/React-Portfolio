@@ -34,7 +34,7 @@ const Hero = () => {
       <motion.div 
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+        transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
         className="relative z-10 flex flex-col items-start sm:items-center mt-20 will-change-transform w-full max-w-7xl mx-auto"
       >
         <h1 className="max-w-5xl text-left sm:text-center text-5xl leading-[1.1] tracking-tight sm:text-6xl md:text-[5rem] lg:text-[7rem] font-medium text-white/95">
