@@ -1,19 +1,43 @@
 'use client';
 
-
+import GradientWaves from '../ui/GradientWaves';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section aria-label="Hero – Fredrick Momanyi Morara, Software & AI Engineer" className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 overflow-hidden">
+    <section aria-label="Hero – Fredrick Momanyi Morara, Software & AI Engineer" className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 overflow-hidden bg-background">
+      <div className="absolute inset-0 z-0">
+        <GradientWaves
+          horizonColor="#DC3D43"
+          waveColor="#DC3D43"
+          crestColor="#FF512F"
+          speed={0.4}
+          amplitude={2.5}
+          waveScale={0.6}
+          waveRatio={0.9}
+          swell={35}
+          turbulence={20}
+          tilt={1.11}
+          zoom={1.0}
+          height={5.5}
+          fogDepth={15}
+          detail="medium"
+          brightness={1}
+          opacity={1.0}
+          mouseInteraction={true}
+          parallaxStrength={0.5}
+          grain={true}
+          grainIntensity={0.05}
+        />
+      </div>
       <motion.div 
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
         className="relative z-10 flex flex-col items-center mt-20"
       >
-        <h1 className="max-w-5xl text-center text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-[5rem] lg:text-[7rem] font-medium text-white/95">
+        <h1 className="max-w-5xl text-center text-4xl leading-[1.1] tracking-tight sm:text-6xl md:text-[5rem] lg:text-[7rem] font-medium text-white/95">
           Full-stack web apps, <br className="sm:hidden" /><span className="text-gradient-sunset italic pr-4 -mr-2">wired</span> to practical AI.
         </h1>
 
@@ -21,11 +45,11 @@ const Hero = () => {
           <a href="mailto:momanyifredm@gmail.com" className="vanguard-btn">
             <span>Get in touch</span>
             <div className="vanguard-btn-icon-wrapper text-white">
-              <ArrowUpRight size={18} />
+              <ArrowUpRight size={18} className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
           </a>
           
-          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white/80 font-medium tracking-wide transition-all duration-500 hover:bg-white/10 hover:text-white hover:border-white/20">
+          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg rounded-full border border-white/10 bg-white/5 text-white/80 font-medium tracking-wide transition-all duration-500 hover:bg-white/10 hover:text-white hover:border-white/20">
             <span>View Resume</span>
             <ArrowUpRight size={18} className="opacity-70 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
           </a>

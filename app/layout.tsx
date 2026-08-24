@@ -360,40 +360,7 @@ const jsonLd = {
       mainEntityOfPage: { '@id': `${siteUrl}/#webpage` },
     },
 
-    /*
-    // ── Project 1: Flic Movies ──
-    {
-      '@type': 'SoftwareApplication',
-      name: 'Flic Movies',
-      description:
-        'A modern, enterprise-grade streaming web application built as a monorepo with a Next.js frontend and a secured NestJS backend.',
-      url: 'https://flicmovies.me',
-      applicationCategory: 'EntertainmentApplication',
-      operatingSystem: 'Web',
-      author: { '@id': `${siteUrl}/#person` },
-      datePublished: '2026',
-      codeRepository: 'https://github.com/fredymorara',
-      programmingLanguage: ['Next.js', 'NestJS', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
-    },
-    */
-
-    /*
-    // ── Project 2: Kumo Anime ──
-    {
-      '@type': 'SoftwareApplication',
-      name: 'Kumo Anime',
-      description:
-        'A premium, blazing-fast anime streaming and discovery platform featuring cinematic UI/UX, advanced episode selection, and local watch history.',
-      url: 'https://anime.flicmovies.me',
-      applicationCategory: 'EntertainmentApplication',
-      operatingSystem: 'Web',
-      author: { '@id': `${siteUrl}/#person` },
-      datePublished: '2026',
-      codeRepository: 'https://github.com/fredymorara',
-      programmingLanguage: ['SolidStart', 'Tailwind CSS', 'GraphQL', 'Bun'],
-    },
-    */
-
+    
     // ── Project 3: HansCredit ──
     {
       '@type': 'SoftwareApplication',
@@ -409,22 +376,7 @@ const jsonLd = {
       programmingLanguage: ['JavaScript', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
     },
 
-    /*
-    // ── Project 4: Mpira Streams ──
-    {
-      '@type': 'SoftwareApplication',
-      name: 'Mpira Streams',
-      description:
-        'A front-end React sports streaming application consuming a public API, featuring modular architecture and Redux state management.',
-      url: 'https://sports.flicmovies.me',
-      applicationCategory: 'EntertainmentApplication',
-      operatingSystem: 'Web',
-      author: { '@id': `${siteUrl}/#person` },
-      datePublished: '2025',
-      codeRepository: 'https://github.com/fredymorara',
-      programmingLanguage: ['React', 'Redux', 'JavaScript', 'Tailwind CSS'],
-    },
-    */
+    
 
     // ── Project 5: Smart AI Library Assistant ──
     {
@@ -560,10 +512,7 @@ export default function RootLayout({
               maxOpacity={0.4}
               duration={5}
               repeatDelay={1}
-              colors={[
-                'rgba(255, 255, 255, 0.4)',
-                'rgba(255, 255, 255, 0.6)',
-              ]}
+              colors={['#F7CE00','#3CB179','#0091FF','#8E4EC6','#DC3D43']}
               className="inset-x-[4.5px] inset-y-[-30%] h-[150%]"
             />
           </div>

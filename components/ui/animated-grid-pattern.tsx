@@ -30,7 +30,7 @@ export default function AnimatedGridPattern({
   maxOpacity = 0.5,
   duration = 4,
   repeatDelay = 0.5,
-  colors = ['#fff'],
+  colors = ['#F7CE00','#3CB179','#0091FF','#8E4EC6','#DC3D43'],
   ...props
 }: AnimatedGridPatternProps) {
   const id = useId();
