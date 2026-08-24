@@ -55,7 +55,7 @@ const Footer = () => {
       </div>
 
       {/* Massive Background Typography */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center pointer-events-none opacity-[0.02] select-none overflow-hidden">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center pointer-events-none opacity-[0.09] select-none overflow-hidden">
         <span className="text-[15vw] font-bold tracking-tighter whitespace-nowrap leading-none translate-y-1/4">
           MORARA
         </span>

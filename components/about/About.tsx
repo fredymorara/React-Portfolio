@@ -11,7 +11,7 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
+          transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
           className="lg:w-1/2 flex flex-col justify-center"
         >
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white/95 mb-8">
@@ -32,7 +32,7 @@ const About = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.2, delay: index * 0.03, ease: [0.32, 0.72, 0, 1] }}
+                transition={{ duration: 0.5, delay: index * 0.05, ease: [0.32, 0.72, 0, 1] }}
                 className={`double-bezel-outer group min-h-[200px] flex-1 ${index === 1 ? 'lg:-ml-12' : ''} ${index === 2 ? 'lg:-ml-24' : ''}`}
               >
                 <div className="double-bezel-inner h-full p-6 md:p-8 relative overflow-hidden flex flex-col justify-between">

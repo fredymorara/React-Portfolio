@@ -22,7 +22,7 @@ const Techs = () => {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
+            transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:w-1/2"
           >
             {techs.map((tech, index) => (
@@ -31,7 +31,7 @@ const Techs = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.2, delay: index * 0.015, ease: [0.32, 0.72, 0, 1] }}
+                transition={{ duration: 0.4, delay: index * 0.03, ease: [0.32, 0.72, 0, 1] }}
                 className="group relative rounded-full border border-white/10 bg-card-bg px-6 py-3 transition-transform duration-500 ease-cinema hover:scale-105 hover:bg-white/5"
               >
                 <div 
@@ -47,7 +47,7 @@ const Techs = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
+            transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
             className="hidden lg:flex relative items-center justify-center lg:w-1/2"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-[100px] rounded-full" />
