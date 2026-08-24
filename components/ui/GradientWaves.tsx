@@ -188,7 +188,7 @@ const GradientWaves = ({
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      dpr: typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio || 1, 2)
+      dpr: 1
     });
 
     const gl = renderer.gl;
