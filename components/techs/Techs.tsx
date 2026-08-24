@@ -35,7 +35,7 @@ const Techs = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: index * 0.03, ease: [0.32, 0.72, 0, 1] }}
-                className="group relative rounded-full border border-white/10 bg-[#0A0A0A] px-6 py-3 transition-transform duration-500 ease-cinema hover:scale-105 hover:bg-white/5"
+                className="group relative rounded-full border border-white/10 bg-card-bg px-6 py-3 transition-transform duration-500 ease-cinema hover:scale-105 hover:bg-white/5"
               >
                 <div 
                   className="absolute inset-0 rounded-full opacity-0 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-20"
@@ -47,8 +47,8 @@ const Techs = () => {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
-            whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
             className="hidden lg:flex relative items-center justify-center lg:w-1/2"

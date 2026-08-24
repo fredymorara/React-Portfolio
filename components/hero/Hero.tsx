@@ -13,7 +13,7 @@ const Hero = () => {
         className="absolute inset-0 -z-30 opacity-40 mix-blend-screen bg-cover bg-center"
         style={{ backgroundImage: `url('/bghero.png')` }}
       />
-      <div className="absolute inset-0 -z-30 bg-[#050505]/70" />
+      <div className="absolute inset-0 -z-30 bg-background/70" />
 
       <div className="pointer-events-none absolute top-0 -z-20 size-full overflow-hidden opacity-50 [mask-image:radial-gradient(1000px_circle_at_center,#000,transparent)]">
         <AnimatedGridPattern
@@ -30,8 +30,8 @@ const Hero = () => {
       </div>
 
       <motion.div 
-        initial={{ y: 30, opacity: 0, filter: 'blur(8px)' }}
-        animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
         className="relative z-10 flex flex-col items-center mt-20"
       >
@@ -39,18 +39,16 @@ const Hero = () => {
           Fredrick M. Morara · Full-Stack Developer & AI Integrations
         </div>
         
-        <h1 className="max-w-5xl text-center text-[3.5rem] leading-[1.1] tracking-tight md:text-[5rem] lg:text-[7rem] font-medium text-white/95">
-          Full-stack web apps, <span className="text-gradient-sunset italic pr-4 -mr-2">wired</span> to practical AI.
+        <h1 className="max-w-5xl text-center text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-[5rem] lg:text-[7rem] font-medium text-white/95">
+          Full-stack web apps, <br className="sm:hidden" /><span className="text-gradient-sunset italic pr-4 -mr-2">wired</span> to practical AI.
         </h1>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          <a href="mailto:momanyifredm@gmail.com">
-            <button type="button" className="vanguard-btn">
-              <span>Get in touch</span>
-              <div className="vanguard-btn-icon-wrapper text-white">
-                <ArrowUpRight size={18} />
-              </div>
-            </button>
+          <a href="mailto:momanyifredm@gmail.com" className="vanguard-btn">
+            <span>Get in touch</span>
+            <div className="vanguard-btn-icon-wrapper text-white">
+              <ArrowUpRight size={18} />
+            </div>
           </a>
           
           <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white/80 font-medium tracking-wide transition-all duration-500 hover:bg-white/10 hover:text-white hover:border-white/20">

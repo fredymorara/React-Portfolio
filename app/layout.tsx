@@ -529,6 +529,8 @@ const jsonLd = {
   ],
 };
 
+import { MotionProvider } from '@/components/providers/MotionProvider';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -542,15 +544,17 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${outfit.variable} ${silkscreen.variable} relative antialiased bg-[#050505] text-white/90`}>
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-md">
-          Skip to main content
-        </a>
-        <NavBar />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <div className="main-mask pointer-events-none fixed inset-0 -z-50" />
-        <div className="pointer-events-none fixed inset-0 -z-40 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
+      <body className={`${outfit.variable} ${silkscreen.variable} relative antialiased bg-background text-white/90`}>
+        <MotionProvider>
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-md">
+            Skip to main content
+          </a>
+          <NavBar />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <div className="main-mask pointer-events-none fixed inset-0 -z-50" />
+          <div className="pointer-events-none fixed inset-0 -z-40 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
+        </MotionProvider>
       </body>
     </html>
   );

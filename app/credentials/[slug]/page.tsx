@@ -12,7 +12,7 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
   }
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white px-6 py-24">
+    <main className="min-h-screen bg-background text-white px-6 py-24">
       <div className="mx-auto max-w-4xl">
         <Link
           href="/credentials"

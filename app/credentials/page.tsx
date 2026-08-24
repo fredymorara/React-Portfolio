@@ -22,7 +22,7 @@ export default function CredentialsPage() {
     : certifications.filter((c) => c.category === CATEGORY_MAP[active]);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white px-6 py-24">
+    <main className="min-h-screen bg-background text-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
         {/* Back nav */}
@@ -63,7 +63,7 @@ export default function CredentialsPage() {
             const catStyles = {
               ai: 'text-[#39e75f]/60 border-[#39e75f]/20 bg-[#39e75f]/5',
               cloud: 'text-[#ADD8E6]/60 border-[#ADD8E6]/20 bg-[#ADD8E6]/5',
-              fullstack: 'text-[#DD2476]/60 border-[#DD2476]/20 bg-[#DD2476]/5',
+              fullstack: 'text-accent-sunset-end/60 border-accent-sunset-end/20 bg-accent-sunset-end/5',
               fundamentals: 'text-white/40 border-white/10 bg-white/5'
             }[cert.category] || 'text-white/40 border-white/10 bg-white/5';
 

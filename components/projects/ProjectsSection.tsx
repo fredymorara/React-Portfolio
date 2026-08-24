@@ -23,7 +23,7 @@ const ProjectsSection = () => {
         <div className="mt-16 flex justify-end">
           <Link
             href="/work"
-            className="flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors duration-300 group"
+            className="flex items-center gap-2 p-3 -mr-3 text-sm text-white/60 hover:text-white transition-colors duration-300 group"
           >
             <span>See all projects</span>
             <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

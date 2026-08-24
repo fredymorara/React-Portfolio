@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 
@@ -100,6 +100,8 @@ export default function AnimatedGridPattern({
     };
   }, [containerRef]);
 
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <svg
       ref={containerRef}
@@ -128,23 +130,23 @@ export default function AnimatedGridPattern({
       </defs>
       <rect width="100%" height="100%" fill={`url(#${id})`} />
       <svg x={x} y={y} className="overflow-visible">
-        {squares.map(({ pos: [x, y], id, colorIndex }, index) => (
+        {squares.map(({ pos: [squareX, squareY], id, colorIndex }, index) => (
           <motion.rect
             suppressHydrationWarning
-            initial={{ opacity: 0 }}
+            initial={{ opacity: shouldReduceMotion ? maxOpacity : 0 }}
             animate={{ opacity: maxOpacity }}
             transition={{
-              duration,
-              repeat: 1,
-              delay: index * 0.1,
+              duration: shouldReduceMotion ? 0 : duration,
+              repeat: shouldReduceMotion ? 0 : 1,
+              delay: shouldReduceMotion ? 0 : index * 0.1,
               repeatType: 'reverse',
             }}
-            onAnimationComplete={() => updateSquarePosition(id)}
-            key={`${x}-${y}-${index}`}
+            onAnimationComplete={shouldReduceMotion ? undefined : () => updateSquarePosition(id)}
+            key={`${squareX}-${squareY}-${index}`}
             width={width - 1}
             height={height - 1}
-            x={x * width + 1}
-            y={y * height + 1}
+            x={squareX * width + 1}
+            y={squareY * height + 1}
             fill={colors[colorIndex]}
             strokeWidth="0"
           />

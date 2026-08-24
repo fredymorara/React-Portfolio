@@ -37,7 +37,7 @@ export default async function ProjectDocPage({
   }
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white px-6 py-24">
+    <main className="min-h-screen bg-background text-white px-6 py-24">
       <div className="mx-auto max-w-4xl">
 
         {/* Back nav */}
@@ -110,18 +110,15 @@ export default async function ProjectDocPage({
 
         {/* MDX documentation */}
         {mdxContent ? (
-          <article className="prose prose-invert prose-lg max-w-none
+          <article className="prose prose-invert prose-lg max-w-none 
             prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-white/90
-            prose-h1:text-5xl prose-h2:text-3xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-4 prose-h2:mt-16 prose-h2:mb-8
-            prose-p:text-white/60 prose-p:leading-relaxed
-            prose-a:text-[#DD2476] prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-white/90
-            prose-code:text-[#FF512F] prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-            prose-pre:bg-[#0A0A0A] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
-            prose-li:text-white/60
-            prose-hr:border-white/10
+            prose-p:text-white/70 prose-p:leading-relaxed
+            prose-a:text-accent-sunset-end prose-a:no-underline hover:prose-a:underline
+            prose-strong:text-white/90 prose-strong:font-medium
+            prose-code:text-accent-sunset-start prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-card-bg prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
             prose-img:rounded-xl prose-img:border prose-img:border-white/10
-          ">
+            prose-ul:text-white/70 prose-li:marker:text-white/30">
             <MDXRemote source={mdxContent} components={mdxComponents} />
           </article>
         ) : (

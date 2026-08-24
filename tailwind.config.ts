@@ -13,7 +13,10 @@ export default {
     },
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
+        background: '#050505',
+        'card-bg': '#0A0A0A',
+        'accent-sunset-start': '#FF512F',
+        'accent-sunset-end': '#DD2476',
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
