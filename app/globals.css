@@ -97,10 +97,10 @@ body {
     @apply relative inline-flex items-center gap-3 sm:gap-4 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-white text-black font-semibold tracking-wide transition-all duration-700 ease-cinema hover:scale-[0.98] hover:shadow-[0_0_30px_rgba(221,36,118,0.3)];
   }
   .vanguard-btn-icon-wrapper {
-    @apply w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/10 flex items-center justify-center transition-all duration-700 ease-cinema;
+    @apply w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-sunset-start text-white flex items-center justify-center transition-all duration-700 ease-cinema;
   }
   .vanguard-btn:hover .vanguard-btn-icon-wrapper {
-    @apply translate-x-1 -translate-y-[1px] scale-105 bg-accent-sunset-start text-white shadow-[0_0_15px_rgba(255,81,47,0.5)];
+    @apply translate-x-1 -translate-y-[1px] scale-105 shadow-[0_0_15px_rgba(255,81,47,0.5)];
   }
   /* Sunset Architecture */
   .text-gradient-sunset {

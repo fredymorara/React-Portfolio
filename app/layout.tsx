@@ -509,10 +509,10 @@ export default function RootLayout({
           <div className="pointer-events-none fixed top-0 -z-20 size-full overflow-hidden opacity-50 [mask-image:radial-gradient(1000px_circle_at_center,#000,transparent)]">
             <AnimatedGridPattern
               numSquares={120}
-              maxOpacity={0.4}
+              maxOpacity={0.6}
               duration={5}
               repeatDelay={1}
-              colors={['#F7CE00','#3CB179','#0091FF','#8E4EC6','#DC3D43']}
+              colors={['#DD2476','#FF512F','#DC3D43']}
               className="inset-x-[4.5px] inset-y-[-30%] h-[150%]"
             />
           </div>

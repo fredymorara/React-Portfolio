@@ -35,13 +35,16 @@ const Hero = () => {
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-        className="relative z-10 flex flex-col items-center mt-20 will-change-transform"
+        className="relative z-10 flex flex-col items-start sm:items-center mt-20 will-change-transform w-full max-w-7xl mx-auto"
       >
-        <h1 className="max-w-5xl text-center text-4xl leading-[1.1] tracking-tight sm:text-6xl md:text-[5rem] lg:text-[7rem] font-medium text-white/95">
-          Full-stack web apps, <br className="sm:hidden" /><span className="text-gradient-sunset italic pr-4 -mr-2">wired</span> to practical AI.
+        <h1 className="max-w-5xl text-left sm:text-center text-5xl leading-[1.1] tracking-tight sm:text-6xl md:text-[5rem] lg:text-[7rem] font-medium text-white/95">
+          Full-stack <br className="block sm:hidden" />
+          web apps <br />
+          <span className="text-gradient-sunset italic pr-4 -mr-2">wired</span> <br className="block sm:hidden" />
+          to practical AI.
         </h1>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+        <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full sm:w-auto">
           <a href="mailto:momanyifredm@gmail.com" className="vanguard-btn">
             <span>Get in touch</span>
             <div className="vanguard-btn-icon-wrapper text-white">
@@ -55,7 +58,7 @@ const Hero = () => {
           </a>
         </div>
           
-        <div className="flex flex-wrap justify-center gap-3 mt-10">
+        <div className="flex flex-wrap justify-start sm:justify-center gap-3 mt-10 w-full sm:w-auto">
           <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 font-Silkscreen text-xs uppercase text-white/60">
             React &amp; Next.js
           </span>
