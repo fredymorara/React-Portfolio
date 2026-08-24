@@ -6,6 +6,7 @@ import { Outfit, Silkscreen } from 'next/font/google';
 import './globals.css';
 import NavBar from '@/components/layout/NavBar';
 import Footer from '@/components/layout/Footer';
+import AnimatedGridPattern from '@/components/ui/animated-grid-pattern';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -546,6 +547,27 @@ export default function RootLayout({
       </head>
       <body className={`${outfit.variable} ${silkscreen.variable} relative antialiased bg-background text-white/90`}>
         <MotionProvider>
+          {/* Global Background Elements */}
+          <div 
+            className="fixed inset-0 -z-30 opacity-40 mix-blend-screen bg-cover bg-center pointer-events-none"
+            style={{ backgroundImage: `url('/bghero.png')` }}
+          />
+          <div className="fixed inset-0 -z-30 bg-background/70 pointer-events-none" />
+
+          <div className="pointer-events-none fixed top-0 -z-20 size-full overflow-hidden opacity-50 [mask-image:radial-gradient(1000px_circle_at_center,#000,transparent)]">
+            <AnimatedGridPattern
+              numSquares={120}
+              maxOpacity={0.4}
+              duration={5}
+              repeatDelay={1}
+              colors={[
+                'rgba(255, 255, 255, 0.4)',
+                'rgba(255, 255, 255, 0.6)',
+              ]}
+              className="inset-x-[4.5px] inset-y-[-30%] h-[150%]"
+            />
+          </div>
+          
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-md">
             Skip to main content
           </a>

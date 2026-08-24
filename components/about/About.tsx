@@ -14,9 +14,6 @@ const About = () => {
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
           className="lg:w-1/2 flex flex-col justify-center"
         >
-          <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md mb-8">
-            About Me
-          </div>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white/95 mb-8">
             Early career. <span className="text-white/40 italic">Real output.</span>
           </h2>

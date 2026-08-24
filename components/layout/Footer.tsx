@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/10 overflow-hidden">
+    <footer className="relative bg-background border-t border-white/10 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-32 flex flex-col gap-20">
         
         {/* Top Split */}

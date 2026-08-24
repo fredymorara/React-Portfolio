@@ -25,7 +25,7 @@ export const certifications: Certification[] = [
     date: '2026',
     category: 'ai',
     link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/VSGDQLUM?sharingId=3B6E101D17988711',
-    pdfUrl: '/certs/Extract insights from visual data on Azure.pdf',
+    pdfUrl: '/certs/Extract insights from visual data on Azure.png',
     badges: [
       { title: 'Create a knowledge mining solution with Azure AI Search', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/K9HGD3XB?sharingId=3B6E101D17988711' },
       { title: 'Extract data with Azure Document Intelligence', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/3ZMNBGCH?sharingId=3B6E101D17988711' },
@@ -42,7 +42,7 @@ export const certifications: Certification[] = [
     date: '2026',
     category: 'ai',
     link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/Y4BJDK5R?sharingId=3B6E101D17988711',
-    pdfUrl: '/certs/Develop computer vision solutions with Microsoft Foundry.pdf',
+    pdfUrl: '/certs/Develop computer vision solutions with Microsoft Foundry.png',
     badges: [
       { title: 'Generate videos with Microsoft Foundry', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/WME4VR2N?sharingId=3B6E101D17988711' },
       { title: 'Generate images with AI', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/EGCU5DJP?sharingId=3B6E101D17988711' },
@@ -57,7 +57,7 @@ export const certifications: Certification[] = [
     date: '2026',
     category: 'ai',
     link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/8VQYREXW?sharingId=3B6E101D17988711',
-    pdfUrl: '/certs/Develop natural language solutions in Azure.pdf',
+    pdfUrl: '/certs/Develop natural language solutions in Azure.png',
     badges: [
       { title: 'Translate text and speech with Microsoft Foundry Tools', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/NQPA74YF?sharingId=3B6E101D17988711' },
       { title: 'Develop an Azure Speech Voice Live Agent in Microsoft Foundry', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/CR788P69?sharingId=3B6E101D17988711' },
@@ -100,7 +100,7 @@ export const certifications: Certification[] = [
     date: '2026',
     category: 'ai',
     link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/VSKGNQVM?sharingId=3B6E101D17988711',
-    pdfUrl: '/certs/Develop generative AI apps in Azure.pdf',
+    pdfUrl: '/certs/Develop generative AI apps in Azure.png',
     badges: [
       { title: 'Implement a responsible generative AI solution in Microsoft Foundry', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/WMAPLF8N?sharingId=3B6E101D17988711' },
       { title: 'Optimize generative AI model performance with Microsoft Foundry', link: 'https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/4CSGTBFK?sharingId=3B6E101D17988711' },

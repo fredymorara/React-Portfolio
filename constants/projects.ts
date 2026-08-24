@@ -164,7 +164,7 @@ export const projects: Project[] = [
     featured: true,
     screenshot: '/AWS Projects.png',
     color: '#0055ff',
-    links: {},
+    links: { github: 'https://github.com/fredymorara/Programmatic-AI-Orchestration' },
     hasDocumentation: true,
   },
 ];

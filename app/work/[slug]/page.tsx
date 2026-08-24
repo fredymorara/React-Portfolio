@@ -37,8 +37,8 @@ export default async function ProjectDocPage({
   }
 
   return (
-    <main className="min-h-screen bg-background text-white px-6 py-24">
-      <div className="mx-auto max-w-4xl">
+    <main className="min-h-screen text-white px-6 py-24">
+      <div className="mx-auto max-w-7xl">
 
         {/* Back nav */}
         <Link

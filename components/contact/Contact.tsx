@@ -18,9 +18,6 @@ const Contact = () => {
         <div className="double-bezel-inner relative overflow-hidden flex flex-col md:flex-row">
           <div className="md:w-1/2 p-12 md:p-20 flex flex-col justify-between relative z-10">
             <div>
-              <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md mb-8">
-                Get in touch
-              </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white/95 mb-6">
                 Open to new <br/><span className="text-gradient-sunset italic font-semibold">opportunities.</span>
               </h2>

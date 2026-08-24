@@ -22,7 +22,7 @@ export default function CredentialsPage() {
     : certifications.filter((c) => c.category === CATEGORY_MAP[active]);
 
   return (
-    <main className="min-h-screen bg-background text-white px-6 py-24">
+    <main className="min-h-screen text-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
         {/* Back nav */}

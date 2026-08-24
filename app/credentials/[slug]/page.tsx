@@ -1,7 +1,32 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { Metadata } from 'next';
 import { certifications } from '@/constants/certifications';
+
+export function generateStaticParams() {
+  return certifications
+    .filter((cert) => cert.slug)
+    .map((cert) => ({
+      slug: cert.slug,
+    }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const cert = certifications.find((c) => c.slug === slug);
+
+  if (!cert) {
+    return {
+      title: 'Credential Not Found',
+    };
+  }
+
+  return {
+    title: `${cert.title} - Fredrick M. Morara`,
+    description: `View the credential details for ${cert.title} issued by ${cert.issuer}.`,
+  };
+}
 
 export default async function CredentialDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -12,8 +37,8 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
   }
 
   return (
-    <main className="min-h-screen bg-background text-white px-6 py-24">
-      <div className="mx-auto max-w-4xl">
+    <main className="min-h-screen text-white px-6 py-24">
+      <div className="mx-auto max-w-7xl">
         <Link
           href="/credentials"
           className="inline-flex items-center gap-2 text-white/40 hover:text-white text-sm mb-12 transition-colors duration-300"
@@ -44,7 +69,7 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
         </div>
 
         {cert.pdfUrl && (
-          <div className={`mb-16 rounded-xl border border-white/10 overflow-hidden bg-white/5 w-full ${cert.pdfUrl.endsWith('.pdf') ? 'aspect-[4/3] md:aspect-[16/9]' : ''}`}>
+          <div className={`mb-16 rounded-xl border border-white/10 overflow-hidden bg-white/5 w-full max-w-4xl ${cert.pdfUrl.endsWith('.pdf') ? 'aspect-[4/3] md:aspect-[16/9]' : ''}`}>
             {cert.pdfUrl.endsWith('.pdf') ? (
               <iframe 
                 src={`${encodeURI(cert.pdfUrl)}#toolbar=0&view=FitH`}

@@ -7,9 +7,6 @@ const ProjectsSection = () => {
     <section className="relative py-32 md:py-48" id="projects" aria-label="Featured Projects">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-20 space-y-6">
-          <div className="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 backdrop-blur-md">
-            My Work
-          </div>
           <h2 className="text-4xl font-medium tracking-tight md:text-6xl lg:text-7xl">
             Things I&apos;ve Built
           </h2>

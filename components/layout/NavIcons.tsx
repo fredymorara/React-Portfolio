@@ -20,9 +20,6 @@ const NavIcons = ({ isMobile }: NavIconsProps) => {
           height={isMobile ? 32 : 25}
           className="opacity-80 transition group-hover:opacity-100"
         />
-        <span className={`${isMobile ? 'text-lg font-medium text-white/70 group-hover:text-white' : 'hidden text-xs text-white opacity-50 md:inline'} transition`}>
-          Github
-        </span>
       </Link>
       <Link
         href="https://www.linkedin.com/in/freddymorara/"
@@ -36,9 +33,6 @@ const NavIcons = ({ isMobile }: NavIconsProps) => {
           height={isMobile ? 36 : 28}
           className="opacity-80 transition group-hover:opacity-100"
         />
-        <span className={`${isMobile ? 'text-lg font-medium text-white/70 group-hover:text-white' : 'hidden text-xs text-white opacity-50 md:inline'} transition`}>
-          LinkedIn
-        </span>
       </Link>
     </div>
   );
