@@ -69,7 +69,7 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
         </div>
 
         {cert.pdfUrl && (
-          <div className={`mb-16 rounded-xl border border-white/10 overflow-hidden bg-white/5 w-full max-w-4xl ${cert.pdfUrl.endsWith('.pdf') ? 'aspect-[4/3] md:aspect-[16/9]' : ''}`}>
+          <div className={`mb-16 mx-auto rounded-xl border border-white/10 overflow-hidden bg-white/5 w-full max-w-4xl ${cert.pdfUrl.endsWith('.pdf') ? 'aspect-[4/3] md:aspect-[16/9]' : ''}`}>
             {cert.pdfUrl.endsWith('.pdf') ? (
               <iframe 
                 src={`${encodeURI(cert.pdfUrl)}#toolbar=0&view=FitH`}
@@ -88,11 +88,11 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
         )}
 
         {cert.badges && cert.badges.length > 0 && (
-          <div>
+          <div className="w-full max-w-4xl mx-auto mt-12">
             <h2 className="text-2xl font-medium mb-6 text-white/80">Modules Completed in this Path</h2>
-            <div className="divide-y divide-white/5 border-t border-white/5">
+            <div className="flex flex-col gap-3">
               {cert.badges.map((badge, idx) => (
-                <div key={idx} className="py-5 flex items-center justify-between group">
+                <div key={idx} className="py-4 px-6 flex items-center justify-between group bg-card-bg rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                   <span className="text-white/70 group-hover:text-white transition-colors">
                     {badge.title}
                   </span>
