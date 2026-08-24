@@ -110,13 +110,13 @@ export default async function ProjectDocPage({
 
         {/* MDX documentation */}
         {mdxContent ? (
-          <article className="prose prose-invert prose-lg max-w-none 
+          <article className="bg-card-bg p-6 md:p-12 lg:p-16 rounded-3xl border border-white/10 shadow-[0_4px_30px_rgba(221,36,118,0.03)] prose prose-invert prose-lg max-w-none 
             prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-white/90
             prose-p:text-white/70 prose-p:leading-relaxed
             prose-a:text-accent-sunset-end prose-a:no-underline hover:prose-a:underline
             prose-strong:text-white/90 prose-strong:font-medium
             prose-code:text-accent-sunset-start prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-            prose-pre:bg-card-bg prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
+            prose-pre:bg-black/40 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
             prose-img:rounded-xl prose-img:border prose-img:border-white/10
             prose-ul:text-white/70 prose-li:marker:text-white/30">
             <MDXRemote source={mdxContent} components={mdxComponents} />

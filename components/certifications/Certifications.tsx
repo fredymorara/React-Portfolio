@@ -28,7 +28,7 @@ const Certifications = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1], delay: (index % 5) * 0.05 }}
-              className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8 border-b border-white/10 transition-all duration-700 hover:bg-card-bg hover:border-accent-sunset-end/20 hover:shadow-[0_4px_30px_rgba(221,36,118,0.05)] px-4 md:px-8"
+              className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8 border-b border-white/10 transition-all duration-700 bg-card-bg hover:border-accent-sunset-end/20 hover:shadow-[0_4px_30px_rgba(221,36,118,0.05)] px-4 md:px-8"
             >
               <div className="flex items-center gap-6">
                 {cert.badge ? (

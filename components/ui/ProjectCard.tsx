@@ -16,7 +16,7 @@ const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1], delay: (index % 4) * 0.05 }}
-      className="group relative flex flex-col lg:flex-row lg:items-start justify-between gap-8 py-8 md:py-12 border-b border-white/10 transition-all duration-700 hover:bg-card-bg hover:border-accent-sunset-end/20 hover:shadow-[0_4px_30px_rgba(221,36,118,0.05)] px-4 md:px-8"
+      className="group relative flex flex-col lg:flex-row lg:items-start justify-between gap-8 py-8 md:py-12 border-b border-white/10 transition-all duration-700 bg-card-bg hover:border-accent-sunset-end/20 hover:shadow-[0_4px_30px_rgba(221,36,118,0.05)] px-4 md:px-8"
     >
       {/* Left: Date, Title */}
       <div className="flex flex-col gap-3 lg:w-1/3">
