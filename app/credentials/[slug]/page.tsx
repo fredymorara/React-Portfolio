@@ -63,7 +63,7 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
               className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors duration-300 text-sm mt-4"
             >
               <ExternalLink size={14} />
-              <span>Verify on Microsoft Learn</span>
+              <span>Verify on {cert.issuer}</span>
             </Link>
           )}
         </div>

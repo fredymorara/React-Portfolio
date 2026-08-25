@@ -7,7 +7,7 @@ import Link from 'next/link';
 const PREVIEW_COUNT = 5;
 
 const Certifications = () => {
-  const preview = certifications.slice(0, PREVIEW_COUNT);
+  const preview = certifications.filter(cert => cert.featured);
   return (
     <section className="relative py-32 md:py-48" id="certifications" aria-label="Credentials">
       <div className="mx-auto max-w-7xl px-6">
@@ -91,7 +91,7 @@ const Certifications = () => {
 
         <div className="mt-10 flex items-center justify-between">
           <span className="text-xs text-white/30 font-Silkscreen uppercase tracking-widest">
-            Showing {PREVIEW_COUNT} of {certifications.length}
+            Showing {preview.length} of {certifications.length}
           </span>
           <Link
             href="/credentials"

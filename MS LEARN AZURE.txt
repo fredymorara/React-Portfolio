@@ -1,0 +1,81 @@
+======================================================================================TROPHYS======================================================================================
+1.Extract insights from visual data on Azure: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/VSGDQLUM?sharingId=3B6E101D17988711
+
+2.Develop computer vision solutions with Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/Y4BJDK5R?sharingId=3B6E101D17988711
+
+3.Develop natural language solutions in Azure: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/8VQYREXW?sharingId=3B6E101D17988711
+
+4.Develop AI agents on Azure: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/FEEF8DRX?sharingId=3B6E101D17988711
+
+5.Develop generative AI apps in Azure: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/VSKGNQVM?sharingId=3B6E101D17988711
+======================================================================================BADGES======================================================================================
+
+1.Build enterprise-grade tool ecosystems with MCP and Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/JHFLSC7T?sharingId=3B6E101D17988711
+
+2.Design advanced prompting strategies for production AI agents: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/QL94C87E?sharingId=3B6E101D17988711
+
+3.Create a knowledge mining solution with Azure AI Search: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/K9HGD3XB?sharingId=3B6E101D17988711
+
+4.Extract data with Azure Document Intelligence: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/3ZMNBGCH?sharingId=3B6E101D17988711
+
+5.Create an Azure Content Understanding client application: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/7DSMKDTZ?sharingId=3B6E101D17988711
+
+6.Create a multimodal analysis solution with Azure Content Understanding: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/Y4DZ2TLR?sharingId=3B6E101D17988711
+
+7.Analyze images with Content Understanding: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/4CUH39FK?sharingId=3B6E101D17988711
+
+8.Generate videos with Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/WME4VR2N?sharingId=3B6E101D17988711
+
+9.Generate images with AI: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/EGCU5DJP?sharingId=3B6E101D17988711
+
+10.Develop a vision-enabled generative AI application: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/H2MQ6BH8?sharingId=3B6E101D17988711
+
+11.Translate text and speech with Microsoft Foundry Tools: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/NQPA74YF?sharingId=3B6E101D17988711
+
+12.Develop an Azure Speech Voice Live Agent in Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/CR788P69?sharingId=3B6E101D17988711
+
+13.Develop a speech agent with the Azure Speech MCP server: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/XP467KVY?sharingId=3B6E101D17988711
+
+14.Create speech-enabled apps with Azure Speech in Microsoft Foundry Tools: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/VS58Z5PM?sharingId=3B6E101D17988711
+
+15.Develop a speech-capable generative AI application: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/NQE5JHWF?sharingId=3B6E101D17988711
+
+16.Develop a text analysis agent with the Azure Language MCP server: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/2TSHJBWV?sharingId=3B6E101D17988711
+
+17.Analyze text with Azure Language in Foundry Tools: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/BU3R75PD?sharingId=3B6E101D17988711
+
+18.Discover Azure AI Agents with A2A: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/9AA9GM8U?sharingId=3B6E101D17988711
+
+19.Orchestrate a multi-agent solution using the Microsoft Agent Framework: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/EGGHFNCP?sharingId=3B6E101D17988711
+
+20.Develop an AI agent with Microsoft Agent Framework: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/U77EPD73?sharingId=3B6E101D17988711
+
+21.Build agent-driven workflows using Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/BUUFWGSD?sharingId=3B6E101D17988711
+
+22.Integrate your agent with Microsoft 365: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/9AA7LELU?sharingId=3B6E101D17988711
+
+23.Build knowledge-enhanced AI agents with Foundry IQ: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/NQQEDZ9F?sharingId=3B6E101D17988711
+
+24.Integrate MCP Tools with Azure AI Agents: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/3ZZ2WQXH?sharingId=3B6E101D17988711
+
+25.Implement advanced RAG pipelines with Azure AI Search and Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/9AYX6HYU?sharingId=3B6E101D17988711
+
+26.Integrate custom tools into your agent: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/H2RRXH48?sharingId=3B6E101D17988711
+
+27.Develop AI agents with Microsoft Foundry and Visual Studio Code: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/FE27CWNX?sharingId=3B6E101D17988711
+
+28.Implement a responsible generative AI solution in Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/WMAPLF8N?sharingId=3B6E101D17988711
+
+29.Optimize generative AI model performance with Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/4CSGTBFK?sharingId=3B6E101D17988711
+
+30.Develop generative AI apps that use tools: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/XP2ZSG6Y?sharingId=3B6E101D17988711
+
+31.Develop a generative AI chat app with Microsoft Foundry: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/3ZXWLUGH?sharingId=3B6E101D17988711
+
+32.Select, deploy, and evaluate Microsoft Foundry models: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/NQAC2YJF?sharingId=3B6E101D17988711
+
+33.Plan and prepare to develop AI solutions on Azure: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/Y42MTWYR?sharingId=3B6E101D17988711
+
+34.Introduction to generative AI and agents: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/8VYRU7SW?sharingId=3B6E101D17988711
+
+35.Introduction to AI concepts: https://learn.microsoft.com/api/achievements/share/en-us/freddymorara/H2NUEKD8?sharingId=3B6E101D17988711

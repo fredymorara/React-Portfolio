@@ -1,0 +1,55 @@
+=======CERTIFICATION AND CPE CERTIFICATES=========================
+
+AI FUNDAMENTALS CERTIFICATE DATACAMP: https://www.datacamp.com/skill-verification/AIF0020406437984
+
+DATACAMP UNDERSTATING ARTIFICIAL INTELLIGENCE SOA: https://www.datacamp.com/skill-verification/UAI0801417034
+
+DATACAMP AI ETHICS SOA CERTIFICATE: https://www.datacamp.com/skill-verification/AIE0029822476123
+
+DATACAMP INTRODUCTION TO CHATGPT SOA CERTIFICATE: https://www.datacamp.com/skill-verification/CGPTI0024636800673
+
+DATACAMP WORKING WITH THE OPENAI API SOA CERTIFICATE: https://www.datacamp.com/skill-verification/WWOA0019932253174
+
+DATACAMP Prompt Engineering with the OpenAI API SOA certificate: https://www.datacamp.com/skill-verification/CPE0706247096118
+
+===================SOA CERTIFICATIONS FOR COURSE COMPLETIONS ====================================================
+
+DATACAMP Introduction to SQL SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/ffd4e849dd6e370da867e8d81f0392e5460b59f9
+
+DATACAMP INTERMEDIATE SQL SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/1aa7174a7e004f24b0bf376130b931482cf74acb
+
+Understanding Microsoft Azure Management and Governance: https://www.datacamp.com/completed/statement-of-accomplishment/course/d0cc70002a7fe423c1c41f82f90467772786326e
+
+DATACAMP Understanding Microsoft Azure Architecture and Services SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/dc9fa7b2de514d49f4944b42ff85596feadf9acf
+
+DATACAMP Understanding Microsoft Azure SOA CERTIFICATE:https://www.datacamp.com/completed/statement-of-accomplishment/course/ebabb99bb06f9dcae88f4aabb06ff4be3b86c697
+
+DATACAMP Understanding Cloud Computing SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/f35fd7b1ae4d3d3a075772df910c20b986bde843
+
+DATACAMP Developing LLM Applications with LangChain SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/0cafb7b412a26e64cbf92afcc7b6abcfd0e8fc53
+
+DATACAMP Software Engineering Principles in Python SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/f536e9e05b34fbf2e46ade90d2bf5287cc915f8a
+
+DATACAMP Working with the OpenAI API SOA CERTIFICATE 2: https://www.datacamp.com/completed/statement-of-accomplishment/course/d7d8a4312c834b13b8f6365a0eacb2b035d3baa4
+
+DATACAMP Prompt Engineering with the OpenAI API SOA CERTIFICATE 2: https://www.datacamp.com/completed/statement-of-accomplishment/course/a6993f04b489dc1a6d585bc01b1415da61117c64
+
+DATACAMP Working with Hugging Face SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/cdc84337c653b322f6e99d654eddb7eb78b5839a
+
+DATACAMP LLMOps Concepts SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/e9bb59db7599acde962343b76f50f91525f33a8b
+
+DATACAMP Developing AI Systems with the OpenAI API SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/a8ebe917063238bb577947719c77ccc3a11e48b0
+
+DATACAMP Introduction to Embeddings with the OpenAI API SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/4cd285a0b58216b3db6e6d80ac8781fe37a552a1
+
+DATACAMP Building AI Applications with Pinecone SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/course/854ee17ec3751d3a15c70a2af743567d1f9ae051
+
+SOA = STATEMENT OF ACCOMPLISHMENT
+FOR ALL CERTS WITH 2 THIS IS THE SOA I GOT WHEN I COMPLETED THE COURSE AND THE PRIOR DOCUMENT WITHOUT 2 IS THE ONE I DID IN DATACAMP FOR CERTFICATION CPE IN DATACAMP
+
+========================COMPLETED TRACKS==============================
+1.DATACAMP Associate AI Engineer for Developers SOA CERTIFICATE: https://www.datacamp.com/completed/statement-of-accomplishment/track/9522443604d9f5fb6a4dc966a2757c9150787e02?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa
+
+2.DATACAMP Microsoft Azure Fundamentals (AZ-900): https://www.datacamp.com/completed/statement-of-accomplishment/track/e192b3005931b8abf59ae4dd6f3b5e1d0f4d94c4?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa
+
+3.
