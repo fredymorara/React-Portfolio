@@ -85,9 +85,17 @@ export const metadata: Metadata = {
     'Hire Software Engineer Kenya',
     'Freelance AI Engineer',
   ],
+  manifest: '/site.webmanifest',
   icons: {
-    icon: '/icon.svg',
-    apple: '/android-chrome-192x192.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: ['/favicon.ico'],
   },
   openGraph: {
     type: 'website',
@@ -98,11 +106,18 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: '/opengraph-image.jpg',
+        url: `${siteUrl}/opengraph-image.jpg`,
         width: 1200,
-        height: 628,
+        height: 630,
         alt: 'Fredrick Momanyi Morara – Software & AI Engineer Portfolio',
         type: 'image/jpeg',
+      },
+      {
+        url: `${siteUrl}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Fredrick Momanyi Morara – Software & AI Engineer Portfolio',
+        type: 'image/png',
       },
     ],
   },
@@ -110,7 +125,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteTitle,
     description: siteDescription,
-    images: ['/opengraph-image.jpg'],
+    images: [`${siteUrl}/opengraph-image.jpg`],
   },
   robots: {
     index: true,

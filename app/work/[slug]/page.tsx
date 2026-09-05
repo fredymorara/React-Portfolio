@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
-import { ArrowLeft, ArrowUpRight, GithubIcon, FileText } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, FileText } from 'lucide-react';
+import { GithubIcon } from '@/components/ui/GithubIcon';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';

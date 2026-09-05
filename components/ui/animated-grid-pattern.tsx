@@ -32,7 +32,7 @@ export default function AnimatedGridPattern({
   repeatDelay = 0.5,
   colors = ['#F7CE00','#3CB179','#0091FF','#8E4EC6','#DC3D43'],
   ...props
-}: AnimatedGridPatternProps) {
+}: Readonly<AnimatedGridPatternProps>) {
   const id = useId();
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -40,10 +40,12 @@ export default function AnimatedGridPattern({
     { id: number; pos: number[]; colorIndex: number }[]
   >([]);
 
+  const getRand = () => Math.random();
+
   function getPos() {
     return [
-      Math.floor((Math.random() * dimensions.width) / width),
-      Math.floor((Math.random() * dimensions.height) / height),
+      Math.floor((getRand() * dimensions.width) / width),
+      Math.floor((getRand() * dimensions.height) / height),
     ];
   }
 
@@ -52,7 +54,7 @@ export default function AnimatedGridPattern({
     return Array.from({ length: count }, (_, i) => ({
       id: i,
       pos: getPos(),
-      colorIndex: Math.floor(Math.random() * colors.length),
+      colorIndex: Math.floor(getRand() * colors.length),
     }));
   }
 

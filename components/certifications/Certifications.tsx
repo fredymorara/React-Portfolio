@@ -55,13 +55,14 @@ const Certifications = () => {
                 <span className="text-white/30 text-sm font-medium border border-white/5 bg-white/5 px-4 py-2 rounded-full group-hover:border-white/20 group-hover:text-white/80 transition-all duration-500 hidden md:block">
                   {cert.date}
                 </span>
-                {cert.slug ? (
+                {cert.slug && (
                   <>
                     <Link
                       href={`/credentials/${cert.slug}`}
                       className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
                     >
-                      <span>Details</span>
+                      <span className="hidden sm:inline">Details</span>
+                      <span className="sm:hidden">More</span>
                     </Link>
                     {cert.link && (
                       <Link
@@ -74,7 +75,8 @@ const Certifications = () => {
                       </Link>
                     )}
                   </>
-                ) : cert.link ? (
+                )}
+                {!cert.slug && cert.link && (
                   <Link
                     href={cert.link}
                     target="_blank"
@@ -83,7 +85,7 @@ const Certifications = () => {
                     <ExternalLink size={12} />
                     <span className="hidden sm:inline">View</span>
                   </Link>
-                ) : null}
+                )}
               </div>
             </motion.div>
           ))}

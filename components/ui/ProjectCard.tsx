@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { ArrowUpRight, GithubIcon, FileText } from 'lucide-react';
+import { ArrowUpRight, FileText } from 'lucide-react';
+import { GithubIcon } from '@/components/ui/GithubIcon';
 import { Project } from '@/constants/projects';
 import { motion } from 'framer-motion';
 

@@ -50,6 +50,7 @@ const NavBar = () => {
           </div>
 
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}

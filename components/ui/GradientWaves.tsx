@@ -6,7 +6,7 @@ import './GradientWaves.css';
 const hexToRgb = (hex: string) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return [1, 1, 1];
-  return [parseInt(result[1], 16) / 255, parseInt(result[2], 16) / 255, parseInt(result[3], 16) / 255];
+  return [Number.parseInt(result[1], 16) / 255, Number.parseInt(result[2], 16) / 255, Number.parseInt(result[3], 16) / 255];
 };
 
 const detailToSteps = (detail: string) => {
@@ -316,9 +316,9 @@ const GradientWaves = ({
       canvas.removeEventListener('pointerleave', onPointerLeave);
       ctxMap.delete(container);
       try {
-        container.removeChild(canvas);
+        canvas.remove();
       } catch {}
-      // eslint-disable-next-line
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
