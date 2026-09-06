@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Download } from 'lucide-react';
 import { Metadata } from 'next';
 import { certifications } from '@/constants/certifications';
+import { safeUrl } from '@/lib/utils';
 
 export function generateStaticParams() {
   return certifications
@@ -47,24 +48,50 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
           <span>Back to Credentials</span>
         </Link>
 
-        <div className="mb-12 space-y-4">
-          <div className="flex items-center gap-3">
-            <span className="text-sm text-white/40">{cert.issuer}</span>
-            <span className="text-white/20">·</span>
-            <span className="text-xs font-Silkscreen text-white/30 uppercase tracking-widest">{cert.date}</span>
+        <div className="mb-12 flex flex-col md:flex-row md:items-center justify-between gap-8 pb-8 border-b border-white/10">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-white/60">{cert.issuer}</span>
+              <span className="text-white/20">·</span>
+              <span className="text-xs font-Silkscreen text-white/40 uppercase tracking-widest">{cert.date}</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-white/95">
+              {cert.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              {cert.link && (
+                <Link
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-sm"
+                >
+                  <ExternalLink size={14} />
+                  <span>Verify on {cert.issuer}</span>
+                </Link>
+              )}
+              {cert.downloadUrl && (
+                <a
+                  href={safeUrl(cert.downloadUrl)}
+                  download
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-sm"
+                >
+                  <Download size={14} />
+                  <span>Download Certificate (PDF)</span>
+                </a>
+              )}
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-white/95">
-            {cert.title}
-          </h1>
-          {cert.link && (
-            <Link
-              href={cert.link}
-              target="_blank"
-              className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors duration-300 text-sm mt-4"
-            >
-              <ExternalLink size={14} />
-              <span>Verify on {cert.issuer}</span>
-            </Link>
+
+          {cert.badge && (
+            <div className="shrink-0 h-24 w-24 md:h-28 md:w-28 rounded-2xl bg-white/5 overflow-hidden border border-white/10 p-2 flex items-center justify-center shadow-lg">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={safeUrl(cert.badge)}
+                alt={`${cert.title} badge`}
+                className="h-full w-full object-contain rounded-xl"
+              />
+            </div>
           )}
         </div>
 
@@ -72,14 +99,14 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
           <div className={`mb-16 mx-auto rounded-xl border border-white/10 overflow-hidden bg-white/5 w-full max-w-4xl ${cert.pdfUrl.endsWith('.pdf') ? 'aspect-[4/3] md:aspect-[16/9]' : ''}`}>
             {cert.pdfUrl.endsWith('.pdf') ? (
               <iframe 
-                src={`${encodeURI(cert.pdfUrl)}#toolbar=0&view=FitH`}
+                src={`${safeUrl(cert.pdfUrl)}#toolbar=0&view=FitH`}
                 className="w-full h-full"
                 title={`${cert.title} Certificate`}
               />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img 
-                src={encodeURI(cert.pdfUrl)} 
+                src={safeUrl(cert.pdfUrl)} 
                 alt={`${cert.title} Certificate`} 
                 className="w-full h-auto block"
               />
@@ -92,18 +119,33 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
             <h2 className="text-2xl font-medium mb-6 text-white/80">Modules Completed in this Path</h2>
             <div className="flex flex-col gap-3">
               {cert.badges.map((badge, idx) => (
-                <div key={idx} className="py-4 px-6 flex items-center justify-between group bg-card-bg rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div key={idx} className="py-4 px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group bg-card-bg rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                   <span className="text-white/70 group-hover:text-white transition-colors">
                     {badge.title}
                   </span>
-                  <Link
-                    href={badge.link}
-                    target="_blank"
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 transition-all duration-300 shrink-0"
-                  >
-                    <ExternalLink size={12} />
-                    <span className="hidden sm:inline">Verify</span>
-                  </Link>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {badge.downloadUrl && (
+                      <a
+                        href={safeUrl(badge.downloadUrl)}
+                        download
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 text-white/50 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+                      >
+                        <Download size={12} />
+                        <span>Download</span>
+                      </a>
+                    )}
+                    {badge.link && (
+                      <Link
+                        href={badge.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 text-white/50 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+                      >
+                        <ExternalLink size={12} />
+                        <span>Verify</span>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

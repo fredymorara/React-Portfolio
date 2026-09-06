@@ -3,6 +3,7 @@ import { certifications } from '@/constants/certifications';
 import { motion } from 'framer-motion';
 import { Award, ArrowUpRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import { safeUrl } from '@/lib/utils';
 
 const PREVIEW_COUNT = 5;
 
@@ -34,7 +35,7 @@ const Certifications = () => {
                 {cert.badge ? (
                   <div className="flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-white/5 overflow-hidden border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:border-accent-sunset-end/30 group-hover:shadow-[0_0_15px_rgba(221,36,118,0.2)]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={cert.badge} alt={`${cert.title} badge`} className="h-full w-full object-cover" />
+                    <img src={safeUrl(cert.badge)} alt={`${cert.title} badge`} className="h-full w-full object-contain p-1" />
                   </div>
                 ) : (
                   <div className="flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/30 transition-all duration-500 group-hover:scale-110 group-hover:text-accent-sunset-end group-hover:border-accent-sunset-end/30 group-hover:shadow-[0_0_15px_rgba(221,36,118,0.2)]">
@@ -68,6 +69,7 @@ const Certifications = () => {
                       <Link
                         href={cert.link}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
                       >
                         <ExternalLink size={12} />
@@ -80,6 +82,7 @@ const Certifications = () => {
                   <Link
                     href={cert.link}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
                   >
                     <ExternalLink size={12} />

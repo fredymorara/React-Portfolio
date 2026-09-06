@@ -1,6 +1,7 @@
 export interface Badge {
   title: string;
-  link: string;
+  link?: string;
+  downloadUrl?: string;
 }
 
 export interface Certification {
@@ -12,6 +13,7 @@ export interface Certification {
   badge?: string;
   link?: string;
   pdfUrl?: string;
+  downloadUrl?: string;
   category: 'ai' | 'cloud' | 'fullstack' | 'fundamentals';
   featured?: boolean;
   badges?: Badge[];
@@ -122,20 +124,169 @@ export const certifications: Certification[] = [
     slug: 'ai-datacamp',
     title: 'Associate AI Engineer for Developers', 
     issuer: 'DataCamp', 
-    date: '2026', 
+    date: 'Apr 17, 2026', 
     category: 'ai',
     featured: true,
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/9522443604d9f5fb6a4dc966a2757c9150787e02?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa'
+    pdfUrl: '/datacamp/Associate AI Engineer  for developers.png',
+    downloadUrl: '/datacamp/Associate SOA.pdf',
+    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/9522443604d9f5fb6a4dc966a2757c9150787e02?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa',
+    badges: [
+      {
+        title: 'Working with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/d7d8a4312c834b13b8f6365a0eacb2b035d3baa4',
+        downloadUrl: '/datacamp/DATACAMP Working with the OpenAI API SOA CERTIFICATE 2.pdf',
+      },
+      {
+        title: 'Prompt Engineering with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/a6993f04b489dc1a6d585bc01b1415da61117c64',
+        downloadUrl: '/datacamp/DATACAMP Prompt Engineering with the OpenAI API SOA CERTIFICATE 2.pdf',
+      },
+      {
+        title: 'Working with Hugging Face',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/cdc84337c653b322f6e99d654eddb7eb78b5839a',
+        downloadUrl: '/datacamp/DATACAMP Working with Hugging Face SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'LLMOps Concepts',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/e9bb59db7599acde962343b76f50f91525f33a8b',
+        downloadUrl: '/datacamp/DATACAMP LLMOps Concepts SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Developing AI Systems with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/a8ebe917063238bb577947719c77ccc3a11e48b0',
+        downloadUrl: '/datacamp/DATACAMP Developing AI Systems with the OpenAI API SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Introduction to Embeddings with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/4cd285a0b58216b3db6e6d80ac8781fe37a552a1',
+        downloadUrl: '/datacamp/DATACAMP Introduction to Embeddings with the OpenAI API SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Building AI Applications with Pinecone',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/854ee17ec3751d3a15c70a2af743567d1f9ae051',
+        downloadUrl: '/datacamp/DATACAMP Building AI Applications with Pinecone SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Software Engineering Principles in Python',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/f536e9e05b34fbf2e46ade90d2bf5287cc915f8a',
+        downloadUrl: '/datacamp/DATACAMP Software Engineering Principles in Python SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Developing LLM Applications with LangChain',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/0cafb7b412a26e64cbf92afcc7b6abcfd0e8fc53',
+        downloadUrl: '/datacamp/DATACAMP Developing LLM Applications with LangChain SOA CERTIFICATE.pdf',
+      },
+    ],
   },
-  { id: 'react-codecademy', title: 'ReactJS Certification', issuer: 'Codecademy', date: '2023', category: 'fullstack' },
-  { id: 'web-ibm', title: 'Web Development Fundamentals', issuer: 'IBM Skills Build', date: '2023', category: 'fullstack' },
-  { id: 'js-cisco', title: 'Javascript Essentials 1 & 2', issuer: 'Cisco Networking Academy', date: '2023', category: 'fundamentals' },
-  { id: 'linux-cisco', title: 'Linux Unhatched', issuer: 'Cisco Networking Academy', date: '2023', category: 'fundamentals' },
-  { id: 'aws-nextwork', title: 'Amazon Web Services (AWS) Projects', issuer: 'NextWork', date: '2024', category: 'cloud' },
-  { id: 'llm-google', title: 'Introduction to Large Language Models', issuer: 'Google', date: '2024', category: 'ai' },
-  { id: 'genai-google', title: 'Introduction to Generative AI', issuer: 'Google', date: '2024', category: 'ai' },
-  { id: 'resp-ai-google', title: 'Introduction to Responsible AI', issuer: 'Google', date: '2024', category: 'ai' },
-  { id: 'aws-ai-ml-scholars', title: 'AWS AI & ML Scholars', issuer: 'AWS with Udacity', date: '2024', category: 'cloud' },
+  { 
+    id: 'developing-ai-applications-datacamp', 
+    slug: 'developing-ai-applications-datacamp',
+    title: 'Developing AI Applications', 
+    issuer: 'DataCamp', 
+    date: 'Sep 03, 2026', 
+    category: 'ai',
+    featured: true,
+    pdfUrl: '/datacamp/Developing AI Applications.png',
+    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/39306d2621212f7c8b644f30c2cb1134c5b1ac3c?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa',
+    badges: [
+      {
+        title: 'Working with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/d7d8a4312c834b13b8f6365a0eacb2b035d3baa4',
+        downloadUrl: '/datacamp/DATACAMP Working with the OpenAI API SOA CERTIFICATE 2.pdf',
+      },
+      {
+        title: 'AI Ethics',
+        link: 'https://www.datacamp.com/skill-verification/AIE0029822476123',
+        downloadUrl: '/datacamp/DATACAMP AI ETHICS SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Prompt Engineering with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/a6993f04b489dc1a6d585bc01b1415da61117c64',
+        downloadUrl: '/datacamp/DATACAMP Prompt Engineering with the OpenAI API SOA CERTIFICATE 2.pdf',
+      },
+      {
+        title: 'Working with Hugging Face',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/cdc84337c653b322f6e99d654eddb7eb78b5839a',
+        downloadUrl: '/datacamp/DATACAMP Working with Hugging Face SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Introduction to Data Privacy',
+      },
+      {
+        title: 'Developing AI Systems with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/a8ebe917063238bb577947719c77ccc3a11e48b0',
+        downloadUrl: '/datacamp/DATACAMP Developing AI Systems with the OpenAI API SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Introduction to Embeddings with the OpenAI API',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/4cd285a0b58216b3db6e6d80ac8781fe37a552a1',
+        downloadUrl: '/datacamp/DATACAMP Introduction to Embeddings with the OpenAI API SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Developing LLM Applications with LangChain',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/0cafb7b412a26e64cbf92afcc7b6abcfd0e8fc53',
+        downloadUrl: '/datacamp/DATACAMP Developing LLM Applications with LangChain SOA CERTIFICATE.pdf',
+      },
+    ],
+  },
+  {
+    id: 'react-codecademy',
+    slug: 'learn-react-codecademy',
+    title: 'Learn React',
+    issuer: 'Codecademy',
+    date: 'Nov 17, 2024',
+    category: 'fullstack',
+    featured: true,
+    pdfUrl: '/certs/CodeCademy Learn React.png',
+    downloadUrl: '/certs/Learn React CodeCademy.pdf',
+    link: 'https://www.codecademy.com/profiles/capsboost/certificates/af00e5032d0a68cc84879983f5d8333b',
+  },
+  {
+    id: 'web-ibm',
+    slug: 'web-development-fundamentals-ibm',
+    title: 'Web Development Fundamentals',
+    issuer: 'IBM SkillsBuild',
+    date: 'Feb 22, 2024',
+    category: 'fullstack',
+    featured: true,
+    badge: '/certs/IBM SkillsBuild/web-development-fundamentals.png',
+    pdfUrl: '/certs/IBM SkillsBuild/web-dev-fundamentals.png',
+    downloadUrl: '/certs/IBM SkillsBuild/IBMDesign20260905-20-tlb61n.pdf',
+    link: 'https://www.credly.com/badges/9f293a6d-d5a7-4e12-989a-7caec75c8bbd/public_url',
+  },
+  {
+    id: 'azure-fundamentals-datacamp',
+    slug: 'azure-fundamentals-datacamp',
+    title: 'Microsoft Azure Fundamentals (AZ-900)',
+    issuer: 'DataCamp',
+    date: 'May 15, 2026',
+    category: 'cloud',
+    featured: true,
+    pdfUrl: '/certs/datacamp-azure-900.png',
+    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/e192b3005931b8abf59ae4dd6f3b5e1d0f4d94c4?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa',
+    badges: [
+      {
+        title: 'Understanding Cloud Computing',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/f35fd7b1ae4d3d3a075772df910c20b986bde843',
+        downloadUrl: '/datacamp/DATACAMP Understanding Cloud Computing SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Understanding Microsoft Azure',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/ebabb99bb06f9dcae88f4aabb06ff4be3b86c697',
+        downloadUrl: '/datacamp/DATACAMP Understanding Microsoft Azure SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Understanding Microsoft Azure Architecture and Services',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/dc9fa7b2de514d49f4944b42ff85596feadf9acf',
+        downloadUrl: '/datacamp/DATACAMP Understanding Microsoft Azure Architecture and Services SOA CERTIFICATE.pdf',
+      },
+      {
+        title: 'Understanding Microsoft Azure Management and Governance',
+        link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/d0cc70002a7fe423c1c41f82f90467772786326e',
+        downloadUrl: '/datacamp/DATACAMP Understanding Microsoft Azure Management and Governance SOA CERTIFICATE.pdf',
+      },
+    ],
+  },
   { 
     id: 'ai-fundamentals-datacamp', 
     slug: 'ai-fundamentals-datacamp',
@@ -147,6 +298,49 @@ export const certifications: Certification[] = [
     pdfUrl: '/datacamp/ai-fundamentals.png',
     link: 'https://www.datacamp.com/skill-verification/AIF0020406437984'
   },
+  { id: 'aws-ai-ml-scholars', title: 'AWS AI & ML Scholars', issuer: 'AWS with Udacity', date: '2024', category: 'cloud' },
+  { id: 'aws-nextwork', title: 'Amazon Web Services (AWS) Projects', issuer: 'NextWork', date: '2024', category: 'cloud' },
+  {
+    id: 'js-essentials-1-cisco',
+    slug: 'javascript-essentials-1-cisco',
+    title: 'JavaScript Essentials 1',
+    issuer: 'Cisco Networking Academy',
+    date: 'Oct 01, 2024',
+    category: 'fundamentals',
+    featured: true,
+    badge: '/CISCO/javascript-essentials-1-badge.png',
+    pdfUrl: '/CISCO/JSessentials1.png',
+    downloadUrl: '/CISCO/JavaScript_Essentials_1_certificate.pdf',
+    link: 'https://www.credly.com/badges/2f611a84-0c6b-47e8-8bbe-60611b834fb0/public_url',
+  },
+  {
+    id: 'js-essentials-2-cisco',
+    slug: 'javascript-essentials-2-cisco',
+    title: 'JavaScript Essentials 2',
+    issuer: 'Cisco Networking Academy',
+    date: 'Oct 23, 2024',
+    category: 'fundamentals',
+    featured: true,
+    badge: '/CISCO/javascript-essentials-2-badge.png',
+    pdfUrl: '/CISCO/JSessentials2.png',
+    downloadUrl: '/CISCO/JavaScript_Essentials_2_certificate.pdf',
+    link: 'https://www.credly.com/badges/3068b105-755a-413b-9120-5d2462b360f3/public_url',
+  },
+  {
+    id: 'linux-cisco',
+    slug: 'linux-unhatched-cisco',
+    title: 'Linux Unhatched',
+    issuer: 'Cisco Networking Academy',
+    date: 'Jan 12, 2026',
+    category: 'fundamentals',
+    featured: true,
+    badge: '/CISCO/linux-unhatched-badge.png',
+    pdfUrl: '/CISCO/linux unhatched.png',
+    downloadUrl: '/CISCO/Linux_Unhatched_certificate.pdf',
+    link: 'https://www.credly.com/badges/e63a9c2d-bf49-4c0d-a538-80c70afece7c/public_url',
+  },
+
+  // Standalone courses / in-progress tracks
   {
     id: 'ai-understanding-datacamp',
     slug: 'ai-understanding-datacamp',
@@ -157,15 +351,6 @@ export const certifications: Certification[] = [
     link: 'https://www.datacamp.com/skill-verification/UAI0801417034'
   },
   {
-    id: 'ai-ethics-datacamp',
-    slug: 'ai-ethics-datacamp',
-    title: 'AI Ethics',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/skill-verification/AIE0029822476123'
-  },
-  {
     id: 'chatgpt-intro-datacamp',
     slug: 'chatgpt-intro-datacamp',
     title: 'Introduction to ChatGPT',
@@ -173,30 +358,6 @@ export const certifications: Certification[] = [
     date: '2026',
     category: 'ai',
     link: 'https://www.datacamp.com/skill-verification/CGPTI0024636800673'
-  },
-  {
-    id: 'openai-api-datacamp',
-    slug: 'openai-api-datacamp',
-    title: 'Working with the OpenAI API',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/skill-verification/WWOA0019932253174',
-    badges: [
-      { title: 'Statement of Accomplishment', link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/d7d8a4312c834b13b8f6365a0eacb2b035d3baa4' }
-    ]
-  },
-  {
-    id: 'prompt-engineering-datacamp',
-    slug: 'prompt-engineering-datacamp',
-    title: 'Prompt Engineering with the OpenAI API',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/skill-verification/CPE0706247096118',
-    badges: [
-      { title: 'Statement of Accomplishment', link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/a6993f04b489dc1a6d585bc01b1415da61117c64' }
-    ]
   },
   {
     id: 'sql-intro-datacamp',
@@ -216,113 +377,7 @@ export const certifications: Certification[] = [
     category: 'fundamentals',
     link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/1aa7174a7e004f24b0bf376130b931482cf74acb'
   },
-  {
-    id: 'azure-management-datacamp',
-    slug: 'azure-management-datacamp',
-    title: 'Understanding Microsoft Azure Management and Governance',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'cloud',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/d0cc70002a7fe423c1c41f82f90467772786326e'
-  },
-  {
-    id: 'azure-architecture-datacamp',
-    slug: 'azure-architecture-datacamp',
-    title: 'Understanding Microsoft Azure Architecture and Services',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'cloud',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/dc9fa7b2de514d49f4944b42ff85596feadf9acf'
-  },
-  {
-    id: 'azure-understanding-datacamp',
-    slug: 'azure-understanding-datacamp',
-    title: 'Understanding Microsoft Azure',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'cloud',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/ebabb99bb06f9dcae88f4aabb06ff4be3b86c697'
-  },
-  {
-    id: 'cloud-datacamp',
-    slug: 'cloud-datacamp',
-    title: 'Understanding Cloud Computing',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'cloud',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/f35fd7b1ae4d3d3a075772df910c20b986bde843'
-  },
-  {
-    id: 'langchain-llm-datacamp',
-    slug: 'langchain-llm-datacamp',
-    title: 'Developing LLM Applications with LangChain',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/0cafb7b412a26e64cbf92afcc7b6abcfd0e8fc53'
-  },
-  {
-    id: 'swe-python',
-    slug: 'swe-python',
-    title: 'Software Engineering Principles in Python',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'fullstack',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/f536e9e05b34fbf2e46ade90d2bf5287cc915f8a'
-  },
-  {
-    id: 'huggingface-datacamp',
-    slug: 'huggingface-datacamp',
-    title: 'Working with Hugging Face',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/cdc84337c653b322f6e99d654eddb7eb78b5839a'
-  },
-  {
-    id: 'llmops-datacamp',
-    slug: 'llmops-datacamp',
-    title: 'LLMOps Concepts',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/e9bb59db7599acde962343b76f50f91525f33a8b'
-  },
-  {
-    id: 'openai-systems-datacamp',
-    slug: 'openai-systems-datacamp',
-    title: 'Developing AI Systems with the OpenAI API',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/a8ebe917063238bb577947719c77ccc3a11e48b0'
-  },
-  {
-    id: 'openai-embeddings-datacamp',
-    slug: 'openai-embeddings-datacamp',
-    title: 'Introduction to Embeddings with the OpenAI API',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/4cd285a0b58216b3db6e6d80ac8781fe37a552a1'
-  },
-  {
-    id: 'pinecone-datacamp',
-    slug: 'pinecone-datacamp',
-    title: 'Building AI Applications with Pinecone',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'ai',
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/854ee17ec3751d3a15c70a2af743567d1f9ae051'
-  },
-  {
-    id: 'azure-fundamentals-datacamp',
-    slug: 'azure-fundamentals-datacamp',
-    title: 'Microsoft Azure Fundamentals (AZ-900)',
-    issuer: 'DataCamp',
-    date: '2026',
-    category: 'cloud',
-    featured: true,
-    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/e192b3005931b8abf59ae4dd6f3b5e1d0f4d94c4?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa'
-  }
+  // { id: 'llm-google', title: 'Introduction to Large Language Models', issuer: 'Google', date: '2024', category: 'ai' },
+  // { id: 'genai-google', title: 'Introduction to Generative AI', issuer: 'Google', date: '2024', category: 'ai' },
+  // { id: 'resp-ai-google', title: 'Introduction to Responsible AI', issuer: 'Google', date: '2024', category: 'ai' },
 ];

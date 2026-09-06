@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { certifications, Certification } from '@/constants/certifications';
 import FilterTabs from '@/components/ui/FilterTabs';
+import { safeUrl } from '@/lib/utils';
 
 const TABS = ['All', 'AI & ML', 'Cloud', 'Full-Stack', 'Fundamentals'];
 
@@ -79,14 +80,22 @@ export default function CredentialsPage() {
                 key={cert.id}
                 className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-6 group"
               >
-              <div className="flex flex-col gap-1">
-                <span className="text-lg font-medium text-white/80 group-hover:text-white transition-colors duration-300">
-                  {cert.title}
-                </span>
-                <div className="flex items-center gap-3">
-                  <span className="text-sm text-white/40">{cert.issuer}</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-xs font-Silkscreen text-white/30 uppercase tracking-widest">{cert.date}</span>
+              <div className="flex items-center gap-4">
+                {cert.badge && (
+                  <div className="flex shrink-0 h-12 w-12 items-center justify-center rounded-xl bg-white/5 overflow-hidden border border-white/10 p-1">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={safeUrl(cert.badge)} alt={`${cert.title} badge`} className="h-full w-full object-contain" />
+                  </div>
+                )}
+                <div className="flex flex-col gap-1">
+                  <span className="text-lg font-medium text-white/80 group-hover:text-white transition-colors duration-300">
+                    {cert.title}
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-white/40">{cert.issuer}</span>
+                    <span className="text-white/20">·</span>
+                    <span className="text-xs font-Silkscreen text-white/30 uppercase tracking-widest">{cert.date}</span>
+                  </div>
                 </div>
               </div>
 
@@ -106,6 +115,7 @@ export default function CredentialsPage() {
                       <Link
                         href={cert.link}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 transition-all duration-300"
                       >
                         <ExternalLink size={12} />
@@ -117,6 +127,7 @@ export default function CredentialsPage() {
                   <Link
                     href={cert.link}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white/40 text-xs hover:text-white hover:border-white/30 transition-all duration-300"
                   >
                     <ExternalLink size={12} />
