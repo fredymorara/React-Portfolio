@@ -149,8 +149,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add your Google Search Console verification code here when available
-    // google: 'your-verification-code',
+    google: 'BIvvm8Lv9w341qzRGyJqif2MTT1yafymfmV7uTdakXk',
   },
 };
 
