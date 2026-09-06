@@ -1,0 +1,119 @@
+# Fredrick Momanyi Morara – Full-Stack & Applied AI Engineer
+
+> Portfolio: https://freddymorara.tech
+> GitHub: https://github.com/fredymorara
+> LinkedIn: https://www.linkedin.com/in/freddymorara/
+> Email: momanyifredm@gmail.com
+> Location: Kenya (Available for Remote Roles & Freelance Contracts Worldwide)
+
+## Summary
+Fredrick Momanyi Morara is an early-career Full-Stack and Applied AI Developer specializing in modern production web applications powered by practical AI integrations, RAG pipelines, and cloud backend environments. He designs, builds, and deploys high-performance web systems using React 19, Next.js 16, NestJS 11, Node.js, Python 3.14, and AWS Bedrock.
+
+---
+
+## Core Technical Skills
+- **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Zustand, Framer Motion, HTML5, Vanilla CSS
+- **Backend & APIs**: Node.js, NestJS 11, Express, REST APIs, GraphQL, Swagger / OpenAPI, Model Context Protocol (MCP)
+- **Applied AI & LLMs**: AWS Bedrock AgentCore, ReAct Loops, RAG Pipelines, Vector Databases (Pinecone, Supabase pgvector), OpenAI API, Hugging Face, LangChain, Prompt Engineering, Linear SVM (scikit-learn)
+- **Cloud & DevOps**: AWS (Lambda, Bedrock, S3, IAM, Nova 2), Microsoft Azure, Docker, Neon Serverless Postgres, Vercel, Supabase
+- **Databases & ORMs**: PostgreSQL, MongoDB, Prisma ORM, Drizzle ORM, Mongoose
+- **Integrations**: M-Pesa Daraja Payment API, Better Auth, Clerk Auth, Nodemailer
+
+---
+
+## Key Projects
+
+### 1. Flic Movies (Enterprise-Grade Streaming Monorepo)
+- **URL**: https://flicmovies.me
+- **Case Study**: https://freddymorara.tech/work/flic-movies
+- **GitHub**: https://github.com/fredymorara/movies
+- **Stack**: Next.js 16, NestJS 11, TypeScript, Tailwind CSS v4, Prisma ORM, PostgreSQL
+- **Description**: Monorepo streaming web application pairing a dynamic SSR frontend with an enterprise-grade, JWT-secured NestJS backend, complete with Redis caching and Prisma ORM.
+
+### 2. Wave Anime (High-Performance Streaming Platform)
+- **URL**: https://anime.flicmovies.me
+- **Case Study**: https://freddymorara.tech/work/wave-anime
+- **GitHub**: https://github.com/fredymorara/wave
+- **Stack**: Next.js 15, React 19, Zustand, Tailwind CSS v4, Neon Serverless DB, Drizzle ORM, Node.js, Better Auth
+- **Description**: Anime tracking and streaming web application featuring cross-device progress synchronization, video player auto-skip, community forums, and a cyberpunk admin dashboard.
+
+### 3. AWS Bedrock Travel Assistant (Autonomous AI Agent)
+- **Case Study**: https://freddymorara.tech/work/aws-bedrock-assistant
+- **GitHub**: https://github.com/fredymorara/AWS-Travel-Assistant
+- **Stack**: AWS Bedrock AgentCore, AWS Lambda, Python 3.12, MCP Gateway, Amazon Nova 2
+- **Description**: Multi-tool autonomous agent running on Bedrock AgentCore, orchestrating external search and live weather tools via MCP gateways for real-time travel recommendations.
+
+### 4. Programmatic AI Orchestration (Local Travel Planner)
+- **Case Study**: https://freddymorara.tech/work/programmatic-ai
+- **GitHub**: https://github.com/fredymorara/Programmatic-AI-Orchestration
+- **Stack**: AWS Bedrock Converse API, Python 3.14, boto3, Amazon Nova 2
+- **Description**: Autonomous ReAct agent implementing raw Bedrock Converse API function-calling for fine-grained tool loop execution and schema validation.
+
+### 5. AWS Restaurant Agent (ReAct Recommendation Agent)
+- **Case Study**: https://freddymorara.tech/work/restaurant-agent
+- **GitHub**: https://github.com/fredymorara/AWS-Restaurant-Recommendation-Agent
+- **Stack**: AWS Bedrock, AWS Lambda, Python 3.14, MCP, Amazon Nova 2
+- **Description**: Autonomous dining recommendation agent using strict ReAct looping over Bedrock to parse requirements and query verified live restaurant inventory.
+
+### 6. Smart AI Library Assistant (RAG Pipeline)
+- **URL**: https://ai-library-update.vercel.app/
+- **Case Study**: https://freddymorara.tech/work/smart-ai-library
+- **GitHub**: https://github.com/fredymorara/libra-front
+- **Stack**: React, Next.js, RAG Pipeline, Vector Databases, Hugging Face, Groq, Supabase, Clerk
+- **Description**: Intelligent semantic search and RAG assistant enabling students to query library collections and receive context-grounded citations.
+
+### 7. AI Spam Message Detector (Machine Learning)
+- **URL**: https://aispamdetector.streamlit.app/
+- **Case Study**: https://freddymorara.tech/work/ai-spam-detector
+- **GitHub**: https://github.com/fredymorara/AI-Spam-Detector-App
+- **Stack**: Python, scikit-learn, Streamlit, NLTK, Pandas, NumPy, Linear SVM
+- **Description**: Real-time SMS and email spam classifier achieving 98%+ precision via TF-IDF vectorization and Linear SVM classification.
+
+### 8. Student Welfare Management System (Fintech & Admin)
+- **URL**: https://kabarakstudentwelfare.netlify.app/
+- **Case Study**: https://freddymorara.tech/work/student-welfare-system
+- **GitHub**: https://github.com/fredymorara/wms
+- **Stack**: React, Node.js, Express, MongoDB, M-Pesa Daraja API, JWT, Tailwind CSS
+- **Description**: Comprehensive university welfare portal handling emergency requests, automated approval workflows, and automated mobile money disbursements via Kenya's Safaricom M-Pesa Daraja API.
+
+### 9. HansCredit (Fintech Loan Application)
+- **URL**: https://hans-credit.vercel.app/
+- **Case Study**: https://freddymorara.tech/work/hans-credit
+- **GitHub**: https://github.com/fredymorara/HansCredit
+- **Stack**: Next.js, JavaScript, Nodemailer, Tailwind CSS, Framer Motion
+- **Description**: Streamlined personal and business credit application platform with automated email notification dispatch and application status tracking.
+
+---
+
+## Verified Professional Credentials
+
+- **Associate AI Engineer for Developers** (DataCamp) – 9 completed modules in OpenAI API, LangChain, Pinecone, Hugging Face, Embeddings, LLMOps
+  - Verification: https://freddymorara.tech/credentials/ai-datacamp
+- **Developing AI Applications** (DataCamp) – 8 completed modules in AI Ethics, LangChain, Hugging Face, Prompt Engineering
+  - Verification: https://freddymorara.tech/credentials/developing-ai-applications-datacamp
+- **Microsoft Azure Fundamentals (AZ-900)** (DataCamp) – Cloud architecture, governance, and services
+  - Verification: https://freddymorara.tech/credentials/azure-fundamentals-datacamp
+- **Artificial Intelligence Fundamentals** (DataCamp)
+  - Verification: https://www.datacamp.com/skill-verification/AIF0020406437984
+- **Microsoft Learn Applied Skills**:
+  - Extract insights from visual data on Azure: https://freddymorara.tech/credentials/visual-data-azure
+  - Develop computer vision solutions with Microsoft Foundry: https://freddymorara.tech/credentials/computer-vision-foundry
+  - Develop natural language solutions in Azure: https://freddymorara.tech/credentials/natural-language-azure
+  - Develop AI agents on Azure: https://freddymorara.tech/credentials/ai-agents-azure
+- **IBM SkillsBuild**: Web Development Fundamentals (Credly verified)
+  - Verification: https://freddymorara.tech/credentials/web-development-fundamentals-ibm
+- **Codecademy**: Learn React
+  - Verification: https://freddymorara.tech/credentials/learn-react-codecademy
+- **Cisco Networking Academy**:
+  - Linux Unhatched (Credly verified): https://freddymorara.tech/credentials/linux-unhatched-cisco
+  - JavaScript Essentials 1 (Credly verified): https://freddymorara.tech/credentials/javascript-essentials-1-cisco
+  - JavaScript Essentials 2 (Credly verified): https://freddymorara.tech/credentials/javascript-essentials-2-cisco
+
+---
+
+## Contact & Hiring Inquiries
+- Portfolio: https://freddymorara.tech
+- Email: momanyifredm@gmail.com
+- Phone: +254796795712
+- LinkedIn: https://www.linkedin.com/in/freddymorara/
+- GitHub: https://github.com/fredymorara

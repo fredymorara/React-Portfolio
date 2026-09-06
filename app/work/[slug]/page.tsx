@@ -6,11 +6,76 @@ import { GithubIcon } from '@/components/ui/GithubIcon';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import { Metadata } from 'next';
 import { getProjectBySlug, getAllSlugs } from '@/constants/projects';
 
 // Pre-render all slugs at build time
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ slug: string }>;
+}>): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+    };
+  }
+
+  const siteUrl = 'https://freddymorara.tech';
+  const pageUrl = `${siteUrl}/work/${slug}`;
+  const title = `${project.title} – ${project.subtitle} | Case Study`;
+  const description = `${project.description} Detailed technical case study by Fredrick Momanyi Morara covering architecture, stack (${project.stack.slice(0, 5).join(', ')}), and implementation.`;
+  const imageUrl = project.screenshot ? `${siteUrl}${project.screenshot}` : `${siteUrl}/opengraph-image.jpg`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      project.title,
+      ...project.stack,
+      'Full-Stack Developer Kenya',
+      'AI Engineer',
+      'Software Engineer Portfolio',
+      'Fredrick Momanyi Morara',
+      'Fredrick Morara',
+      'Freddy Morara',
+      'Technical Case Study',
+      'Next.js Portfolio',
+      'Hire Software Engineer',
+      project.category,
+    ],
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: 'article',
+      url: pageUrl,
+      title: `${project.title} – ${project.subtitle}`,
+      description,
+      siteName: 'Fredrick Momanyi Morara Portfolio',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} application preview`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} – ${project.subtitle}`,
+      description,
+      images: [imageUrl],
+    },
+  };
 }
 
 // MDX prose styling, scoped inside the article
@@ -37,8 +102,72 @@ export default async function ProjectDocPage({
     mdxContent = content;
   }
 
+  const siteUrl = 'https://freddymorara.tech';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['TechArticle', 'SoftwareApplication'],
+        '@id': `${siteUrl}/work/${slug}#article`,
+        headline: `${project.title} – ${project.subtitle}`,
+        name: project.title,
+        description: project.description,
+        applicationCategory: 'WebApplication',
+        operatingSystem: 'Web',
+        inLanguage: 'en-US',
+        url: `${siteUrl}/work/${slug}`,
+        author: {
+          '@type': 'Person',
+          name: 'Fredrick Momanyi Morara',
+          url: siteUrl,
+          jobTitle: 'Software Engineer & AI Developer',
+        },
+        publisher: {
+          '@type': 'Person',
+          name: 'Fredrick Momanyi Morara',
+          url: siteUrl,
+        },
+        codeRepository: project.links.github,
+        sameAs: project.links.live || project.links.github,
+        softwareRequirements: project.stack.join(', '),
+        keywords: project.stack.join(', '),
+        image: project.screenshot ? `${siteUrl}${project.screenshot}` : `${siteUrl}/opengraph-image.jpg`,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${siteUrl}/work/${slug}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Work',
+            item: `${siteUrl}/work`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: project.title,
+            item: `${siteUrl}/work/${slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen text-white px-6 py-24">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="mx-auto max-w-7xl">
 
         {/* Back nav */}
@@ -80,6 +209,7 @@ export default async function ProjectDocPage({
               <Link
                 href={project.links.live}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black text-sm font-medium transition-opacity duration-300 hover:opacity-80"
               >
                 <ArrowUpRight size={15} />
@@ -90,6 +220,7 @@ export default async function ProjectDocPage({
               <Link
                 href={project.links.github}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-white/60 text-sm font-medium transition-all duration-300 hover:bg-white/10 hover:text-white hover:border-white/30"
               >
                 <GithubIcon size={15} />
@@ -100,6 +231,7 @@ export default async function ProjectDocPage({
               <Link
                 href={project.links.docs}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-white/60 text-sm font-medium transition-all duration-300 hover:bg-white/10 hover:text-white hover:border-white/30"
               >
                 <FileText size={15} />
@@ -144,3 +276,4 @@ export default async function ProjectDocPage({
     </main>
   );
 }
+

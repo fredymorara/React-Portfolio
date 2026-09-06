@@ -22,8 +22,31 @@ export default function WorkPage() {
     ? projects
     : projects.filter((p) => p.category === CATEGORY_MAP[active]);
 
+  const siteUrl = 'https://freddymorara.tech';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: "Things I've Built – Production Projects & Case Studies",
+    description:
+      'Curated portfolio of deployed AI applications, full-stack monorepos, and cloud services architected and shipped by Fredrick Momanyi Morara.',
+    url: `${siteUrl}/work`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: projects.map((p, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: p.title,
+        url: `${siteUrl}/work/${p.slug}`,
+      })),
+    },
+  };
+
   return (
     <main className="min-h-screen text-white px-6 py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="mx-auto max-w-7xl">
 
         {/* Back nav */}

@@ -23,9 +23,58 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  const siteUrl = 'https://freddymorara.tech';
+  const pageUrl = `${siteUrl}/credentials/${slug}`;
+  const title = `${cert.title} Certification & Verification | Fredrick M. Morara`;
+  const description = `Verified ${cert.title} credential issued by ${cert.issuer} (${cert.date}). Curriculum, skills validation, and official proof portfolio by Fredrick Momanyi Morara.`;
+  
+  let imageUrl = `${siteUrl}/opengraph-image.jpg`;
+  if (cert.badge) {
+    imageUrl = `${siteUrl}${safeUrl(cert.badge)}`;
+  } else if (cert.pdfUrl && !cert.pdfUrl.endsWith('.pdf')) {
+    imageUrl = `${siteUrl}${safeUrl(cert.pdfUrl)}`;
+  }
+
   return {
-    title: `${cert.title} - Fredrick M. Morara`,
-    description: `View the credential details for ${cert.title} issued by ${cert.issuer}.`,
+    title,
+    description,
+    keywords: [
+      cert.title,
+      cert.issuer,
+      'Fredrick Momanyi Morara',
+      'Fredrick Morara',
+      'Freddy Morara',
+      'Credential Verification',
+      'Industry Certification',
+      cert.category,
+      'Continuous Learning',
+      'Software Engineer Kenya',
+      'AI Engineer',
+    ],
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: 'article',
+      url: pageUrl,
+      title: `${cert.title} – ${cert.issuer}`,
+      description,
+      siteName: 'Fredrick Momanyi Morara Portfolio',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${cert.title} credential badge`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${cert.title} – ${cert.issuer}`,
+      description,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -37,8 +86,66 @@ export default async function CredentialDetail({ params }: { params: Promise<{ s
     notFound();
   }
 
+  const siteUrl = 'https://freddymorara.tech';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['EducationalOccupationalCredential', 'Course'],
+        '@id': `${siteUrl}/credentials/${slug}#credential`,
+        name: cert.title,
+        description: `Verified credential in ${cert.title} issued by ${cert.issuer}.`,
+        credentialCategory: 'Certification',
+        educationalLevel: 'Professional',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: cert.issuer,
+        },
+        url: `${siteUrl}/credentials/${slug}`,
+        image: cert.badge ? `${siteUrl}${safeUrl(cert.badge)}` : `${siteUrl}/opengraph-image.jpg`,
+        validates: cert.title,
+        dateCreated: cert.date,
+        author: {
+          '@type': 'Person',
+          name: 'Fredrick Momanyi Morara',
+          url: siteUrl,
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${siteUrl}/credentials/${slug}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Credentials',
+            item: `${siteUrl}/credentials`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: cert.title,
+            item: `${siteUrl}/credentials/${slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen text-white px-6 py-24">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="mx-auto max-w-7xl">
         <Link
           href="/credentials"

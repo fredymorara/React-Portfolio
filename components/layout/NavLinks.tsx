@@ -11,10 +11,10 @@ const NavLinks = ({ isMobile, onLinkClick }: NavLinksProps) => {
 
   return (
     <nav className={containerCls}>
-      <Link onClick={onLinkClick} className={cls} href="/#about">About</Link>
+      <Link onClick={onLinkClick} className={cls} href="/#projects">Projects</Link>
       <Link onClick={onLinkClick} className={cls} href="/#stack">Stack</Link>
-      <Link onClick={onLinkClick} className={cls} href="/work">Work</Link>
       <Link onClick={onLinkClick} className={cls} href="/credentials">Credentials</Link>
+      <Link onClick={onLinkClick} className={cls} href="/#about">About</Link>
       <Link onClick={onLinkClick} className={cls} href="/#contact">Contact</Link>
     </nav>
   );

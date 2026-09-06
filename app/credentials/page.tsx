@@ -22,8 +22,31 @@ export default function CredentialsPage() {
     ? certifications
     : certifications.filter((c) => c.category === CATEGORY_MAP[active]);
 
+  const siteUrl = 'https://freddymorara.tech';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Credentials & Certifications – Continuous Learning',
+    description:
+      'Verified technical credentials and curriculum paths across Azure AI, Cisco Networking Academy, DataCamp, and IBM SkillsBuild by Fredrick Momanyi Morara.',
+    url: `${siteUrl}/credentials`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: certifications.map((c, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: c.title,
+        url: c.slug ? `${siteUrl}/credentials/${c.slug}` : c.link || `${siteUrl}/credentials`,
+      })),
+    },
+  };
+
   return (
     <main className="min-h-screen text-white px-6 py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="mx-auto max-w-7xl">
 
         {/* Back nav */}
