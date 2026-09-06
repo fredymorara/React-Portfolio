@@ -178,7 +178,8 @@ const jsonLd = {
       mainEntity: { '@id': `${siteUrl}/#person` },
       description: siteDescription,
       inLanguage: 'en-US',
-      dateModified: new Date().toISOString().split('T')[0],
+      datePublished: '2024-09-01',
+      dateModified: '2026-09-06',
     },
 
     // ── Person (Full CV / Resume) ──
@@ -191,7 +192,7 @@ const jsonLd = {
       additionalName: 'Momanyi',
       url: siteUrl,
       image: `${siteUrl}/opengraph-image.jpg`,
-      jobTitle: 'Software Engineer & Associate AI Engineer',
+      jobTitle: 'Full-Stack Developer & AI Engineer',
       description: siteDescription,
       email: 'momanyifredm@gmail.com',
       telephone: '+254796795712',
@@ -213,9 +214,9 @@ const jsonLd = {
       // ── Current Occupation ──
       hasOccupation: {
         '@type': 'Occupation',
-        name: 'Software Engineer & Associate AI Engineer',
+        name: 'Full-Stack Developer & AI Engineer',
         description: 'Specializes in scalable web applications with Next.js/NestJS, intelligent RAG pipelines, and modern AI integrations using AWS Bedrock and Microsoft Foundry.',
-        skills: 'TypeScript, Python, Next.js, React, NestJS, AWS Bedrock, Microsoft Foundry, Azure AI, MCP, Node.js, Tailwind CSS, Prisma, Drizzle, PostgreSQL, MongoDB, Pinecone, OpenAI, LangChain',
+        skills: 'TypeScript, Python, Next.js 16, React 19, NestJS 11, AWS Bedrock, Microsoft Foundry, Azure AI, MCP, Node.js, Tailwind CSS v4, Prisma, Drizzle, PostgreSQL, MongoDB, Supabase, Pinecone, OpenAI, LangChain, Docker, Neon, Better Auth',
         occupationLocation: {
           '@type': 'Country',
           name: 'Kenya',
@@ -236,10 +237,12 @@ const jsonLd = {
 
       // ── Skills (machine-readable list) ──
       knowsAbout: [
-        'TypeScript', 'Next.js 15', 'React 19', 'NestJS', 'Python 3', 'AWS Bedrock',
+        'TypeScript', 'Next.js 16', 'React 19', 'NestJS 11', 'Python 3', 'AWS Bedrock',
         'Microsoft Foundry', 'Azure AI', 'MCP', 'Node.js', 'Tailwind CSS v4', 'Swagger',
         'MS Agent Framework', 'PostgreSQL', 'MongoDB', 'Pinecone', 'OpenAI API', 'LangChain',
-        'RAG Pipelines', 'JavaScript', 'Express', 'SQL', 'Git', 'GitHub'
+        'RAG Pipelines', 'JavaScript', 'Express', 'SQL', 'Git', 'GitHub',
+        'Drizzle ORM', 'Prisma ORM', 'Supabase', 'Better Auth', 'Docker', 'Neon Serverless Postgres',
+        'Zustand', 'Framer Motion', 'GraphQL', 'Vercel', 'A2A'
       ],
 
       // ── Certifications (EducationalOccupationalCredential) ──
@@ -335,6 +338,20 @@ const jsonLd = {
           recognizedBy: { '@type': 'Organization', name: 'Codecademy' },
           dateCreated: '2024',
         },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Develop generative AI apps in Azure',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'Microsoft Learn' },
+          dateCreated: '2026',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Developing AI Applications',
+          credentialCategory: 'Professional Certification',
+          recognizedBy: { '@type': 'Organization', name: 'DataCamp' },
+          dateCreated: '2026',
+        },
       ],
 
       // ── Portfolio Projects (CreativeWork) ──
@@ -351,7 +368,7 @@ const jsonLd = {
       author: { '@id': `${siteUrl}/#person` },
       datePublished: '2026-01-15',
       codeRepository: 'https://github.com/fredymorara/movies',
-      programmingLanguage: ['Next.js 16', 'NestJS 11', 'TypeScript', 'Tailwind CSS v4', 'Prisma ORM', 'PostgreSQL'],
+      programmingLanguage: ['Next.js 16', 'NestJS 11', 'TypeScript', 'Tailwind CSS v4', 'Prisma ORM', 'PostgreSQL', 'Redis'],
     },
     {
       '@type': 'SoftwareApplication',
@@ -363,13 +380,13 @@ const jsonLd = {
       author: { '@id': `${siteUrl}/#person` },
       datePublished: '2026-06-10',
       codeRepository: 'https://github.com/fredymorara/wave',
-      programmingLanguage: ['Next.js 15', 'React 19', 'Zustand', 'Tailwind CSS v4', 'Neon DB', 'Drizzle ORM', 'Node.js', 'Better Auth'],
+      programmingLanguage: ['Next.js 15', 'React 19', 'Zustand', 'Tailwind CSS v4', 'Neon Serverless DB', 'Drizzle ORM', 'Node.js', 'Better Auth'],
     },
     {
       '@type': 'SoftwareApplication',
       name: 'Autonomous AWS Bedrock Travel Agent',
       description: 'An AI-powered travel agent utilizing AWS Bedrock for advanced reasoning, connected to live external APIs via MCP Gateways.',
-      url: 'https://flicmovies.me',
+      url: `${siteUrl}/work/aws-bedrock-assistant`,
       applicationCategory: 'UtilitiesApplication',
       operatingSystem: 'Web',
       author: { '@id': `${siteUrl}/#person` },
@@ -385,10 +402,12 @@ const jsonLd = {
       description:
         'Technical skills and competencies of Fredrick Momanyi Morara',
       itemListElement: [
-        'TypeScript', 'Next.js 15', 'React 19', 'NestJS', 'Python 3', 'AWS Bedrock',
+        'TypeScript', 'Next.js 16', 'React 19', 'NestJS 11', 'Python 3', 'AWS Bedrock',
         'Microsoft Foundry', 'Azure AI', 'MCP', 'Node.js', 'Tailwind CSS v4', 'Swagger',
         'MS Agent Framework', 'PostgreSQL', 'MongoDB', 'Pinecone', 'OpenAI API', 'LangChain',
-        'RAG Pipelines', 'JavaScript', 'Express', 'SQL', 'Git', 'GitHub'
+        'RAG Pipelines', 'JavaScript', 'Express', 'SQL', 'Git', 'GitHub',
+        'Drizzle ORM', 'Prisma ORM', 'Supabase', 'Better Auth', 'Docker', 'Neon',
+        'Zustand', 'Framer Motion', 'GraphQL', 'Vercel'
       ].map((skill, i) => ({
         '@type': 'ListItem',
         position: i + 1,

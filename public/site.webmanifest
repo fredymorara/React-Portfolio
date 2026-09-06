@@ -3,6 +3,7 @@
   "short_name": "Fredrick Morara",
   "description": "Software Engineer & Associate AI Engineer portfolio showcasing projects, certifications, and skills.",
   "start_url": "/",
+  "lang": "en-US",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

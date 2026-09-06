@@ -39,7 +39,7 @@ const Hero = () => {
       >
         <h1 className="max-w-5xl text-left sm:text-center text-5xl font-medium tracking-tight text-white/95 sm:text-6xl md:text-[5rem] lg:text-[7rem] leading-[1.1]">
           Hello, I&apos;m Fredrick. <br />
-          Welcome to my digital <span className="text-gradient-sunset italic pr-4 -mr-2">workspace.</span>
+          Full-Stack &amp; AI <span className="text-gradient-sunset italic pr-4 -mr-2">Developer.</span>
         </h1>
 
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full sm:w-auto">

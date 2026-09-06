@@ -4,10 +4,16 @@
 > GitHub: https://github.com/fredymorara
 > LinkedIn: https://www.linkedin.com/in/freddymorara/
 > Email: momanyifredm@gmail.com
-> Location: Kenya (Available for Remote Roles & Freelance Contracts Worldwide)
+> Location: Kenya (Open to On-site in Kenya & Global Remote)
 
 ## Summary
-Fredrick Momanyi Morara is an early-career Full-Stack and Applied AI Developer specializing in modern production web applications powered by practical AI integrations, RAG pipelines, and cloud backend environments. He designs, builds, and deploys high-performance web systems using React 19, Next.js 16, NestJS 11, Node.js, Python 3.14, and AWS Bedrock.
+Fredrick Momanyi Morara is an early-career Full-Stack Developer and AI Engineer awaiting graduation with a BSc in Information Technology from Kabarak University (December 18, 2026). He has hands-on experience developing modern web applications and AI-enabled backend services, including an ongoing Backend AI Engineering internship at FlyRank AI (mentorship program) and an industrial attachment at Benir Houlder Ltd where he built the HansCredit client platform. He builds with React 19, Next.js 16, TypeScript, Node.js, Python, AWS Bedrock, and Azure AI, seeking entry-level / junior software engineering roles, internships, or apprenticeships.
+
+---
+
+## Work & Internship Experience
+- **Backend AI Engineer Intern** — FlyRank AI (Jul 2026 – Present): Mentorship-driven backend AI engineering, studying and implementing AI agent workflows, model integrations, and backend services under senior engineering guidance.
+- **Software Developer Intern (Industrial Attachment)** — Benir Houlder Ltd (Jan 2026 – Mar 2026): Designed, developed, and deployed the official website and customer interface for HansCredit (https://hanscredit.co.ke), a microfinance institution in Kenya.
 
 ---
 
@@ -23,24 +29,24 @@ Fredrick Momanyi Morara is an early-career Full-Stack and Applied AI Developer s
 
 ## Key Projects
 
-### 1. Flic Movies (Enterprise-Grade Streaming Monorepo)
+### 1. Flic Movies (Full-Stack Movie Discovery & Catalog)
 - **URL**: https://flicmovies.me
 - **Case Study**: https://freddymorara.tech/work/flic-movies
 - **GitHub**: https://github.com/fredymorara/movies
-- **Stack**: Next.js 16, NestJS 11, TypeScript, Tailwind CSS v4, Prisma ORM, PostgreSQL
-- **Description**: Monorepo streaming web application pairing a dynamic SSR frontend with an enterprise-grade, JWT-secured NestJS backend, complete with Redis caching and Prisma ORM.
+- **Stack**: Next.js 16, NestJS 11, TypeScript, Tailwind CSS v4, Prisma ORM, PostgreSQL, Redis
+- **Description**: Full-stack movie discovery web application pairing a dynamic SSR frontend with a modular, JWT-secured NestJS backend, complete with Redis caching and Prisma ORM.
 
-### 2. Wave Anime (High-Performance Streaming Platform)
+### 2. Wave Anime (Anime Discovery & Tracking Platform)
 - **URL**: https://anime.flicmovies.me
 - **Case Study**: https://freddymorara.tech/work/wave-anime
 - **GitHub**: https://github.com/fredymorara/wave
 - **Stack**: Next.js 15, React 19, Zustand, Tailwind CSS v4, Neon Serverless DB, Drizzle ORM, Node.js, Better Auth
-- **Description**: Anime tracking and streaming web application featuring cross-device progress synchronization, video player auto-skip, community forums, and a cyberpunk admin dashboard.
+- **Description**: Anime tracking and streaming web application featuring cross-device progress synchronization, video player auto-skip with configurable intro/outro detection, community forums, and a cyberpunk-themed admin dashboard with real-time analytics.
 
 ### 3. AWS Bedrock Travel Assistant (Autonomous AI Agent)
 - **Case Study**: https://freddymorara.tech/work/aws-bedrock-assistant
 - **GitHub**: https://github.com/fredymorara/AWS-Travel-Assistant
-- **Stack**: AWS Bedrock AgentCore, AWS Lambda, Python 3.12, MCP Gateway, Amazon Nova 2
+- **Stack**: AWS Bedrock AgentCore, AWS Lambda, Python 3.14, MCP Gateway, Amazon Nova 2
 - **Description**: Multi-tool autonomous agent running on Bedrock AgentCore, orchestrating external search and live weather tools via MCP gateways for real-time travel recommendations.
 
 ### 4. Programmatic AI Orchestration (Local Travel Planner)
@@ -96,10 +102,11 @@ Fredrick Momanyi Morara is an early-career Full-Stack and Applied AI Developer s
 - **Artificial Intelligence Fundamentals** (DataCamp)
   - Verification: https://www.datacamp.com/skill-verification/AIF0020406437984
 - **Microsoft Learn Applied Skills**:
+  - Develop generative AI apps in Azure: https://freddymorara.tech/credentials/gen-ai-apps-azure
+  - Develop AI agents on Azure: https://freddymorara.tech/credentials/ai-agents-azure
   - Extract insights from visual data on Azure: https://freddymorara.tech/credentials/visual-data-azure
   - Develop computer vision solutions with Microsoft Foundry: https://freddymorara.tech/credentials/computer-vision-foundry
   - Develop natural language solutions in Azure: https://freddymorara.tech/credentials/natural-language-azure
-  - Develop AI agents on Azure: https://freddymorara.tech/credentials/ai-agents-azure
 - **IBM SkillsBuild**: Web Development Fundamentals (Credly verified)
   - Verification: https://freddymorara.tech/credentials/web-development-fundamentals-ibm
 - **Codecademy**: Learn React

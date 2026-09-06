@@ -3,7 +3,7 @@ import { projects } from '@/constants/projects';
 import { certifications } from '@/constants/certifications';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = new Date('2026-09-06');
 
   // Core static routes
   const staticRoutes: MetadataRoute.Sitemap = [

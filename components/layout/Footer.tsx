@@ -48,8 +48,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-white/5 text-sm text-white/50">
           <p>© {currentYear} Fredrick M. Morara. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="mailto:momanyifredm@gmail.com" className="hover:text-white transition-colors">Email</Link>
+            <Link href="/llms.txt" className="hover:text-white transition-colors">llms.txt</Link>
           </div>
         </div>
       </div>
